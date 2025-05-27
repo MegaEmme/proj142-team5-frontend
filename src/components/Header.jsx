@@ -16,6 +16,9 @@ const Header = () => {
                         <li>
                             <NavLink to='/api/snakes/:slug'>Serpente</NavLink>
                         </li>
+                        <li>
+                            <NavLink to='/api/blog'>blog</NavLink>
+                        </li>
                     </ul>
                 </div>
             </header>
