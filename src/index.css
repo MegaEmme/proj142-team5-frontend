@@ -35,6 +35,27 @@ header {
     height: 10%;
 }
 
+.carousel {
+    margin: 50px 0px;
+}
+
+.carousel-inner {
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
     .jumbotron {
         height: 40vh;
