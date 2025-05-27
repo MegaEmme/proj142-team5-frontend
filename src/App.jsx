@@ -4,6 +4,7 @@ import GlobalContext from "./contexts/globalcontext";
 import DefaultLayout from "./layouts/DefaultLayout";
 import SnakeDetailPage from "./pages/SnakeDetailPage";
 import SnakesPage from "./pages/SnakesPage";
+import HomePage from "./components/HomePage";
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout />}>
-            <Route path="/" element={<div>HomePage</div>} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/api/snakes" element={<SnakesPage />} />
             <Route path="/api/snakes/:slug" element={<SnakeDetailPage />} />
           </Route>

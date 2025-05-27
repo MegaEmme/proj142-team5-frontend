@@ -1,6 +1,9 @@
+import Jumbotron from "../components/Jumbotron";
+
 const SnakeDetailPage = () => {
     return (
         <>
+            <Jumbotron />
             <div className="card">
                 <div className="card-body">
                     <h5 className="card-title">nome serpente</h5>
