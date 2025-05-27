@@ -2,6 +2,8 @@ import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalContext from "./contexts/globalcontext";
 import DefaultLayout from "./layouts/DefaultLayout";
+import SnakeDetailPage from "./pages/SnakeDetailPage";
+import SnakesPage from "./pages/SnakesPage";
 
 function App() {
 
@@ -15,7 +17,8 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<div>HomePage</div>} />
-            <Route path="/api/snakes" element={<div>Dettaglio serpenti</div>} />
+            <Route path="/api/snakes" Component={SnakesPage} />
+            <Route path="/api/snakes/:slug" Component={SnakeDetailPage} />
           </Route>
           <Route path="*" element={<div>404</div>} />
         </Routes>

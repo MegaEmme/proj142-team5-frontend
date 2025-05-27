@@ -12,6 +12,9 @@ const Header = () => {
                     <li>
                         <NavLink to='/api/snakes'>Serpenti</NavLink>
                     </li>
+                    <li>
+                        <NavLink to='/api/snakes/:slug'>Serpente</NavLink>
+                    </li>
                 </ul>
             </div>
         </header>
