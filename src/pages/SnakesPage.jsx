@@ -37,11 +37,11 @@ const SnakesPage = () => {
         <>
             <Jumbotron />
             <header className="d-flex justify-content-between mb-3 align-items-center">
-                <h1 className="text-center mb-4">Serpenti</h1>
+                <h1 className="text-light mb-4">Serpenti</h1>
             </header>
             <section>
                 <div className="d-flex justify-content-between">
-                    <h2>Lista serpenti: (tot.{snakes.length})</h2>
+                    <h2 className="text-light">Lista serpenti: (tot.{snakes.length})</h2>
                     <form className="row g-1" onSubmit={searchSnakes}>
                         <div className="col-auto">
                             <label className="visually-hidden">Ricerca serpente</label>

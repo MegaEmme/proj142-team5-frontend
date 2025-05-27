@@ -5,10 +5,10 @@ body {
 }
 
 .jumbotron {
-    /* background-image: url(); */
+    background-image: url('../public/bg_hero.jpg');
     height: 22.5vh;
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
+    background-size: cover;
+    background-repeat: no-repeat;
     border-radius: .5rem;
 }
 
