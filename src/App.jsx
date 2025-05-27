@@ -15,6 +15,7 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<div>HomePage</div>} />
+            <Route path="/api/snakes" element={<div>Dettaglio serpenti</div>} />
           </Route>
           <Route path="*" element={<div>404</div>} />
         </Routes>
