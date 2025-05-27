@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import GlobalContext from "../contexts/globalcontext";
 import SnakeCard from "../components/SnakeCard";
+import Jumbotron from "../components/Jumbotron";
 
 const SnakesPage = () => {
 
@@ -34,6 +35,7 @@ const SnakesPage = () => {
 
     return (
         <>
+            <Jumbotron />
             <header className="d-flex justify-content-between mb-3 align-items-center">
                 <h1 className="text-center mb-4">Serpenti</h1>
             </header>
