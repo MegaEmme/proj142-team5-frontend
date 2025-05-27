@@ -41,7 +41,7 @@ const SnakesPage = () => {
             </header>
             <section>
                 <div className="d-flex justify-content-between">
-                    <h2>Lista serpenti:</h2>
+                    <h2>Lista serpenti: (tot.{snakes.length})</h2>
                     <form className="row g-1" onSubmit={searchSnakes}>
                         <div className="col-auto">
                             <label className="visually-hidden">Ricerca serpente</label>

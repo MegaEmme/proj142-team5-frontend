@@ -17,8 +17,8 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<div>HomePage</div>} />
-            <Route path="/api/snakes" Component={SnakesPage} />
-            <Route path="/api/snakes/:slug" Component={SnakeDetailPage} />
+            <Route path="/api/snakes" element={<SnakesPage />} />
+            <Route path="/api/snakes/:slug" element={<SnakeDetailPage />} />
           </Route>
           <Route path="*" element={<div>404</div>} />
         </Routes>
