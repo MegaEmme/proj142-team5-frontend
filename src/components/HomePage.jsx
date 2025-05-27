@@ -1,4 +1,5 @@
 import Carousel from "./Carousel";
+import FunFactSection from "./FunFact";
 import Jumbotron from "./Jumbotron";
 
 export default function HomePage() {
@@ -6,7 +7,11 @@ export default function HomePage() {
         <>
             <Jumbotron />
 
+            <div>##########testo##########</div>
+
             <Carousel />
+
+            <FunFactSection />
 
         </>
     )
