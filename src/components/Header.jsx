@@ -3,9 +3,16 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
     return (
         <>
+<<<<<<< HEAD
             <header className="bg-success-subtle py-3 mb-2 position-fixed shadow w-100 z-3">
                 <div className="container">
                     <ul className="d-flex list-unstyled m-o justify-content-between align-items-center mx-5 fs-4 fw-bold">
+=======
+            <header className=" py-3 mb-2 position-fixed shadow w-100 z-3">
+                <div className="container d-flex justify-content-between align-items-center">
+                    <div>Sergente Serpente</div>
+                    <ul className="d-flex list-unstyled m-o gap-2">
+>>>>>>> homepage
                         <li>
                             <NavLink to='/' className="text-decoration-none">Sergente Serpente</NavLink>
                         </li>

@@ -1,13 +1,14 @@
 body {
-    background-image: url('../bg_body.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url('/Gemini_Generated_Image_qh1cdqqh1cdqqh1c.jpeg');
+    background-size: contain;
+    background-repeat: repeat;
 }
 
 .jumbotron {
-    background-image: url('../bg_hero.jpg');
-    height: 22.5vh;
+    background-image: url('/sergenteserpentejumbo.png');
+    background-position: center center;
     background-size: cover;
+    min-height: 30vh;
     background-repeat: no-repeat;
     border-radius: .5rem;
 }
@@ -23,4 +24,62 @@ body {
 
 .height-header {
     height: 16vh;
+}
+
+header {
+    background-color: #f0ede8;
+}
+
+.jumbotron-heading {
+    margin: auto;
+    height: 10%;
+}
+
+.carousel {
+    margin: 50px 0px;
+}
+
+.carousel-inner {
+    border-radius: 10px;
+}
+
+.card {
+    width: 100%;
+    height: 60c;
+    margin: auto;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .jumbotron {
+        height: 40vh;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .jumbotron {
+        height: 60vh;
+    }
+}
+
+
+@media (min-width: 1201px) {
+    .jumbotron {
+        height: 80vh;
+    }
 }
