@@ -127,7 +127,7 @@ const SnakesPage = () => {
         <div className="row mt-4 h-100">
           {snakes.length > 0 ? (
             snakes.map((snake) => (
-              <div className="col-12 col-md-6 col-lg-4 col-xl-3" key={snake.id}>
+              <div className="col-12 col-md-6 col-lg-4 col-xl-3 mb-4" key={snake.id}>
                 <SnakeCard data={snake} />
               </div>
             ))
