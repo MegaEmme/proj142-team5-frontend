@@ -19,13 +19,21 @@ body {
     border: 3px solid greenyellow;
 }
 
+header {
+    background-color: rgb(192, 237, 192);
+}
+
+header a {
+    color: rgb(24, 71, 0);
+}
+
 .jumbotron {
     background-image: url('/sergenteserpentejumbo.png');
     background-position: center center;
     background-size: cover;
-    min-height: 30vh;
     background-repeat: no-repeat;
-    border-radius: .5rem;
+    border-radius: 1rem;
+    max-height: 60vh;
 }
 
 .jumbotron-heading {
@@ -39,10 +47,6 @@ body {
 
 .height-header {
     height: 16vh;
-}
-
-header {
-    background-color: #f0ede8;
 }
 
 .jumbotron-heading {
@@ -69,17 +73,6 @@ header {
     height: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 768px) {
     .jumbotron {
         height: 40vh;
@@ -96,5 +89,16 @@ header {
 @media (min-width: 1201px) {
     .jumbotron {
         height: 80vh;
+    }
+}
+
+/* da qui in poi è per la modalità scura */
+@media (prefers-color-scheme: dark) {
+    header {
+        background-color: rgb(192, 237, 192);
+    }
+
+    header a {
+        color: rgb(24, 71, 0);
     }
 }

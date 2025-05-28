@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
     return (
         <>
-            <header className="bg-success-subtle py-3 mb-2 position-fixed shadow w-100 z-3">
+            <header className="py-3 shadow w-100 z-3">
                 <div className="container">
                     <ul className="d-flex list-unstyled m-o justify-content-between align-items-center mx-5 fs-2 fw-bold">
                         <li className="logo-container">

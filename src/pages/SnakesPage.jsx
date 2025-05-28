@@ -49,9 +49,9 @@ const SnakesPage = () => {
   return (
     <>
       <Jumbotron />
-      <header className="d-flex justify-content-between mb-3 align-items-center">
-        <h1 className="text-light mb-4">Serpenti</h1>
-      </header>
+      <div className=" mb-3 text-center">
+        <h1 className="text-white mb-4">i nostri Serpenti</h1>
+      </div>
 
       <div className="mb-4 position-relative" ref={dropdownRef}>
         <button
