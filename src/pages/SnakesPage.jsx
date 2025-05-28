@@ -5,63 +5,62 @@ import SnakeCard from "../components/SnakeCard";
 import Jumbotron from "../components/Jumbotron";
 
 const SnakesPage = () => {
+  const [snakes, setSnakes] = useState([]);
+  const [sort, setSort] = useState("name");
+  const { setIsLoading } = useContext(GlobalContext);
 
-    const [snakes, setSnakes] = useState([]);
-    const [search, setSearch] = useState('');
-    const { setIsLoading } = useContext(GlobalContext);
+  useEffect(() => {
+    getSnakes();
+  }, [sort]);
 
-    function getSnakes() {
+  function getSnakes() {
+    setIsLoading(true);
 
-        setIsLoading(true);
+    axios.get("http://127.0.0.1:3000/api/snakes", {
+      params: { sort }
+    })
+      .then((response) => setSnakes(response.data))
+      .catch((err) => console.error("Errore caricamento serpenti:", err))
+      .finally(() => setIsLoading(false));
+  }
 
-        axios.get('http://127.0.0.1:3000/api/snakes', {
-            params: {
-                search
-            }
-        })
-            .then(response => {
-                setSnakes(response.data);
-            })
-            .catch(err => console.log(err))
-            .finally(() => setIsLoading(false))
-    };
+  return (
+    <>
+      <Jumbotron />
+      <header className="d-flex justify-content-between mb-3 align-items-center">
+        <h1 className="text-light mb-4">Serpenti</h1>
+      </header>
 
-    function searchSnakes(e) {
-        e.preventDefault();
-        getSnakes();
-    };
+      <section>
+        <div className="row mb-4">
+          <div className="col-md-3">
+            <select
+              className="form-select"
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
+            >
+              <option value="name">Ordina per Nome (A-Z)</option>
+              <option value="name_desc">Ordina per Nome (Z-A)</option>
+              <option value="price">Ordina per Prezzo crescente</option>
+              <option value="price_desc">Ordina per Prezzo decrescente</option>
+            </select>
+          </div>
+        </div>
 
-    useEffect(getSnakes, []);
-
-    return (
-        <>
-            <Jumbotron />
-            <header className="d-flex justify-content-between mb-3 align-items-center">
-                <h1 className="text-light mb-4">Serpenti</h1>
-            </header>
-            <section>
-                <div className="d-flex justify-content-between">
-                    <h2 className="text-light">Lista serpenti: (tot.{snakes.length})</h2>
-                    <form className="row g-1" onSubmit={searchSnakes}>
-                        <div className="col-auto">
-                            <label className="visually-hidden">Ricerca serpente</label>
-                            <input type="text" className="form-control" placeholder="Ricerca serpente..." value={search} onChange={(e) => setSearch(e.target.value)} />
-                        </div>
-                        <div className="col-auto">
-                            <button type="submit" className="btn btn-primary mb-3">Cerca</button>
-                        </div>
-                    </form>
-                </div>
-                <div className="row mt-auto h-100">
-                    {snakes.length ? snakes.map(snake => (
-                        <div className="col-12 col-md-6 col-lg-4 col-xl-3" key={snake.id}>
-                            <SnakeCard data={snake} />
-                        </div>
-                    )) : <div>Serpente non trovato </div>}
-                </div>
-            </section>
-        </>
-    )
+        <div className="row mt-4 h-100">
+          {snakes.length > 0 ? (
+            snakes.map((snake) => (
+              <div className="col-12 col-md-6 col-lg-4 col-xl-3" key={snake.id}>
+                <SnakeCard data={snake} />
+              </div>
+            ))
+          ) : (
+            <div className="text-light">Nessun serpente trovato.</div>
+          )}
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default SnakesPage;
