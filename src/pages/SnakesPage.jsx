@@ -10,13 +10,14 @@ const SnakesPage = () => {
   const [sortPrice, setSortPrice] = useState("");
   const [habitat, setHabitat] = useState("");
   const [temperament, setTemperament] = useState("");
+  const [discount, setDiscount] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { setIsLoading } = useContext(GlobalContext);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
     getSnakes();
-  }, [sortName, sortPrice, habitat, temperament]);
+  }, [sortName, sortPrice, habitat, temperament, discount]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -34,7 +35,7 @@ const SnakesPage = () => {
     const sort = sortPrice || sortName;
 
     axios.get("http://127.0.0.1:3000/api/snakes", {
-      params: { sort, habitat, temperament }
+      params: { sort, habitat, temperament, discount }
     })
       .then(res => setSnakes(res.data))
       .catch(err => console.error("Errore:", err))
@@ -103,9 +104,9 @@ const SnakesPage = () => {
             </div>
             <div className="mb-2">
               <label className="form-label mt-2 me-3">Scontato:</label>
-              <input type="radio" name="Si" />
-              <label className="form-label mx-2">Si</label>
-              <input type="radio" name="Si" />
+              <input type="radio" name="radio-check" value={discount} onChange={() => setDiscount(true)} />
+              <label className="form-label mx-2" >Si</label>
+              <input type="radio" name="radio-check" value={discount} onChange={() => setDiscount(false)} />
               <label className="form-label mx-2">No</label>
             </div>
           </div>
