@@ -21,11 +21,11 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/api/snakes" element={<SnakesPage />} />
-            <Route path="/api/snakes/:slug" element={<SnakeDetailPage />} />
-            <Route path="/api/blog" element={<BlogPage />} />
-            <Route path="/api/blog/:id" element={<BlogPageDetails />} />
-            <Route path="/api/cart" element={<CartPage />} />
+            <Route path="/snakes" element={<SnakesPage />} />
+            <Route path="/snakes/:slug" element={<SnakeDetailPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:id" element={<BlogPageDetails />} />
+            <Route path="/cart" element={<CartPage />} />
           </Route>
           <Route path="*" element={<div>404</div>} />
         </Routes>

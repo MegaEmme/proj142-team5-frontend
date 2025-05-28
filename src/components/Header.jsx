@@ -10,16 +10,13 @@ const Header = () => {
                             <NavLink to='/' className="text-decoration-none"><img src="/logo-sergente-serpente.jpg" alt="" className="img-logo me-3" /></NavLink>
                         </li>
                         <li>
-                            <NavLink to='/api/snakes' className="text-decoration-none">shop</NavLink>
+                            <NavLink to='/snakes' className="text-decoration-none">shop</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/api/snakes/:slug' className="text-decoration-none">Serpente</NavLink>
+                            <NavLink to='/blog' className="text-decoration-none">blog</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/api/blog' className="text-decoration-none">blog</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/api/cart' className="text-decoration-none"><i class="fa-solid fa-bag-shopping"></i></NavLink>
+                            <NavLink to='/cart' className="text-decoration-none"><i class="fa-solid fa-bag-shopping"></i></NavLink>
                         </li>
                     </ul>
                 </div>
