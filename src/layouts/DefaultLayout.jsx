@@ -5,18 +5,17 @@ import { useContext } from "react";
 import GlobalContext from "../contexts/globalcontext";
 
 const DefaultLayout = () => {
+  const { isLoading } = useContext(GlobalContext);
 
-    const { isLoading } = useContext(GlobalContext)
-
-    return (
-        <>
-            <Header />
-            <main className="container">
-                <Outlet />
-            </main>
-            {isLoading && <Loader />}
-        </>
-    )
+  return (
+    <>
+      <Header />
+      <main className="container">
+        <Outlet />
+      </main>
+      {isLoading && <Loader />}
+    </>
+  );
 };
 
 export default DefaultLayout;
