@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import GlobalContext from "../contexts/globalcontext";
 import SnakeCard from "../components/SnakeCard";
@@ -10,11 +10,24 @@ const SnakesPage = () => {
   const [sortPrice, setSortPrice] = useState("");
   const [habitat, setHabitat] = useState("");
   const [temperament, setTemperament] = useState("");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const { setIsLoading } = useContext(GlobalContext);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     getSnakes();
   }, [sortName, sortPrice, habitat, temperament]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   function getSnakes() {
     setIsLoading(true);
@@ -35,55 +48,61 @@ const SnakesPage = () => {
         <h1 className="text-light mb-4">Serpenti</h1>
       </header>
 
-      <div className="dropdown mb-4">
-        <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          Filtra
+      <div className="mb-4 position-relative" ref={dropdownRef}>
+        <button
+          className="btn btn-secondary"
+          onClick={() => setDropdownOpen(prev => !prev)}
+        >
+          Filtra {dropdownOpen ? "▲" : "▼"}
         </button>
-        <div className="dropdown-menu p-3" style={{ minWidth: "280px" }}>
-          <div className="mb-2">
-            <label className="form-label">Ordina per nome:</label>
-            <select className="form-select" value={sortName} onChange={e => {
-              setSortName(e.target.value);
-              setSortPrice(""); // reset prezzo
-            }}>
-              <option value="name">Nome (A-Z)</option>
-              <option value="name_desc">Nome (Z-A)</option>
-            </select>
+
+        {dropdownOpen && (
+          <div className="border rounded bg-light p-3 mt-2 shadow" style={{ maxWidth: "300px", zIndex: 1000, position: "absolute" }}>
+            <div className="mb-2">
+              <label className="form-label">Ordina per nome:</label>
+              <select className="form-select" value={sortName} onChange={e => {
+                setSortName(e.target.value);
+                setSortPrice("");
+              }}>
+                <option value="name">Nome (A-Z)</option>
+                <option value="name_desc">Nome (Z-A)</option>
+              </select>
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Ordina per prezzo:</label>
+              <select className="form-select" value={sortPrice} onChange={e => {
+                setSortPrice(e.target.value);
+                setSortName("");
+              }}>
+                <option value="">-- Nessuno --</option>
+                <option value="price">Prezzo crescente</option>
+                <option value="price_desc">Prezzo decrescente</option>
+              </select>
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Habitat:</label>
+              <select className="form-select" value={habitat} onChange={e => setHabitat(e.target.value)}>
+                <option value="">Tutti</option>
+                <option value="Foreste e giungle tropicali umide">Foreste e giungle tropicali umide</option>
+                <option value="Boscaglie e foreste temperate">Boscaglie e foreste temperate</option>
+                <option value="Campi aperti, praterie e terreni agricoli">Campi aperti, praterie e terreni agricoli</option>
+                <option value="Zone semi-aride o desertiche">Zone semi-aride o desertiche</option>
+                <option value="Zone rocciose o aride subtropicali">Zone rocciose o aride subtropicali</option>
+              </select>
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Temperamento:</label>
+              <select className="form-select" value={temperament} onChange={e => setTemperament(e.target.value)}>
+                <option value="">Tutti</option>
+                <option value="docile">docile</option>
+                <option value="docile-aggressivo">docile-aggressivo</option>
+                <option value="tendente al nervoso">tendente al nervoso</option>
+                <option value="intelligente-imprevedibile">intelligente-imprevedibile</option>
+                <option value="schiva-imprevedibile">schiva-imprevedibile</option>
+              </select>
+            </div>
           </div>
-          <div className="mb-2">
-            <label className="form-label">Ordina per prezzo:</label>
-            <select className="form-select" value={sortPrice} onChange={e => {
-              setSortPrice(e.target.value);
-              setSortName(""); // reset nome
-            }}>
-              <option value="">-- Nessuno --</option>
-              <option value="price">Prezzo crescente</option>
-              <option value="price_desc">Prezzo decrescente</option>
-            </select>
-          </div>
-          <div className="mb-2">
-            <label className="form-label">Habitat:</label>
-            <select className="form-select" value={habitat} onChange={e => setHabitat(e.target.value)}>
-              <option value="">Tutti</option>
-              <option value="Foreste e giungle tropicali umide">Foreste e giungle tropicali umide</option>
-              <option value="Boscaglie e foreste temperate">Boscaglie e foreste temperate</option>
-              <option value="Campi aperti, praterie e terreni agricoli">Campi aperti, praterie e terreni agricoli</option>
-              <option value="Zone semi-aride o desertiche">Zone semi-aride o desertiche</option>
-              <option value="Zone rocciose o aride subtropicali">Zone rocciose o aride subtropicali</option>
-            </select>
-          </div>
-          <div className="mb-2">
-            <label className="form-label">Temperamento:</label>
-            <select className="form-select" value={temperament} onChange={e => setTemperament(e.target.value)}>
-              <option value="">Tutti</option>
-              <option value="docile">docile</option>
-              <option value="docile-aggressivo">docile-aggressivo</option>
-              <option value="tendente al nervoso">tendente al nervoso</option>
-              <option value="intelligente-imprevedibile">intelligente-imprevedibile</option>
-              <option value="schiva-imprevedibile">schiva-imprevedibile</option>
-            </select>
-          </div>
-        </div>
+        )}
       </div>
 
       <section>
