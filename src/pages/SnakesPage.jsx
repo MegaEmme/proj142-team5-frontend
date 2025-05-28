@@ -10,7 +10,7 @@ const SnakesPage = () => {
   const [sortPrice, setSortPrice] = useState("");
   const [habitat, setHabitat] = useState("");
   const [temperament, setTemperament] = useState("");
-  const [discount, setDiscount] = useState(false);
+  const [discount, setDiscount] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { setIsLoading } = useContext(GlobalContext);
   const dropdownRef = useRef(null);
@@ -25,7 +25,6 @@ const SnakesPage = () => {
         setDropdownOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -35,7 +34,12 @@ const SnakesPage = () => {
     const sort = sortPrice || sortName;
 
     axios.get("http://127.0.0.1:3000/api/snakes", {
-      params: { sort, habitat, temperament, discount }
+      params: {
+        sort,
+        habitat,
+        temperament,
+        discount: discount !== null ? discount : undefined
+      }
     })
       .then(res => setSnakes(res.data))
       .catch(err => console.error("Errore:", err))
@@ -69,6 +73,7 @@ const SnakesPage = () => {
                 <option value="name_desc">Nome (Z-A)</option>
               </select>
             </div>
+
             <div className="mb-2">
               <label className="form-label">Ordina per prezzo:</label>
               <select className="form-select" value={sortPrice} onChange={e => {
@@ -80,6 +85,7 @@ const SnakesPage = () => {
                 <option value="price_desc">Prezzo decrescente</option>
               </select>
             </div>
+
             <div className="mb-2">
               <label className="form-label">Habitat:</label>
               <select className="form-select" value={habitat} onChange={e => setHabitat(e.target.value)}>
@@ -91,6 +97,7 @@ const SnakesPage = () => {
                 <option value="Zone rocciose o aride subtropicali">Zone rocciose o aride subtropicali</option>
               </select>
             </div>
+
             <div className="mb-2">
               <label className="form-label">Temperamento:</label>
               <select className="form-select" value={temperament} onChange={e => setTemperament(e.target.value)}>
@@ -102,12 +109,15 @@ const SnakesPage = () => {
                 <option value="schiva-imprevedibile">schiva-imprevedibile</option>
               </select>
             </div>
+
             <div className="mb-2">
-              <label className="form-label mt-2 me-3">Scontato:</label>
-              <input type="radio" name="radio-check" value={discount} onChange={() => setDiscount(true)} />
-              <label className="form-label mx-2" >Si</label>
-              <input type="radio" name="radio-check" value={discount} onChange={() => setDiscount(false)} />
+              <label className="form-label mt-2 me-3">Scontato:</label><br />
+              <input type="radio" name="discount" checked={discount === true} onChange={() => setDiscount(true)} />
+              <label className="form-label mx-2">Sì</label>
+              <input type="radio" name="discount" checked={discount === false} onChange={() => setDiscount(false)} />
               <label className="form-label mx-2">No</label>
+              <input type="radio" name="discount" checked={discount === null} onChange={() => setDiscount(null)} />
+              <label className="form-label mx-2">Tutti</label>
             </div>
           </div>
         )}
