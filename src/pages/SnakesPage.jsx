@@ -101,6 +101,13 @@ const SnakesPage = () => {
                 <option value="schiva-imprevedibile">schiva-imprevedibile</option>
               </select>
             </div>
+            <div className="mb-2">
+              <label className="form-label mt-2 me-3">Scontato:</label>
+              <input type="radio" name="Si" />
+              <label className="form-label mx-2">Si</label>
+              <input type="radio" name="Si" />
+              <label className="form-label mx-2">No</label>
+            </div>
           </div>
         )}
       </div>
