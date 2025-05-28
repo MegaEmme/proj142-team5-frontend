@@ -85,8 +85,8 @@ header a {
 }
 
 .price {
-    background-color: greenyellow;
-    color: black;
+    background-color: rgb(1, 81, 1);
+    color: white;
     text-align: center;
 }
 
@@ -132,5 +132,11 @@ header a {
     .titoloshop {
         background-color: rgba(3, 3, 3, 0.7);
         color: white;
+    }
+
+    .price {
+        background-color: greenyellow;
+        color: black;
+        text-align: center;
     }
 }

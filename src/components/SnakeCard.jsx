@@ -24,7 +24,7 @@ const SnakeCard = ({ data }) => {
           <p className="card-text mb-4">{description}</p>
         </div>
         <div>
-          <p className="mb-2 price p-2 rounded-3">Prezzo: <strong>{price} €</strong></p>
+          <p className="mb-2 price p-2 rounded-3 fs-4">Prezzo: <strong>{price} €</strong></p>
         </div>
 
       </div>
