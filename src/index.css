@@ -1,11 +1,11 @@
 body {
-    background-image: url('../public/bg_body.jpg');
+    background-image: url('../bg_body.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .jumbotron {
-    background-image: url('../public/bg_hero.jpg');
+    background-image: url('../bg_hero.jpg');
     height: 22.5vh;
     background-size: cover;
     background-repeat: no-repeat;
