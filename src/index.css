@@ -79,7 +79,8 @@ header a {
 }
 
 .snakecard,
-.blogcard {
+.blogcard,
+.funfactcard {
     background-color: white;
     color: black;
 }
@@ -127,7 +128,8 @@ header a {
     }
 
     .snakecard,
-    .blogcard {
+    .blogcard,
+    .funfactcard {
         background-color: rgb(32, 30, 30);
         color: rgb(255, 255, 255);
     }
