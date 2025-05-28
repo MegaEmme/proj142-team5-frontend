@@ -10,11 +10,11 @@ const SnakeCard = ({ data }) => {
   } = data;
 
   return (
-    <div className="card bg-tertiary h-100">
+    <div className="card snakecard bg-tertiary h-100">
       <div className="card-body d-flex flex-column justify-content-between">
         <div>
           <h3 className="card-title text-center">{common_name}</h3>
-          <h4 className="card-title text-center "><small className="text-muted">({scientific_name})</small></h4>
+          <h4 className="card-title text-center fst-italic">({scientific_name})</h4>
         </div>
         <div>
 

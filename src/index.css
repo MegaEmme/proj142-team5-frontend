@@ -73,6 +73,14 @@ header a {
     height: 100%;
 }
 
+.snakecard,
+.blogcard {
+    background-color: white;
+    color: black;
+}
+
+
+
 @media (max-width: 768px) {
     .jumbotron {
         height: 40vh;
@@ -93,12 +101,20 @@ header a {
 }
 
 /* da qui in poi è per la modalità scura */
+
+
 @media (prefers-color-scheme: dark) {
     header {
-        background-color: rgb(192, 237, 192);
+        background-color: rgb(12, 51, 12);
     }
 
     header a {
-        color: rgb(24, 71, 0);
+        color: rgb(130, 255, 67);
+    }
+
+    .snakecard,
+    .blogcard {
+        background-color: rgb(32, 30, 30);
+        color: rgb(255, 255, 255);
     }
 }
