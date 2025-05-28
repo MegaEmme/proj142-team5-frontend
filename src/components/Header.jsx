@@ -6,8 +6,8 @@ const Header = () => {
             <header className="bg-success-subtle py-3 mb-2 position-fixed shadow w-100 z-3">
                 <div className="container">
                     <ul className="d-flex list-unstyled m-o justify-content-between align-items-center mx-5 fs-4 fw-bold">
-                        <li>
-                            <NavLink to='/' className="text-decoration-none">Sergente Serpente</NavLink>
+                        <li className="logo-container">
+                            <NavLink to='/' className="text-decoration-none"><img src="/logo-sergente-serpente.jpg" alt="" className="img-logo me-3" /></NavLink>
                         </li>
                         <li>
                             <NavLink to='/api/snakes' className="text-decoration-none">Serpenti</NavLink>
