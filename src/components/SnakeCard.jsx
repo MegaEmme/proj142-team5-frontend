@@ -6,7 +6,8 @@ const SnakeCard = ({ data }) => {
     temperament,
     sex,
     description,
-    price
+    price,
+    image
   } = data;
 
   return (
@@ -16,8 +17,8 @@ const SnakeCard = ({ data }) => {
           <h3 className="card-title text-center">{common_name}</h3>
           <h4 className="card-title text-center fst-italic">({scientific_name})</h4>
         </div>
+        <img src={`./snake-imgs/${image}`} alt={common_name} />
         <div>
-
           <p className="mb-1 mt-3">Difficoltà: <strong>{difficulty}</strong></p>
           <p className="mb-1">Temperamento: <strong>{temperament}</strong></p>
           <p className="mb-1">Sesso: <strong>{sex}</strong></p>
