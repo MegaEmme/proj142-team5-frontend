@@ -6,6 +6,7 @@ import SnakeDetailPage from "./pages/SnakeDetailPage";
 import SnakesPage from "./pages/SnakesPage";
 import HomePage from "./components/HomePage";
 import BlogPage from "./pages/blog";
+import CartPage from "./pages/CartPage";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/api/snakes" element={<SnakesPage />} />
             <Route path="/api/snakes/:slug" element={<SnakeDetailPage />} />
             <Route path="/api/blog" element={<BlogPage />} />
+            <Route path="/api/cart" element={<CartPage />} />
           </Route>
           <Route path="*" element={<div>404</div>} />
         </Routes>
