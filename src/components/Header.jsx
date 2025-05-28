@@ -34,8 +34,8 @@ const Header = () => {
                 </div>
 
                 {goBack && (
-                    <div className="container mt-2">
-                        <button className="btn btn-outline-secondary" onClick={goBack}>
+                    <div className="container mt-2 d-flex">
+                        <button className="btn" onClick={goBack}>
                             indietro
                         </button>
                     </div>
