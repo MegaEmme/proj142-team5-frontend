@@ -73,10 +73,21 @@ header a {
     height: 100%;
 }
 
+.titoloshop {
+    background-color: rgba(255, 255, 255, .7);
+    color: black;
+}
+
 .snakecard,
 .blogcard {
     background-color: white;
     color: black;
+}
+
+.price {
+    background-color: greenyellow;
+    color: black;
+    text-align: center;
 }
 
 
@@ -116,5 +127,10 @@ header a {
     .blogcard {
         background-color: rgb(32, 30, 30);
         color: rgb(255, 255, 255);
+    }
+
+    .titoloshop {
+        background-color: rgba(3, 3, 3, 0.7);
+        color: white;
     }
 }

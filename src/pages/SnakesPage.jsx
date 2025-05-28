@@ -50,7 +50,7 @@ const SnakesPage = () => {
     <>
       <Jumbotron />
       <div className=" mb-3 text-center">
-        <h1 className="text-white mb-4">i nostri Serpenti</h1>
+        <h1 className="titoloshop mb-4 mx-5 py-4 rounded-3">i nostri Serpenti</h1>
       </div>
 
       <div className="mb-4 position-relative" ref={dropdownRef}>
