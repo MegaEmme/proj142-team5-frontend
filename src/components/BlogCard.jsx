@@ -19,7 +19,7 @@ const BlogCard = ({ blog }) => {
                         <small>{blog.date}</small>
                     </div>
                     <Link to={`/post/${blog.id}`} className="text-center">
-                        <button className="btn btn-success my-4 align-items-center px-4">Leggi di più</button>
+                        <button className="btn btnblog my-4 align-items-center px-4">Leggi di più</button>
                     </Link>
                 </div>
             </div>

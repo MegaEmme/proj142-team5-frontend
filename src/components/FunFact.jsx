@@ -7,8 +7,10 @@ export default function FunFactSection() {
                 {funFacts.length ? (
                     <ul className='list-unstyled d-flex flex-wrap gap-3'>
                         {funFacts.map(fact => (
-                            <div className="card" key={fact.id}>
-                                <img src={fact.image} className="card-img-top" alt={fact.titolo} />
+                            <div className="card d-flex flex-row p-2" key={fact.id}>
+                                <div className="w-50 p-3 rounded-4">
+                                    <img src={fact.image} className="card-img-top " alt={fact.titolo} />
+                                </div>
                                 <div className="card-body">
                                     <h5 className="card-title">{fact.titolo}</h5>
                                     <p className="card-text">{fact.contenuto}</p>

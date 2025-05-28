@@ -84,11 +84,14 @@ header a {
     color: black;
 }
 
-.price {
+.price,
+.btnblog {
     background-color: rgb(1, 81, 1);
     color: white;
     text-align: center;
 }
+
+
 
 
 
@@ -134,7 +137,8 @@ header a {
         color: white;
     }
 
-    .price {
+    .price,
+    .btnblog {
         background-color: greenyellow;
         color: black;
         text-align: center;
