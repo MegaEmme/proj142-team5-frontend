@@ -41,7 +41,7 @@ export default function Carousel() {
                             className="d-block w-100"
                             alt={blogs[0].title}
                         />
-                        <div className="carousel-caption d-none d-md-block bg-dark">
+                        <div className="carousel-caption d-none d-md-block bg-dark  rounded-3">
                             <h5>{blogs[0].title}</h5>
                             <p>{blogs[0].excerpt}</p>
                         </div>
@@ -53,7 +53,7 @@ export default function Carousel() {
                             className="d-block w-100"
                             alt={blogs[1].title}
                         />
-                        <div className="carousel-caption d-none d-md-block bg-dark">
+                        <div className="carousel-caption d-none d-md-block bg-dark  rounded-3">
                             <h5>{blogs[1].title}</h5>
                             <p>{blogs[1].excerpt}</p>
                         </div>
@@ -65,7 +65,7 @@ export default function Carousel() {
                             className="d-block w-100"
                             alt={blogs[2].title}
                         />
-                        <div className="carousel-caption d-none d-md-block bg-dark">
+                        <div className="carousel-caption d-none d-md-block bg-dark rounded-3">
                             <h5>{blogs[2].title}</h5>
                             <p>{blogs[2].excerpt}</p>
                         </div>

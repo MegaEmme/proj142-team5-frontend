@@ -71,6 +71,9 @@ header .btn:hover {
 .carousel-item img {
     border-radius: 15px;
     overflow: hidden;
+    object-fit: cover;
+    max-height: 500px;
+    padding: 0 2vw;
 }
 
 .carousel {
