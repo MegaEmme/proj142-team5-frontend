@@ -12,7 +12,7 @@ export default function HomePage() {
     const [discountedSnakes, setDiscountedSnakes] = useState([]);
     const [newBornSnakes, setNewBornSnakes] = useState([]);
     const [discount, setDiscount] = useState(null);
-    const [birth, setBirth] = useState(null);
+
 
 
 
