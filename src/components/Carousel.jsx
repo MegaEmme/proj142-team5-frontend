@@ -5,10 +5,10 @@ export default function Carousel() {
 
 
     return (
-        <div className="d-flex justify-content-center align-items-center my-5">
+        <div className="d-flex justify-content-center align-items-center my-5 w-75 rounded-3 carosello">
             <div
                 id="carouselExampleCaptions"
-                className="carousel slide w-75"
+                className="carousel slide"
                 data-bs-ride="carousel"
                 data-bs-interval="3000"
             >
@@ -42,7 +42,7 @@ export default function Carousel() {
                             className="d-block w-100"
                             alt={blogs[0].title}
                         />
-                        <div className="carousel-caption d-none d-md-block bg-dark  rounded-3">
+                        <div className="carousel-caption d-none d-md-block  rounded-3 carosellotext">
                             <h6><strong>{blogs[0].title}</strong></h6>
                             <p>{blogs[0].excerpt}</p>
                             <Link to={`/blog/${blogs.id}`} className="text-center">
@@ -57,7 +57,7 @@ export default function Carousel() {
                             className="d-block w-100"
                             alt={blogs[1].title}
                         />
-                        <div className="carousel-caption d-none d-md-block bg-dark  rounded-3">
+                        <div className="carousel-caption d-none d-md-block  rounded-3 carosellotext">
                             <h6><strong>{blogs[1].title}</strong></h6>
                             <p>{blogs[1].excerpt}</p>
                             <Link to={`/blog/${blogs.id}`} className="text-center">
@@ -72,7 +72,7 @@ export default function Carousel() {
                             className="d-block w-100"
                             alt={blogs[2].title}
                         />
-                        <div className="carousel-caption d-none d-md-block bg-dark rounded-3">
+                        <div className="carousel-caption d-none d-md-block rounded-3 carosellotext">
                             <h6><strong>{blogs[2].title}</strong></h6>
                             <p>{blogs[2].excerpt}</p>
                             <Link to={`/blog/${blogs.id}`} className="text-center">

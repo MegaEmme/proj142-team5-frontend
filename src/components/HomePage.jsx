@@ -14,8 +14,10 @@ export default function HomePage() {
                     <a href="/snakes" className="btn btnblog">Dai un'occhiata ai nostri esemplari</a>
                 </div>
             </div>
+            <div className="d-flex justify-content-center">
+                <Carousel />
+            </div>
 
-            <Carousel />
 
             <div className="card container w-75 mb-3 py-2 bg-danger">
                 sezione 1 con i serpenti recenti da aggiungere!

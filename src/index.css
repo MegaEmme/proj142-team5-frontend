@@ -99,9 +99,17 @@ header .btn:hover {
 
 .snakecard,
 .blogcard,
-.funfactcard {
+.funfactcard,
+.carosello,
+.carosellotext {
     background-color: white;
     color: black;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: green;
+    border-radius: 10%;
 }
 
 .price,
@@ -174,5 +182,11 @@ header .btn:hover {
         background-color: greenyellow;
         color: black;
         text-align: center;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: greenyellow;
+        border-radius: 10%;
     }
 }
