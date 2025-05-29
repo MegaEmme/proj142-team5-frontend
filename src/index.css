@@ -1,5 +1,5 @@
 body {
-    background-image: url('/32968117-senza-soluzione-di-continuita-modello-con-serpenti-e-impianti-colorato-sfondo-su-un-tropicale-tema-su-buio-sfondo-vettoriale1.JPG');
+    background-image: url('/background-light.jpeg');
     background-repeat: repeat;
 }
 
@@ -156,6 +156,10 @@ header .btn:hover {
 
 
 @media (prefers-color-scheme: dark) {
+    body {
+        background-image: url('/background-dark.jpeg');
+    }
+
     header {
         background-color: rgb(12, 51, 12);
     }
