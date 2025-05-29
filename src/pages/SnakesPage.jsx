@@ -19,7 +19,7 @@ const SnakesPage = () => {
 
   //pagination section
   const [page, setPage] = useState(1);
-  const itemsPerPage = 9;
+  const itemsPerPage = 8;
   const totalPages = Math.ceil(snakes.length / itemsPerPage);
   const paginatedSnakes = snakes.slice((page - 1) * itemsPerPage, page * itemsPerPage);
   useEffect(() => { setPage(1); }, []);
