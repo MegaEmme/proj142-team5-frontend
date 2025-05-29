@@ -45,7 +45,7 @@ export default function Carousel() {
                         <div className="carousel-caption d-none d-md-block  rounded-3 carosellotext">
                             <h6><strong>{blogs[0].title}</strong></h6>
                             <p>{blogs[0].excerpt}</p>
-                            <Link to={`/blog/${blogs.id}`} className="text-center">
+                            <Link to={`/blog/${blogs[0].id}`} className="text-center">
                                 <button className="btn btnblog">Leggi di più</button>
                             </Link>
                         </div>
@@ -60,7 +60,7 @@ export default function Carousel() {
                         <div className="carousel-caption d-none d-md-block  rounded-3 carosellotext">
                             <h6><strong>{blogs[1].title}</strong></h6>
                             <p>{blogs[1].excerpt}</p>
-                            <Link to={`/blog/${blogs.id}`} className="text-center">
+                            <Link to={`/blog/${blogs[1].id}`} className="text-center">
                                 <button className="btn btnblog">Leggi di più</button>
                             </Link>
                         </div>
@@ -75,7 +75,7 @@ export default function Carousel() {
                         <div className="carousel-caption d-none d-md-block rounded-3 carosellotext">
                             <h6><strong>{blogs[2].title}</strong></h6>
                             <p>{blogs[2].excerpt}</p>
-                            <Link to={`/blog/${blogs.id}`} className="text-center">
+                            <Link to={`/blog/${blogs[2].id}`} className="text-center">
                                 <button className="btn btnblog">Leggi di più</button>
                             </Link>
                         </div>
