@@ -25,7 +25,7 @@ export default function HomePage() {
                 sezione 1 con i serpenti in sconto da aggiungere!
             </div>
 
-            <div className="card container w-75 mb-3 py-2">
+            <div className="card container w-75 mb-3 py-2 blogcard">
                 <h2>scopri interessanti funfact sui serpenti!</h2>
             </div>
             <FunFactSection />
