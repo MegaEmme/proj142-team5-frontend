@@ -9,29 +9,41 @@ import SnakeCard from "./SnakeCard";
 export default function HomePage() {
 
     const { setIsLoading } = useContext(GlobalContext);
-    const [snakes, setSnakes] = useState([]);
+    const [discountedSnakes, setDiscountedSnakes] = useState([]);
+    const [newBornSnakes, setNewBornSnakes] = useState([]);
     const [discount, setDiscount] = useState(null);
     const [birth, setBirth] = useState(null);
 
 
 
 
-    function getSnakes() {
+    function getDiscountedSnakes() {
         setIsLoading(true);
         axios.get("http://127.0.0.1:3000/api/snakes", {
-            params: {                
-                discount: discount !== 0,
-                birth
+            params: {
+                discount: discount !== 0
             }
         })
-            .then(res => setSnakes(res.data))
+            .then(res => setDiscountedSnakes(res.data))
+            .catch(err => console.error("Errore:", err))
+            .finally(() => setIsLoading(false));
+    }
+
+    function getNewBornSnakes() {
+        setIsLoading(true);
+        axios.get("http://127.0.0.1:3000/api/snakes", {
+            params: {
+                sort: "birth",
+            }
+        })
+            .then(res => setNewBornSnakes(res.data))
             .catch(err => console.error("Errore:", err))
             .finally(() => setIsLoading(false));
     }
 
     useEffect(() => {
-        getSnakes();
-    }, [discount, birth]);
+        getDiscountedSnakes(), getNewBornSnakes()
+    }, []);
 
     return (
         <>
@@ -50,36 +62,30 @@ export default function HomePage() {
 
             {/* griglia serpenti scontati */}
             <div className="card container w-75 mb-3 py-2 bg-danger">
-                <h2 className= "text-center">Serpenti in sconto!</h2>
+                <h2 className="text-center">Serpenti in sconto!</h2>
                 <div className="row mt-4 h-100">
-                    {snakes.length > 0 ? (
-                        snakes.map((snake => 
-                            <div className="col-12 col-md-6 col-lg-4 mb-4" key={snake.id}>
-                                <SnakeCard data={snake} />
+                    {
+                        discountedSnakes?.map((discountedSnake =>
+                            <div className="col-12 col-md-6 col-lg-4 mb-4" key={discountedSnake.id}>
+                                <SnakeCard data={discountedSnake} />
                             </div>
                         ))
-                    ) : (
-                        <p className="text-white">Nessun serpente trovato.</p>
-                    )}
+                    }
                 </div>
             </div>
 
 
-            {/* griglia serpenti appena nati
+            {/* griglia serpenti appena nati */}
             <div className="card container w-75 mb-3 py-2 bg-danger">
                 <h2 className="text-center">Nascite recenti</h2>
                 <div className="row mt-4 h-100">
-                    {snakes.length > 0 ? (
-                        filteredSankes.map((filteredSnake =>
-                            <div className="col-12 col-md-6 col-lg-4 mb-4" key={filteredSnake.id}>
-                                <SnakeCard data={filteredSnake} />
-                            </div>
-                        ))
-                    ) : (
-                        <p className="text-white">Nessun serpente trovato.</p>
-                    )}
+                    {newBornSnakes?.slice(0, 6).map((newBornSnake =>
+                        <div className="col-12 col-md-6 col-lg-4 mb-4" key={newBornSnake.id}>
+                            <SnakeCard data={newBornSnake} />
+                        </div>
+                    ))}
                 </div>
-            </div> */}
+            </div>
 
             <div className="card container w-75 mb-3 py-2 blogcard">
                 <h2>scopri interessanti funfact sui serpenti!</h2>
