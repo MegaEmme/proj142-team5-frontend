@@ -24,11 +24,7 @@ const SnakeCard = ({ data }) => {
         </div>
         <img src={`./snake-imgs/${image}`} alt={common_name} />
         <div>
-          <p className="mb-1 mt-3">Difficoltà: <strong>{difficulty}</strong></p>
-          <p className="mb-1">Temperamento: <strong>{temperament}</strong></p>
-          <p className="mb-1">Sesso: <strong>{sex.toUpperCase()}</strong></p>
-          <p className="mb-1">Morph: <strong>{morph}</strong></p>
-          <p className="mb-4">{description}</p>
+          <p className="my-4">{description}</p>
         </div>
         <div>
           <p className="mb-4 fs-3">Prezzo: <strong>{discount ? price - (price * discount) : price}€</strong></p>
