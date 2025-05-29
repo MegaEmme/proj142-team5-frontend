@@ -22,10 +22,11 @@ const SnakeCard = ({ data }) => {
           <p className="mb-1 mt-3">Difficoltà: <strong>{difficulty}</strong></p>
           <p className="mb-1">Temperamento: <strong>{temperament}</strong></p>
           <p className="mb-1">Sesso: <strong>{sex}</strong></p>
-          <p className="card-text mb-4">{description}</p>
+          <p className="mb-4">{description}</p>
         </div>
         <div>
-          <p className="mb-2 price p-2 rounded-3 fs-4">Prezzo: <strong>{price} €</strong></p>
+          <p className="mb-4 fs-3">Prezzo: <strong>{price}€</strong></p>
+          <p className="mb-2 price p-2 rounded-3 fs-6"><strong>aggiungi al carrello</strong></p>
         </div>
 
       </div>
