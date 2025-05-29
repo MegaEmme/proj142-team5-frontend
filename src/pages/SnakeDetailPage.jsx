@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Jumbotron from "../components/Jumbotron";
@@ -5,6 +6,8 @@ import SnakeDetailCard from "../components/SnakeDetailCard";
 import { useParams } from "react-router-dom";
 
 
+=======
+>>>>>>> 8909d749e4dd4bfbb7366778739347c1a622dcfd
 
 
 const SnakeDetailPage = () => {

@@ -2,7 +2,6 @@ import { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import GlobalContext from "../contexts/globalcontext";
 import SnakeCard from "../components/SnakeCard";
-import Jumbotron from "../components/Jumbotron";
 import Pagination from "../components/Pagination";
 
 const SnakesPage = () => {
@@ -17,13 +16,12 @@ const SnakesPage = () => {
   const { setIsLoading } = useContext(GlobalContext);
   const dropdownRef = useRef(null);
 
-  //pagination section
+  // Pagination
   const [page, setPage] = useState(1);
   const itemsPerPage = 8;
   const totalPages = Math.ceil(snakes.length / itemsPerPage);
   const paginatedSnakes = snakes.slice((page - 1) * itemsPerPage, page * itemsPerPage);
   useEffect(() => { setPage(1); }, []);
-  
 
   useEffect(() => {
     getSnakes();
@@ -59,9 +57,8 @@ const SnakesPage = () => {
 
   return (
     <>
-      <Jumbotron />
-      <div className=" mb-3 text-center">
-        <h1 className="titoloshop mb-4 mx-5 py-4 rounded-3">i nostri Serpenti</h1>
+      <div className="mb-3 text-center">
+        <h1 className="titoloshop mb-4 mx-5 py-4 rounded-3">I nostri Serpenti</h1>
       </div>
 
       <div className="mb-4 position-relative" ref={dropdownRef}>
@@ -159,7 +156,6 @@ const SnakesPage = () => {
       </section>
 
       <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
-
     </>
   );
 };

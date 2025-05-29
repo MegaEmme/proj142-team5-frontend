@@ -1,25 +1,27 @@
-import funFacts from "../data/funFacts"
+import funFacts from "../data/funFacts";
 
 export default function FunFactSection() {
     return (
-        <>
-            <div className="funfacts-container">
+        <div className="container my-5">
+            <h2 className="text-center text-white mb-4">Curiosità dal mondo dei serpenti</h2>
+            <div className="row justify-content-center">
                 {funFacts.length ? (
-                    <ul className='list-unstyled d-flex flex-wrap gap-3'>
-                        {funFacts.map(fact => (
-                            <div className="card d-flex flex-row p-2 funfactcard w-75" key={fact.id}>
-                                <div className=" p-3 rounded-4">
-                                    <img src={fact.image} className="card-img-top " alt={fact.titolo} />
-                                </div>
-                                <div className="card-body">
-                                    <h5 className="card-title">{fact.titolo}</h5>
-                                    <p className="card-text">{fact.contenuto}</p>
+                    funFacts.map(fact => (
+                        <div className="col-12 col-md-4 mb-4" key={fact.id}>
+                            <div className="card funfactcard-mini h-100 shadow-sm p-2 d-flex flex-column align-items-center">
+                                <img src={fact.image} className="card-img-top rounded-3 img-funfact" alt={fact.titolo} />
+                                <div className="card-body p-2 text-center">
+                                    <h6 className="card-title">{fact.titolo}</h6>
+                                    <p className="card-text small">{fact.contenuto}</p>
+                                    <button className="btn btnblog mt-2 btn-sm">Scopri di più</button>
                                 </div>
                             </div>
-                        ))}
-                    </ul>
-                ) : <div>facts were not found</div>}
+                        </div>
+                    ))
+                ) : (
+                    <div className="text-light text-center">Nessun fatto curioso trovato.</div>
+                )}
             </div>
-        </>
-    )
+        </div>
+    );
 }

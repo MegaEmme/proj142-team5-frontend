@@ -1,9 +1,26 @@
+
+/* LIGHT MODE */
 body {
   background-image: url("/background-light.jpeg");
   background-repeat: repeat;
 }
 
+/* Logo */
+.logo-container {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 3px solid greenyellow;
+    background-color: greenyellow;
+}
+
 .img-logo {
+<<<<<<< HEAD
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -20,6 +37,15 @@ body {
   border: 3px solid greenyellow;
 }
 
+=======
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Header */
+>>>>>>> 8909d749e4dd4bfbb7366778739347c1a622dcfd
 header {
   background-color: rgb(192, 237, 192);
   position: relative;
@@ -39,6 +65,7 @@ header .btn:hover {
   background-color: white;
 }
 
+<<<<<<< HEAD
 .jumbotron {
   background-image: url("/sergenteserpentejumbo.png");
   background-position: center center;
@@ -52,12 +79,18 @@ header .btn:hover {
   font-size: 5rem;
   text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000,
     1.5px 1.5px 0 #000;
+=======
+header .btn:focus {
+    background-color: greenyellow;
+    color: rgb(24, 71, 0);
+>>>>>>> 8909d749e4dd4bfbb7366778739347c1a622dcfd
 }
 
 .height-header {
   height: 16vh;
 }
 
+<<<<<<< HEAD
 .jumbotron-heading {
   margin: auto;
   height: 10%;
@@ -87,9 +120,73 @@ header .btn:hover {
   width: 150px;
   height: 150px;
   border-radius: 10px;
+=======
+.mobile-menu {
+    z-index: 999;
+    width: 220px;
+    background-color: white;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
 }
 
+.mobile-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.mobile-menu.hide {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+/* Bottone "Scopri i nostri esemplari" */
+.btn-primary-style {
+    background-color: rgb(1, 81, 1);
+    color: white;
+    text-align: center;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary-style:hover {
+    background-color: greenyellow;
+    color: black;
+    transform: scale(1.05);
+}
+
+/* Cards generiche */
+.card,
+.blogcard,
+.snakecard,
+.funfactcard,
+.carosello,
+.carosellotext {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: black;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    width: 150px;
+    height: 150px;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    margin: auto;
+    display: block;
+>>>>>>> 8909d749e4dd4bfbb7366778739347c1a622dcfd
+}
+
+/* Titolo Shop */
 .titoloshop {
+<<<<<<< HEAD
   background-color: rgba(255, 255, 255, 0.7);
   color: black;
 }
@@ -101,6 +198,56 @@ header .btn:hover {
 .carosellotext {
   background-color: white;
   color: black;
+=======
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+/* Carousel */
+.carousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item img {
+    border-radius: 1rem;
+    overflow: hidden;
+    object-fit: cover;
+    height: 400px;
+}
+
+.carousel {
+    margin: 30px 0;
+    max-width: 1200px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.carousel-caption .btnblog,
+.price,
+.btnblog {
+    background-color: rgb(1, 81, 1);
+    color: white;
+    border: none;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.carousel-caption .btnblog:hover,
+.price:hover,
+.btnblog:hover {
+    background-color: greenyellow;
+    color: black;
+    transform: scale(1.05);
+>>>>>>> 8909d749e4dd4bfbb7366778739347c1a622dcfd
 }
 
 .carousel-control-prev-icon,
@@ -109,6 +256,7 @@ header .btn:hover {
   border-radius: 10%;
 }
 
+<<<<<<< HEAD
 .price,
 .btnblog {
   background-color: rgb(1, 81, 1);
@@ -161,6 +309,58 @@ header .btn:hover {
 
 /* da qui in poi è per la modalità scura */
 
+=======
+/* FunFactCard Mini */
+.funfactcard-mini {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: black;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.funfactcard-mini:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.img-funfact {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+.funfactcard-mini .card-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.funfactcard-mini .card-text {
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.funfactcard-mini .btnblog {
+    background-color: rgb(1, 81, 1);
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.funfactcard-mini .btnblog:hover {
+    background-color: greenyellow;
+    color: black;
+    transform: scale(1.05);
+}
+
+/* DARK MODE */
+>>>>>>> 8909d749e4dd4bfbb7366778739347c1a622dcfd
 @media (prefers-color-scheme: dark) {
   body {
     background-image: url("/background-dark.jpeg");
@@ -174,6 +374,7 @@ header .btn:hover {
     color: rgb(130, 255, 67);
   }
 
+<<<<<<< HEAD
   .snakecard,
   .blogcard,
   .funfactcard,
@@ -182,12 +383,23 @@ header .btn:hover {
     background-color: rgb(32, 30, 30);
     color: rgb(255, 255, 255);
   }
+=======
+    .snakecard,
+    .blogcard,
+    .funfactcard,
+    .carosello,
+    .carosellotext {
+        background-color: rgba(32, 30, 30, 0.95);
+        color: white;
+    }
+>>>>>>> 8909d749e4dd4bfbb7366778739347c1a622dcfd
 
   .titoloshop {
     background-color: rgba(3, 3, 3, 0.7);
     color: white;
   }
 
+<<<<<<< HEAD
   .price,
   .btnblog {
     background-color: greenyellow;
@@ -201,3 +413,39 @@ header .btn:hover {
     border-radius: 10%;
   }
 }
+=======
+    .price,
+    .btnblog,
+    .carousel-caption .btnblog,
+    .funfactcard-mini .btnblog {
+        background-color: greenyellow;
+        color: black;
+    }
+
+    .carousel-caption .btnblog:hover,
+    .funfactcard-mini .btnblog:hover,
+    .btn-primary-style:hover {
+        background-color: white;
+        color: green;
+        transform: scale(1.05);
+    }
+
+    .mobile-menu {
+        background-color: rgb(32, 30, 30);
+        color: white;
+    }
+
+    .mobile-menu a {
+        color: rgb(130, 255, 67);
+    }
+
+    .mobile-menu a:hover {
+        color: greenyellow;
+    }
+
+    .btn-primary-style {
+        background-color: greenyellow;
+        color: black;
+    }
+}
+>>>>>>> 8909d749e4dd4bfbb7366778739347c1a622dcfd
