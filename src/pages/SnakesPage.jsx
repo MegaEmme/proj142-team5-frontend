@@ -4,6 +4,8 @@ import GlobalContext from "../contexts/globalcontext";
 import SnakeCard from "../components/SnakeCard";
 import Jumbotron from "../components/Jumbotron";
 
+import Pagination from "../components/Pagination";
+
 const SnakesPage = () => {
   const [snakes, setSnakes] = useState([]);
   const [sortName, setSortName] = useState("name");
@@ -15,6 +17,14 @@ const SnakesPage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { setIsLoading } = useContext(GlobalContext);
   const dropdownRef = useRef(null);
+
+  //pagination section
+  const [page, setPage] = useState(1);
+  const itemsPerPage = 9;
+  const totalPages = Math.ceil(snakes.length / itemsPerPage);
+  const paginatedSnakes = snakes.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+  useEffect(() => { setPage(1); }, []);
+  //
 
   useEffect(() => {
     getSnakes();
@@ -40,7 +50,7 @@ const SnakesPage = () => {
         habitat,
         temperament,
         discount: discount !== null ? discount : undefined,
-        morph: morph !== null ? morph : undefined 
+        morph: morph !== null ? morph : undefined
       }
     })
       .then(res => setSnakes(res.data))
@@ -138,7 +148,7 @@ const SnakesPage = () => {
       <section>
         <div className="row mt-4 h-100">
           {snakes.length > 0 ? (
-            snakes.map((snake) => (
+            paginatedSnakes.map((snake) => (
               <div className="col-12 col-md-6 col-lg-4 col-xl-3 mb-4" key={snake.id}>
                 <SnakeCard data={snake} />
               </div>
@@ -148,6 +158,9 @@ const SnakesPage = () => {
           )}
         </div>
       </section>
+
+      <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
+
     </>
   );
 };
