@@ -11,14 +11,17 @@ body {
 }
 
 .logo-container {
-    width: 120px;
-    height: 120px;
-    border-radius: 60px;
+    width: 12.5rem;
+    height: 12.5rem;
+    border-radius: 50%;
     overflow: hidden;
     display: block;
     padding: 5px;
     border: 3px solid greenyellow;
+    position: absolute;
+    transform: translate(-500px,65px);
 }
+
 
 header {
     background-color: rgb(192, 237, 192);

@@ -11,13 +11,15 @@ const Header = () => {
 
     return (
         <>
-            <header className="py-3 shadow w-100 z-3">
-                <div className="container">
+            <header className="py-3 shadow w-100">
+                <div className="container py-4">
                     <ul className="d-flex list-unstyled m-0 justify-content-between align-items-center mx-5 fs-2 fw-bold">
                         <li className="logo-container">
-                            <NavLink to="/" className="text-decoration-none">
-                                <img src="/logo-sergente-serpente.jpg" alt="Logo" className="img-logo me-3" />
-                            </NavLink>
+                            <div className="div-logo">
+                                <NavLink to="/" className="text-decoration-none">
+                                    <img src="/logo-sergente-serpente.jpg" alt="Logo" className="img-logo me-3" />
+                                </NavLink>
+                            </div>
                         </li>
                         <li>
                             <NavLink to="/" className="text-decoration-none">Homepage</NavLink>
