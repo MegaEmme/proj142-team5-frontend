@@ -7,8 +7,8 @@ export default function FunFactSection() {
                 {funFacts.length ? (
                     <ul className='list-unstyled d-flex flex-wrap gap-3'>
                         {funFacts.map(fact => (
-                            <div className="card d-flex flex-row p-2 funfactcard" key={fact.id}>
-                                <div className="w-50 p-3 rounded-4">
+                            <div className="card d-flex flex-row p-2 funfactcard w-75" key={fact.id}>
+                                <div className=" p-3 rounded-4">
                                     <img src={fact.image} className="card-img-top " alt={fact.titolo} />
                                 </div>
                                 <div className="card-body">
