@@ -127,6 +127,20 @@ header .btn:hover {
   width: 20%;
 }
 
+
+.details>img {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+
+}
+
+.details {
+  margin: 50px 0px;
+}
+
+
+
 @media (max-width: 768px) {
   .jumbotron {
     height: 40vh;

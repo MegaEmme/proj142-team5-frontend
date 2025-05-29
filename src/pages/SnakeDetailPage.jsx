@@ -30,9 +30,10 @@ const SnakeDetailPage = () => {
     if (currentSnake) {
         return (
             <>
-                <Jumbotron />
 
                 <SnakeDetailCard data={currentSnake} />
+
+                <button type="button" class="btn btn-light mb-5">Aggiungi al carrelo</button>
             </>
         )
     }
