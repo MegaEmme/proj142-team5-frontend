@@ -19,7 +19,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <footer className="bg-dark text-white pt-5 pb-4">
-            <div clasName="Container">
+            <div className="Container">
                 <div className="mb-4 row mx-3">
                     <div className="mb-4 mb-lg-0 col col-lg-3 col-md-6">
                         <h5 className="text-uppercase fw-bold mb-4 text-success">
@@ -90,7 +90,7 @@ const Footer = () => {
                 <hr className="my-3 text-white-50" />
 
                 {/* Sezione Copyright e Pagamenti */}
-                <div Row className="align-items-center mx-3 d-flex justify-content-center">
+                <div className="align-items-center mx-3 d-flex justify-content-center">
                     <div className="col col-md-6 text-center text-md-start mb-3 mb-md-0">
                         <p className="mb-0">&copy; {new Date().getFullYear()} Sergente Serpente. Tutti i diritti riservati.</p>
                     </div>
