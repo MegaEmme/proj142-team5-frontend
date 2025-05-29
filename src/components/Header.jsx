@@ -1,52 +1,26 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {
     const location = useLocation();
-    // const navigate = useNavigate();
-
-    // // Mostra il bottone solo se NON siamo sulla home
-    // const goBack = () => {
-    //     navigate(-1);
-    // };
 
     return (
-        <>
-            <header className="py-3 shadow w-100">
-                <div className="container py-4">
-                    <ul className="d-flex list-unstyled m-0 justify-content-between align-items-center mx-5 fs-2 fw-bold">
-                        <li className="logo-container">
-                            <div className="div-logo">
-                                <NavLink to="/" className="text-decoration-none">
-                                    <img src="/logo-sergente-serpente.jpg" alt="Logo" className="img-logo me-3" />
-                                </NavLink>
-                            </div>
-                        </li>
-                        <li>
-                            <NavLink to="/" className="text-decoration-none">Homepage</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/snakes" className="text-decoration-none">Shop</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/blog" className="text-decoration-none">Blog</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/cart" className="text-decoration-none">
-                                <i className="fa-solid fa-bag-shopping"></i>
-                            </NavLink>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* {goBack && (
-                    <div className="container mt-2 d-flex">
-                        <button className="btn" onClick={goBack}>
-                            indietro
-                        </button>
-                    </div>
-                )} */}
-            </header>
-        </>
+        <header className="py-3 shadow w-100">
+            <div className="container py-3">
+                <ul className="d-flex list-unstyled m-0 justify-content-between align-items-center gap-5 fs-4 fw-semibold">
+                    <li className="logo-container">
+                        <NavLink to="/" className="text-decoration-none">
+                            <img src="/logo-sergente-serpente.jpg" alt="Logo" className="img-logo" />
+                        </NavLink>
+                    </li>
+                    <li><NavLink to="/" className="text-decoration-none">Homepage</NavLink></li>
+                    <li><NavLink to="/snakes" className="text-decoration-none">Shop</NavLink></li>
+                    <li><NavLink to="/blog" className="text-decoration-none">Blog</NavLink></li>
+                    <li><NavLink to="/cart" className="text-decoration-none">
+                        <i className="fa-solid fa-bag-shopping"></i>
+                    </NavLink></li>
+                </ul>
+            </div>
+        </header>
     );
 };
 

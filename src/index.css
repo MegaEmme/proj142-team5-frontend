@@ -3,25 +3,25 @@ body {
     background-repeat: repeat;
 }
 
-.img-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.45);
-}
-
 .logo-container {
-    width: 12.5rem;
-    height: 12.5rem;
-    border-radius: 50%;
-    overflow: hidden;
-    display: block;
-    padding: 5px;
-    border: 3px solid greenyellow;
-    position: absolute;
-    transform: translate(-500px,65px);
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 3px solid greenyellow;
+  background-color: greenyellow; 
 }
 
+.img-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 header {
     background-color: rgb(192, 237, 192);
@@ -40,32 +40,22 @@ header .btn {
 header .btn:hover {
     background-color: white;
 }
-
-.jumbotron {
-    background-image: url('/sergenteserpentejumbo.png');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 1rem;
-    max-height: 60vh;
-}
-
-.jumbotron-heading {
-    font-size: 5rem;
-    text-shadow:
-        -1.5px -1.5px 0 #000,
-        1.5px -1.5px 0 #000,
-        -1.5px 1.5px 0 #000,
-        1.5px 1.5px 0 #000;
+header .btn:focus {
+    background-color: greenyellow;
+    color: rgb(24, 71, 0);
 }
 
 .height-header {
     height: 16vh;
 }
 
-.jumbotron-heading {
-    margin: auto;
-    height: 10%;
+.blogcard {
+
+    width: 100%;
+    margin-top: 1.5em;
+    padding: 0.75em;
+    
+    
 }
 
 .carousel,
