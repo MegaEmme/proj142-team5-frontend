@@ -48,11 +48,11 @@ export default function Carousel() {
                                     opacity: "0.6",
                                 }}
                             />
-                            <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-75 p-4 rounded-4">
-                                <h5 className="fw-bold">{blog.title}</h5>
-                                <p>{blog.excerpt}</p>
+                            <div className="carousel-caption d-none d-md-flex flex-column align-items-center justify-content-center bg-dark bg-opacity-75 p-4 rounded-4">
+                                <h5 className="fw-bold text-center">{blog.title}</h5>
+                                <p className="text-center">{blog.excerpt}</p>
                                 <Link to={`/blog/${blog.id}`}>
-                                    <button className="btn btnblog">Leggi di più</button>
+                                    <button className="btn btnblog mt-4">Leggi di più</button>
                                 </Link>
                             </div>
                         </div>

@@ -72,7 +72,7 @@ export default function HomePage() {
                         </span>
                     </p>
 
-                    <a href="/snakes" className="welcome btn-primary-style mt-4 btn btnblog mt-4 px-4 py-2 fs-5 rounded-pill">
+                    <a href="/snakes" className="btn-primary-style mt-4 btn btnblog mt-4 px-4 py-2 fs-5 rounded-pill">
                         🐍 Scopri i nostri esemplari
                     </a>
                 </div>
