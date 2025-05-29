@@ -1,102 +1,97 @@
 body {
-    background-image: url('/background-light.jpeg');
-    background-repeat: repeat;
+  background-image: url("/background-light.jpeg");
+  background-repeat: repeat;
 }
 
 .img-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.45);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.45);
 }
 
 .logo-container {
-    width: 12.5rem;
-    height: 12.5rem;
-    border-radius: 50%;
-    overflow: hidden;
-    display: block;
-    padding: 5px;
-    border: 3px solid greenyellow;
-    position: absolute;
-    transform: translate(-500px,65px);
+  width: 12.5rem;
+  height: 12.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  display: block;
+  padding: 5px;
+  border: 3px solid greenyellow;
+  position: absolute;
 }
 
-
 header {
-    background-color: rgb(192, 237, 192);
+  background-color: rgb(192, 237, 192);
 }
 
 header a {
-    color: rgb(24, 71, 0);
+  color: rgb(24, 71, 0);
 }
 
 header .btn {
-    margin: auto;
-    background-color: greenyellow;
-    color: rgb(24, 71, 0);
+  margin: auto;
+  background-color: greenyellow;
+  color: rgb(24, 71, 0);
 }
 
 header .btn:hover {
-    background-color: white;
+  background-color: white;
 }
 
 .jumbotron {
-    background-image: url('/sergenteserpentejumbo.png');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 1rem;
-    max-height: 60vh;
+  background-image: url("/sergenteserpentejumbo.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 1rem;
+  max-height: 60vh;
 }
 
 .jumbotron-heading {
-    font-size: 5rem;
-    text-shadow:
-        -1.5px -1.5px 0 #000,
-        1.5px -1.5px 0 #000,
-        -1.5px 1.5px 0 #000,
-        1.5px 1.5px 0 #000;
+  font-size: 5rem;
+  text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000,
+    1.5px 1.5px 0 #000;
 }
 
 .height-header {
-    height: 16vh;
+  height: 16vh;
 }
 
 .jumbotron-heading {
-    margin: auto;
-    height: 10%;
+  margin: auto;
+  height: 10%;
 }
 
 .carousel,
 .carousel-inner,
 .carousel-item,
 .carousel-item img {
-    border-radius: 15px;
-    overflow: hidden;
-    object-fit: cover;
-    padding: 0 2vw;
+  border-radius: 15px;
+  overflow: hidden;
+  object-fit: cover;
+  padding: 0 2vw;
 }
 
 .carousel {
-    margin: 30px 0px;
+  margin: 30px 0px;
 }
 
 .card {
-    width: 100%;
-    height: 60c;
-    margin: auto;
+  width: 100%;
+  height: 60c;
+  margin: auto;
 }
 
 .card-img-top {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
 }
 
 .titoloshop {
-    background-color: rgba(255, 255, 255, .7);
-    color: black;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
 }
 
 .snakecard,
@@ -104,97 +99,91 @@ header .btn:hover {
 .funfactcard,
 .carosello,
 .carosellotext {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: green;
-    border-radius: 10%;
+  background-color: green;
+  border-radius: 10%;
 }
 
 .price,
 .btnblog {
-    background-color: rgb(1, 81, 1);
-    color: white;
-    text-align: center;
+  background-color: rgb(1, 81, 1);
+  color: white;
+  text-align: center;
 }
 
 .price:hover,
 .btnblog:hover {
-    background-color: greenyellow;
-    color: rgb(0, 0, 0);
+  background-color: greenyellow;
+  color: rgb(0, 0, 0);
 }
-
 
 .imgfloat {
-    float: left;
-    width: 20%;
+  float: left;
+  width: 20%;
 }
 
-
-
-
 @media (max-width: 768px) {
-    .jumbotron {
-        height: 40vh;
-    }
+  .jumbotron {
+    height: 40vh;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1200px) {
-    .jumbotron {
-        height: 60vh;
-    }
+  .jumbotron {
+    height: 60vh;
+  }
 }
 
-
 @media (min-width: 1201px) {
-    .jumbotron {
-        height: 80vh;
-    }
+  .jumbotron {
+    height: 80vh;
+  }
 }
 
 /* da qui in poi è per la modalità scura */
 
-
 @media (prefers-color-scheme: dark) {
-    body {
-        background-image: url('/background-dark.jpeg');
-    }
+  body {
+    background-image: url("/background-dark.jpeg");
+  }
 
-    header {
-        background-color: rgb(12, 51, 12);
-    }
+  header {
+    background-color: rgb(12, 51, 12);
+  }
 
-    header a {
-        color: rgb(130, 255, 67);
-    }
+  header a {
+    color: rgb(130, 255, 67);
+  }
 
-    .snakecard,
-    .blogcard,
-    .funfactcard,
-    .carosello,
-    .carosellotext {
-        background-color: rgb(32, 30, 30);
-        color: rgb(255, 255, 255);
-    }
+  .snakecard,
+  .blogcard,
+  .funfactcard,
+  .carosello,
+  .carosellotext {
+    background-color: rgb(32, 30, 30);
+    color: rgb(255, 255, 255);
+  }
 
-    .titoloshop {
-        background-color: rgba(3, 3, 3, 0.7);
-        color: white;
-    }
+  .titoloshop {
+    background-color: rgba(3, 3, 3, 0.7);
+    color: white;
+  }
 
-    .price,
-    .btnblog {
-        background-color: greenyellow;
-        color: black;
-        text-align: center;
-    }
+  .price,
+  .btnblog {
+    background-color: greenyellow;
+    color: black;
+    text-align: center;
+  }
 
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: greenyellow;
-        border-radius: 10%;
-    }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: greenyellow;
+    border-radius: 10%;
+  }
 }
