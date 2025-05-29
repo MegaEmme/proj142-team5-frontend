@@ -7,7 +7,8 @@ const SnakeCard = ({ data }) => {
     sex,
     description,
     price,
-    image
+    image,
+    morph
   } = data;
 
   return (
@@ -22,6 +23,7 @@ const SnakeCard = ({ data }) => {
           <p className="mb-1 mt-3">Difficoltà: <strong>{difficulty}</strong></p>
           <p className="mb-1">Temperamento: <strong>{temperament}</strong></p>
           <p className="mb-1">Sesso: <strong>{sex}</strong></p>
+          <p className="mb-1">Morph: <strong>{morph}</strong></p>
           <p className="mb-4">{description}</p>
         </div>
         <div>
