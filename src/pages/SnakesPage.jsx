@@ -3,7 +3,6 @@ import axios from "axios";
 import GlobalContext from "../contexts/globalcontext";
 import SnakeCard from "../components/SnakeCard";
 import Jumbotron from "../components/Jumbotron";
-
 import Pagination from "../components/Pagination";
 
 const SnakesPage = () => {
@@ -24,7 +23,7 @@ const SnakesPage = () => {
   const totalPages = Math.ceil(snakes.length / itemsPerPage);
   const paginatedSnakes = snakes.slice((page - 1) * itemsPerPage, page * itemsPerPage);
   useEffect(() => { setPage(1); }, []);
-  //
+  
 
   useEffect(() => {
     getSnakes();

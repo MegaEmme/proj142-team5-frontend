@@ -1,3 +1,5 @@
+
+
 const SnakeCard = ({ data }) => {
   const {
     common_name,
@@ -22,7 +24,7 @@ const SnakeCard = ({ data }) => {
         <div>
           <p className="mb-1 mt-3">Difficoltà: <strong>{difficulty}</strong></p>
           <p className="mb-1">Temperamento: <strong>{temperament}</strong></p>
-          <p className="mb-1">Sesso: <strong>{sex}</strong></p>
+          <p className="mb-1">Sesso: <strong>{sex.toUpperCase()}</strong></p>
           <p className="mb-1">Morph: <strong>{morph}</strong></p>
           <p className="mb-4">{description}</p>
         </div>
