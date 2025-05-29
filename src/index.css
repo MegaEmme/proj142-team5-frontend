@@ -108,6 +108,12 @@ header .btn:hover {
     text-align: center;
 }
 
+.price:hover,
+.btnblog:hover {
+    background-color: greenyellow;
+    color: rgb(0, 0, 0);
+}
+
 
 
 
