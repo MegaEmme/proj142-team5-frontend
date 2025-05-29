@@ -1,4 +1,5 @@
 import blogs from "../data/blogPosts";
+import { Link } from "react-router-dom";
 
 export default function Carousel() {
 
@@ -42,8 +43,11 @@ export default function Carousel() {
                             alt={blogs[0].title}
                         />
                         <div className="carousel-caption d-none d-md-block bg-dark  rounded-3">
-                            <h5>{blogs[0].title}</h5>
+                            <h6><strong>{blogs[0].title}</strong></h6>
                             <p>{blogs[0].excerpt}</p>
+                            <Link to={`/blog/${blogs.id}`} className="text-center">
+                                <button className="btn btnblog">Leggi di più</button>
+                            </Link>
                         </div>
                     </div>
 
@@ -54,8 +58,11 @@ export default function Carousel() {
                             alt={blogs[1].title}
                         />
                         <div className="carousel-caption d-none d-md-block bg-dark  rounded-3">
-                            <h5>{blogs[1].title}</h5>
+                            <h6><strong>{blogs[1].title}</strong></h6>
                             <p>{blogs[1].excerpt}</p>
+                            <Link to={`/blog/${blogs.id}`} className="text-center">
+                                <button className="btn btnblog">Leggi di più</button>
+                            </Link>
                         </div>
                     </div>
 
@@ -66,8 +73,11 @@ export default function Carousel() {
                             alt={blogs[2].title}
                         />
                         <div className="carousel-caption d-none d-md-block bg-dark rounded-3">
-                            <h5>{blogs[2].title}</h5>
+                            <h6><strong>{blogs[2].title}</strong></h6>
                             <p>{blogs[2].excerpt}</p>
+                            <Link to={`/blog/${blogs.id}`} className="text-center">
+                                <button className="btn btnblog">Leggi di più</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
