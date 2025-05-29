@@ -7,7 +7,7 @@ const BlogCard = ({ blog }) => {
             <div className="h-100 shadow-sm d-flex flex-row"> {/* Card Bootstrap con altezza fissa e ombra */}
                 <img
                     src={blog.image}
-                    className="card-img-top img-fluid w-25 m-4" // img-fluid per responsività
+                    className="img-fluid w-25 m-4" // img-fluid per responsività
                     alt={blog.title}
                 />
                 <div className="card-body d-flex flex-column">
