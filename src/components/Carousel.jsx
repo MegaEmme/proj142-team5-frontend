@@ -1,7 +1,7 @@
 export default function Carousel() {
     return (
         <>
-            <div id="carouselExampleSlidesOnly" className="carousel slide fs-5 " data-bs-ride="carousel">
+            <div id="carouselExampleSlidesOnly" className="carousel slide fs-5" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                         <img src="/istockphoto-157479804-612x612.jpg" className="d-block w-75 mx-auto" alt="..." />
