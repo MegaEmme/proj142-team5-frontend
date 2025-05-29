@@ -1,3 +1,4 @@
+
 /* LIGHT MODE */
 body {
     background-image: url('/background-light.jpeg');
@@ -49,24 +50,52 @@ header .btn:focus {
     color: rgb(24, 71, 0);
 }
 
-
-
 .height-header {
     height: 16vh;
 }
 
-/* Bottone "Scopri i nostri esemplari" nella sezione benvenuto */
-.welcome-btn {
+.mobile-menu {
+    z-index: 999;
+    width: 220px;
+    background-color: white;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
     transition: all 0.3s ease-in-out;
 }
 
-.welcome-btn:hover {
-    background-color: greenyellow;
+.mobile-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.mobile-menu.hide {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+/* Bottone "Scopri i nostri esemplari" */
+.btn-primary-style {
+    background-color: rgb(1, 81, 1);
     color: white;
+    text-align: center;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary-style:hover {
+    background-color: greenyellow;
+    color: black;
     transform: scale(1.05);
 }
 
-/* BlogCard - FunFactCard - SnakeCard - Generiche */
+/* Cards generiche */
+.card,
 .blogcard,
 .snakecard,
 .funfactcard,
@@ -75,17 +104,7 @@ header .btn:focus {
     background-color: rgba(255, 255, 255, 0.85);
     color: black;
     border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* Card generiche */
-.card {
-    width: 100%;
-    height: auto;
-    margin: auto;
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .card-img-top {
@@ -131,51 +150,37 @@ header .btn:focus {
     padding: 1.5rem;
 }
 
-/* Bottone "Leggi di più" del carosello */
-.carousel-caption .btnblog {
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    padding: 0.4rem 0.9rem;
-    font-size: 0.85rem;
-    border-radius: 0.75rem;
+.carousel-caption .btnblog,
+.price,
+.btnblog {
+    background-color: rgb(1, 81, 1);
+    color: white;
+    border: none;
+    text-align: center;
     transition: all 0.3s ease-in-out;
 }
 
-.carousel-caption .btnblog:hover {
+.carousel-caption .btnblog:hover,
+.price:hover,
+.btnblog:hover {
     background-color: greenyellow;
     color: black;
     transform: scale(1.05);
 }
 
-/* Frecce del carosello */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: green;
     border-radius: 10%;
 }
 
-/* Bottoni e Prezzi */
-.price,
-.btnblog {
-    background-color: rgb(1, 81, 1);
-    color: white;
-    text-align: center;
-    border: none;
-}
-
-.price:hover,
-.btnblog:hover {
-    background-color: greenyellow;
-    color: black;
-}
-
+/* FunFactCard Mini */
 .funfactcard-mini {
     background-color: rgba(255, 255, 255, 0.85);
     color: black;
     border-radius: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
-    max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -203,11 +208,9 @@ header .btn:focus {
     color: #333;
 }
 
-/* Bottoni coerenti */
 .funfactcard-mini .btnblog {
     background-color: rgb(1, 81, 1);
     color: white;
-    border: none;
     font-size: 0.8rem;
     padding: 0.3rem 0.7rem;
     border-radius: 0.5rem;
@@ -219,7 +222,6 @@ header .btn:focus {
     color: black;
     transform: scale(1.05);
 }
-
 
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
@@ -242,7 +244,6 @@ header .btn:focus {
     .carosellotext {
         background-color: rgba(32, 30, 30, 0.95);
         color: white;
-        border-radius: 1rem;
     }
 
     .titoloshop {
@@ -251,59 +252,36 @@ header .btn:focus {
     }
 
     .price,
-    .btnblog {
-        background-color: greenyellow;
-        color: black;
-        text-align: center;
-    }
-
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: greenyellow;
-        border-radius: 10%;
-    }
-
-    .carousel-caption .btnblog {
-        background-color: greenyellow;
-        color: black;
-    }
-
-    .carousel-caption .btnblog:hover {
-        background-color: white;
-        color: green;
-        transform: scale(1.05);
-    }
-
-    .welcome-btn {
-        background-color: greenyellow;
-        color: black;
-    }
-
-    .welcome-btn:hover {
-        background-color: white;
-        color: green;
-        transform: scale(1.05);
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .funfactcard-mini {
-        background-color: rgba(32, 30, 30, 0.95);
-        color: white;
-    }
-
-    .funfactcard-mini .card-text {
-        color: #ccc;
-    }
-
+    .btnblog,
+    .carousel-caption .btnblog,
     .funfactcard-mini .btnblog {
         background-color: greenyellow;
         color: black;
     }
 
-    .funfactcard-mini .btnblog:hover {
+    .carousel-caption .btnblog:hover,
+    .funfactcard-mini .btnblog:hover,
+    .btn-primary-style:hover {
         background-color: white;
         color: green;
         transform: scale(1.05);
+    }
+
+    .mobile-menu {
+        background-color: rgb(32, 30, 30);
+        color: white;
+    }
+
+    .mobile-menu a {
+        color: rgb(130, 255, 67);
+    }
+
+    .mobile-menu a:hover {
+        color: greenyellow;
+    }
+
+    .btn-primary-style {
+        background-color: greenyellow;
+        color: black;
     }
 }
