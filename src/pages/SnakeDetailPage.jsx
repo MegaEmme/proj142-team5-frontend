@@ -1,4 +1,4 @@
-import Jumbotron from "../components/Jumbotron";
+
 
 const SnakeDetailPage = () => {
     return (
