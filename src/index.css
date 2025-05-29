@@ -17,6 +17,7 @@ body {
     overflow: hidden;
     display: block;
     padding: 5px;
+    border: 3px solid greenyellow;
 }
 
 header {
