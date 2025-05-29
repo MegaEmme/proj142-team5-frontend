@@ -11,13 +11,14 @@ const SnakesPage = () => {
   const [habitat, setHabitat] = useState("");
   const [temperament, setTemperament] = useState("");
   const [discount, setDiscount] = useState(null);
+  const [morph, setMorph] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { setIsLoading } = useContext(GlobalContext);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
     getSnakes();
-  }, [sortName, sortPrice, habitat, temperament, discount]);
+  }, [sortName, sortPrice, habitat, temperament, discount, morph]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -38,7 +39,8 @@ const SnakesPage = () => {
         sort,
         habitat,
         temperament,
-        discount: discount !== null ? discount : undefined
+        discount: discount !== null ? discount : undefined,
+        morph: morph !== null ? morph : undefined 
       }
     })
       .then(res => setSnakes(res.data))
@@ -108,6 +110,16 @@ const SnakesPage = () => {
                 <option value="intelligente-imprevedibile">intelligente-imprevedibile</option>
                 <option value="schiva-imprevedibile">schiva-imprevedibile</option>
               </select>
+            </div>
+
+            <div className="mb-2">
+              <label className="form-label mt-2 me-3">Morph:</label><br />
+              <input type="radio" name="morph" checked={morph === true} onChange={() => setMorph(true)} />
+              <label className="form-label mx-2">Speciale</label>
+              <input type="radio" name="morph" checked={morph === false} onChange={() => setMorph(false)} />
+              <label className="form-label mx-2">Normale</label>
+              <input type="radio" name="morph" checked={morph === null} onChange={() => setMorph(null)} />
+              <label className="form-label mx-2">Tutti</label>
             </div>
 
             <div className="mb-2">
