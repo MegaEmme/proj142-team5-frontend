@@ -2,12 +2,12 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
     const location = useLocation();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    // Mostra il bottone solo se NON siamo sulla home
-    const goBack = () => {
-        navigate(-1);
-    };
+    // // Mostra il bottone solo se NON siamo sulla home
+    // const goBack = () => {
+    //     navigate(-1);
+    // };
 
     return (
         <>
@@ -36,13 +36,13 @@ const Header = () => {
                     </ul>
                 </div>
 
-                {goBack && (
+                {/* {goBack && (
                     <div className="container mt-2 d-flex">
                         <button className="btn" onClick={goBack}>
                             indietro
                         </button>
                     </div>
-                )}
+                )} */}
             </header>
         </>
     );
