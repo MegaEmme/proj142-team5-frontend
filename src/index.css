@@ -1,28 +1,31 @@
+/* LIGHT MODE */
 body {
     background-image: url('/background-light.jpeg');
     background-repeat: repeat;
 }
 
+/* Logo */
 .logo-container {
-  width: 7rem;
-  height: 7rem;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 3px solid greenyellow;
-  background-color: greenyellow; 
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 3px solid greenyellow;
+    background-color: greenyellow;
 }
 
 .img-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
+/* Header */
 header {
     background-color: rgb(192, 237, 192);
 }
@@ -40,114 +43,185 @@ header .btn {
 header .btn:hover {
     background-color: white;
 }
+
 header .btn:focus {
     background-color: greenyellow;
     color: rgb(24, 71, 0);
 }
 
+
+
 .height-header {
     height: 16vh;
 }
 
-.blogcard {
-
-    width: 100%;
-    margin-top: 1.5em;
-    padding: 0.75em;
-    
-    
+/* Bottone "Scopri i nostri esemplari" nella sezione benvenuto */
+.welcome-btn {
+    transition: all 0.3s ease-in-out;
 }
 
-.carousel,
-.carousel-inner,
-.carousel-item,
-.carousel-item img {
-    border-radius: 15px;
-    overflow: hidden;
-    object-fit: cover;
-    padding: 0 2vw;
+.welcome-btn:hover {
+    background-color: greenyellow;
+    color: white;
+    transform: scale(1.05);
 }
 
-.carousel {
-    margin: 30px 0px;
+/* BlogCard - FunFactCard - SnakeCard - Generiche */
+.blogcard,
+.snakecard,
+.funfactcard,
+.carosello,
+.carosellotext {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: black;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+/* Card generiche */
 .card {
     width: 100%;
-    height: 60c;
+    height: auto;
     margin: auto;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
 .card-img-top {
     width: 150px;
     height: 150px;
-    border-radius: 10px;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    margin: auto;
+    display: block;
 }
 
+/* Titolo Shop */
 .titoloshop {
-    background-color: rgba(255, 255, 255, .7);
+    background-color: rgba(255, 255, 255, 0.8);
     color: black;
+    font-weight: bold;
+    font-size: 2rem;
 }
 
-.snakecard,
-.blogcard,
-.funfactcard,
-.carosello,
-.carosellotext {
-    background-color: white;
-    color: black;
+/* Carousel */
+.carousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item img {
+    border-radius: 1rem;
+    overflow: hidden;
+    object-fit: cover;
+    height: 400px;
 }
 
+.carousel {
+    margin: 30px 0;
+    max-width: 1200px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+/* Bottone "Leggi di più" del carosello */
+.carousel-caption .btnblog {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.carousel-caption .btnblog:hover {
+    background-color: greenyellow;
+    color: black;
+    transform: scale(1.05);
+}
+
+/* Frecce del carosello */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: green;
     border-radius: 10%;
 }
 
+/* Bottoni e Prezzi */
 .price,
 .btnblog {
     background-color: rgb(1, 81, 1);
     color: white;
     text-align: center;
+    border: none;
 }
 
 .price:hover,
 .btnblog:hover {
     background-color: greenyellow;
-    color: rgb(0, 0, 0);
+    color: black;
+}
+
+.funfactcard-mini {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: black;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.funfactcard-mini:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.img-funfact {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+.funfactcard-mini .card-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.funfactcard-mini .card-text {
+    font-size: 0.85rem;
+    color: #333;
+}
+
+/* Bottoni coerenti */
+.funfactcard-mini .btnblog {
+    background-color: rgb(1, 81, 1);
+    color: white;
+    border: none;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.funfactcard-mini .btnblog:hover {
+    background-color: greenyellow;
+    color: black;
+    transform: scale(1.05);
 }
 
 
-.imgfloat {
-    float: left;
-    width: 20%;
-}
-
-
-
-
-@media (max-width: 768px) {
-    .jumbotron {
-        height: 40vh;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1200px) {
-    .jumbotron {
-        height: 60vh;
-    }
-}
-
-
-@media (min-width: 1201px) {
-    .jumbotron {
-        height: 80vh;
-    }
-}
-
-/* da qui in poi è per la modalità scura */
-
-
+/* DARK MODE */
 @media (prefers-color-scheme: dark) {
     body {
         background-image: url('/background-dark.jpeg');
@@ -166,8 +240,9 @@ header .btn:focus {
     .funfactcard,
     .carosello,
     .carosellotext {
-        background-color: rgb(32, 30, 30);
-        color: rgb(255, 255, 255);
+        background-color: rgba(32, 30, 30, 0.95);
+        color: white;
+        border-radius: 1rem;
     }
 
     .titoloshop {
@@ -186,5 +261,49 @@ header .btn:focus {
     .carousel-control-next-icon {
         background-color: greenyellow;
         border-radius: 10%;
+    }
+
+    .carousel-caption .btnblog {
+        background-color: greenyellow;
+        color: black;
+    }
+
+    .carousel-caption .btnblog:hover {
+        background-color: white;
+        color: green;
+        transform: scale(1.05);
+    }
+
+    .welcome-btn {
+        background-color: greenyellow;
+        color: black;
+    }
+
+    .welcome-btn:hover {
+        background-color: white;
+        color: green;
+        transform: scale(1.05);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .funfactcard-mini {
+        background-color: rgba(32, 30, 30, 0.95);
+        color: white;
+    }
+
+    .funfactcard-mini .card-text {
+        color: #ccc;
+    }
+
+    .funfactcard-mini .btnblog {
+        background-color: greenyellow;
+        color: black;
+    }
+
+    .funfactcard-mini .btnblog:hover {
+        background-color: white;
+        color: green;
+        transform: scale(1.05);
     }
 }
