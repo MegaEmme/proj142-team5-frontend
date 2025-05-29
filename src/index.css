@@ -115,6 +115,10 @@ header .btn:hover {
 }
 
 
+.imgfloat {
+    float: left;
+    width: 20%;
+}
 
 
 
