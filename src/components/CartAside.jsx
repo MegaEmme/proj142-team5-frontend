@@ -10,43 +10,37 @@ import {
 } from "../utils/cartUtils";
 
 const CartAside = ({ isOpen, onClose }) => {
-    const offCanvasRef = useRef(null); // Collegamento al DOM reale dell'Offcanvas
+    const offCanvasRef = useRef(null);
     const navigate = useNavigate();
-    const [cart, setCart] = useState([]); // Stato locale del carrello
+    const [cart, setCart] = useState([]);
 
-    // Al primo render, carica il carrello da localStorage
+    // Carica carrello da localStorage al primo render
     useEffect(() => {
         setCart(getCart());
     }, []);
 
-    // Ogni volta che cambia il carrello, lo salva in localStorage
+    // Salva ogni cambiamento del carrello
     useEffect(() => {
         saveCart(cart);
     }, [cart]);
 
-    // Controlla apertura/chiusura dinamica dell'Offcanvas
+    // Mostra/nasconde l'Offcanvas
     useEffect(() => {
         if (!offCanvasRef.current) return;
         const bsOffcanvas = Offcanvas.getOrCreateInstance(offCanvasRef.current);
 
-        if (isOpen) {
-            if (!offCanvasRef.current.classList.contains("show")) {
-                bsOffcanvas.show();
-            }
-        } else {
-            if (offCanvasRef.current.classList.contains("show")) {
-                bsOffcanvas.hide();
-            }
+        if (isOpen && !offCanvasRef.current.classList.contains("show")) {
+            bsOffcanvas.show();
+        } else if (!isOpen && offCanvasRef.current.classList.contains("show")) {
+            bsOffcanvas.hide();
         }
     }, [isOpen]);
 
-    // Chiude l'Offcanvas anche da click fuori o X
+    // Chiude il pannello su X o clic esterno
     useEffect(() => {
-        const handleHide = () => {
-            onClose(); // Notifica al componente padre che è stato chiuso
-        };
-
+        const handleHide = () => onClose();
         const current = offCanvasRef.current;
+
         if (current) {
             current.addEventListener("hide.bs.offcanvas", handleHide);
         }
@@ -58,22 +52,19 @@ const CartAside = ({ isOpen, onClose }) => {
         };
     }, [onClose]);
 
-    // Vai alla pagina carrello
     const handleProceedToCartPage = () => {
         onClose();
         navigate("/cart");
     };
 
-    // Svuota tutto il carrello
     const handleClearCart = () => {
         clearCart();
         setCart([]);
     };
 
-    // Rimuove un singolo prodotto per nome
     const handleRemoveItem = (name) => {
-        const updated = removeItemFromCart(name); // Rimuove anche dal localStorage
-        setCart(updated); // Aggiorna lo stato React
+        const updated = removeItemFromCart(name);
+        setCart(updated);
     };
 
     return ReactDOM.createPortal(
@@ -102,9 +93,7 @@ const CartAside = ({ isOpen, onClose }) => {
                         <ul className="list-group mb-3">
                             {cart.map((item, index) => (
                                 <li className="list-group-item d-flex justify-content-between align-items-center" key={index}>
-                                    <span>
-                                        {item.name} – Quantità: {item.quantity}
-                                    </span>
+                                    <span>{item.name} – Quantità: {item.quantity}</span>
                                     <button
                                         className="btn btn-sm btn-danger"
                                         onClick={() => handleRemoveItem(item.name)}

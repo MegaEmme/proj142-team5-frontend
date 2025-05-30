@@ -22,12 +22,12 @@ const SnakeDetailCard = ({ data }) => {
                 <div className="card-body">
                     <h5 className="card-title"><strong>{scientific_name}</strong>  </h5>
                     <p className="card-text">Conosciuto come <strong>{common_name}</strong> , è un {description}</p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Sesso: <strong>{sex}</strong> </li>
-                        <li class="list-group-item">Temperamento: <strong>{temperament}</strong>  </li>
-                        <li class="list-group-item">Morfologia: <strong>{morph}</strong>  </li>
-                        <li class="list-group-item">Difficoltà: <strong>{difficulty}</strong> </li>
-                        <li class="list-group-item">Prezzo: <strong>€{price}</strong></li>
+                    <ul className="list-group list-group-flush">
+                        <li className="list-group-item">Sesso: <strong>{sex}</strong> </li>
+                        <li className="list-group-item">Temperamento: <strong>{temperament}</strong>  </li>
+                        <li className="list-group-item">Morfologia: <strong>{morph}</strong>  </li>
+                        <li className="list-group-item">Difficoltà: <strong>{difficulty}</strong> </li>
+                        <li className="list-group-item">Prezzo: <strong>€{price}</strong></li>
                     </ul>
                 </div>
             </div>

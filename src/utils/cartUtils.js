@@ -15,3 +15,11 @@ export function getCart() {
 export function clearCart() {
     localStorage.removeItem(CART_KEY);
 }
+
+// Rimuove un singolo elemento dal carrello per nome
+export function removeItemFromCart(name) {
+    const currentCart = getCart();
+    const updatedCart = currentCart.filter(item => item.name !== name);
+    saveCart(updatedCart);
+    return updatedCart;
+}
