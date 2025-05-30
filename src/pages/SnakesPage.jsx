@@ -91,12 +91,15 @@ const SnakesPage = () => {
         <h1 className="fw-bolder defaultcard mb-4 mt-5 py-4 rounded-3">I nostri Serpenti</h1>
       </div>
 
-      {/* Bottoni Ordina e Filtra con in mezzo la ricerca*/}
+      {/* Bottoni Ordina e Filtra*/}
       <div className="mb-4 d-flex gap-3 justify-content-between" ref={dropdownRef}>
         <div className="position-relative">
           <button
             className="btn btnblog"
-            onClick={() => setSortDropdownOpen(prev => !prev)}
+            onClick={() => {
+              setSortDropdownOpen(prev => !prev);
+              setFilterDropdownOpen(false);
+            }}
           >
             Ordina {sortDropdownOpen ? "▲" : "▼"}
           </button>
@@ -155,7 +158,10 @@ const SnakesPage = () => {
         <div>
           <button
             className="btn btnblog"
-            onClick={() => setFilterDropdownOpen(prev => !prev)}
+            onClick={() => {
+              setFilterDropdownOpen(prev => !prev);
+              setSortDropdownOpen(false);
+            }}
           >
             Filtra {filterDropdownOpen ? "▲" : "▼"}
           </button>
