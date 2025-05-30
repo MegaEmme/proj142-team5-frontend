@@ -9,12 +9,13 @@ export default function FunFactSection() {
                     funFacts.map(fact => (
                         <div className="col-12 col-md-4 mb-4 " key={fact.id}>
                             <div className="card funfactcard-mini blogcard h-100 shadow-sm p-2 d-flex flex-column align-items-center">
-                                <img src={fact.image} className="card-img-top rounded-3 img-funfact" alt={fact.titolo} />
+
                                 <div className=" p-2 text-center">
-                                    <h6>{fact.titolo}</h6>
+                                    <img src={fact.image} className="card-img-top rounded-3 img-funfact" alt={fact.titolo} />
+                                    <h6 className="mt-3">{fact.titolo}</h6>
                                     <p className="small">{fact.contenuto}</p>
-                                    <button className="btn btnblog mt-2 btn-sm">Scopri di più</button>
                                 </div>
+                                <button className="btn btnblog mt-2 btn-sm">Scopri di più</button>
                             </div>
                         </div>
                     ))
