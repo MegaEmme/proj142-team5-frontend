@@ -53,7 +53,7 @@ export default function Carousel() {
                                 <h5 className="fw-bold text-center">{blog.title}</h5>
                                 <p className="text-center">{blog.excerpt}</p>
                                 <Link to={`/blog/${blog.id}`}>
-                                    <button className="btn btnblog mb-3">Leggi di più</button>
+                                    <button className="btn btnblog">Leggi di più</button>
                                 </Link>
                             </div>
                         </div>

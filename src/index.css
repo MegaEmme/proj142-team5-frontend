@@ -180,8 +180,7 @@ header .btn:focus {
     object-position: center;
 }
 .blogcard-img-container {
-    width: 220px;
-    height: 160px;
+    width: 100%;
     flex-shrink: 0;
     overflow: hidden;
     border-radius: 0.75rem;
@@ -218,7 +217,7 @@ header .btn:focus {
 
 /* FunFactCard Mini */
 .funfactcard-mini {
-    background-color: rgba(32, 30, 30, 0.95); /* Ora scura anche in modalità chiara */
+    background-color: rgba(32, 30, 30, 0.95); /* colore scuro */
     color: white;
     border-radius: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -226,11 +225,12 @@ header .btn:focus {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
 .funfactcard-mini:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .img-funfact {
@@ -243,6 +243,7 @@ header .btn:focus {
 .funfactcard-mini .card-title {
     font-size: 1rem;
     font-weight: bold;
+    color: white;
 }
 
 .funfactcard-mini .card-text {
@@ -264,7 +265,6 @@ header .btn:focus {
     color: black;
     transform: scale(1.05);
 }
-
 @media (min-width: 768px) {
     .carousel-inner {
         height: 400px;
