@@ -4,9 +4,14 @@ import Loader from "../components/Loader";
 import { useContext } from "react";
 import GlobalContext from "../contexts/globalcontext";
 import Footer from "../components/Footer";
+import CartAside from "../components/CartAside";
 
 const DefaultLayout = () => {
-  const { isLoading } = useContext(GlobalContext);
+  const { isLoading, isCartOpen, setIsCartOpen } = useContext(GlobalContext);
+
+  const handleCloseCart = () => {
+    setIsCartOpen(false);
+  };
 
   return (
     <>
@@ -15,6 +20,7 @@ const DefaultLayout = () => {
         <Outlet />
       </main>
       {isLoading && <Loader />}
+      <CartAside isOpen={isCartOpen} onClose={handleCloseCart} />
       <Footer />
     </>
   );

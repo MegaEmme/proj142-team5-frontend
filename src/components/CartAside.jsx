@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import {
     Offcanvas
@@ -6,21 +6,27 @@ import {
 
 
 const CartAside = ({ isOpen, onClose }) => {
-    const offCanvasRef = useState(null);
+
+    const offCanvasRef = useRef(null);
 
     useEffect(() => {
         let bsOffcanvas;
+
         if (offCanvasRef.current) {
-            bsOffcanvas = new Offcanvas(offCanvasRef.current);
+            bsOffcanvas = Offcanvas.getOrCreateInstance(offCanvasRef.current);
 
             if (isOpen) {
-                bsOffcanvas.show();
+                if (!offCanvasRef.current.classList.contains("show")) {
+                    bsOffcanvas.show();
+                }
             } else {
-                bsOffcanvas.hide();
+                if (offCanvasRef.current.classList.contains("show")) {
+                    bsOffcanvas.hide();
+                }
             }
 
             return () => {
-                if (bsOffcanvas) {
+                if (bsOffcanvas && offCanvasRef.current) {
                     bsOffcanvas.dispose();
                 }
             }
@@ -29,13 +35,14 @@ const CartAside = ({ isOpen, onClose }) => {
 
     useEffect(() => {
         const handleHide = () => onClose();
-        const currentOffCanvas = offCanvasRef.current;
-        if (currentOffCanvas) {
-            currentOffCanvas.addEventListener('hide.bs.offcanvas', handleHide);
+
+        const current = offCanvasRef.current;
+        if (current) {
+            current.addEventListener('hide.bs.offcanvas', handleHide);
         }
         return () => {
-            if (currentOffCanvas) {
-                currentOffCanvas.removeEventListener('hide.bs.offcanvas', handleHide);
+            if (current) {
+                current.removeEventListener('hide.bs.offcanvas', handleHide);
             }
         }
     }, [onClose]);
@@ -58,7 +65,6 @@ const CartAside = ({ isOpen, onClose }) => {
                     className="btn-close"
                     data-bs-dismiss="offcanvas"
                     aria-label="Close"
-                    onClick={onClose}
                 ></button>
 
             </div>

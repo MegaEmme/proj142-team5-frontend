@@ -1,14 +1,23 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink, useLocation, Link } from "react-router-dom";
 import { useState } from "react";
+import GlobalContext from "../contexts/globalcontext";
 
 const Header = () => {
     const location = useLocation();
     const [menuOpen, setMenuOpen] = useState(false);
+    const { setIsCartOpen } = useContext(GlobalContext);
+
+    const cartItemsCount = 0; //const da rendere dinamica per conteggio articoli carrello e controllo errori tipo se il carrello è vuoto
+
+    const handleOpenCart = () => {
+        setIsCartOpen(true);
+    };
 
     return (
         <header className="py-3 shadow w-100 position-relative">
             <div className="container d-flex justify-content-between align-items-center position-relative">
-                
+
                 {/* LOGO */}
                 <div className="logo-container">
                     <NavLink to="/" className="text-decoration-none">
@@ -35,14 +44,32 @@ const Header = () => {
 
                 {/* MENU MOBILE */}
                 <div
-                    className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${
-                        menuOpen ? "show" : "hide"
-                    }`}
+                    className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${menuOpen ? "show" : "hide"
+                        }`}
                 >
                     <li><NavLink to="/" onClick={() => setMenuOpen(false)} className="d-block mb-2 text-decoration-none">Homepage</NavLink></li>
                     <li><NavLink to="/snakes" onClick={() => setMenuOpen(false)} className="d-block mb-2 text-decoration-none">Shop</NavLink></li>
                     <li><NavLink to="/blog" onClick={() => setMenuOpen(false)} className="d-block mb-2 text-decoration-none">Blog</NavLink></li>
                     <li><NavLink to="/cart" onClick={() => setMenuOpen(false)} className="d-block text-decoration-none"><i className="fa-solid fa-bag-shopping"></i></NavLink></li>
+                </div>
+
+                {/* CARRELLO */}
+                <div className="text-end">
+                    <button
+                        className="btn btn-primary position-relative"
+                        type="button"
+                        onClick={handleOpenCart}
+                    >
+
+                        <i className="bi bi-cart me-1"></i>
+                        Carrello
+                        {cartItemsCount > 0 && (
+                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {cartItemsCount}
+                                <span className="visually-hidden">articoli nel carrello</span>
+                            </span>
+                        )}
+                    </button>
                 </div>
             </div>
         </header>
