@@ -9,7 +9,6 @@ const SnakesPage = () => {
   const [snakes, setSnakes] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Imposta i filtri da URL
   const [sortName, setSortName] = useState(searchParams.get("sortName") || "name");
   const [sortPrice, setSortPrice] = useState(searchParams.get("sortPrice") || "");
   const [habitat, setHabitat] = useState(searchParams.get("habitat") || "");
@@ -17,30 +16,40 @@ const SnakesPage = () => {
   const [discount, setDiscount] = useState(searchParams.get("discount") === "true" ? true : searchParams.get("discount") === "false" ? false : null);
   const [morph, setMorph] = useState(searchParams.get("morph") === "true" ? true : searchParams.get("morph") === "false" ? false : null);
   const [search, setSearch] = useState(searchParams.get("search") || "");
+  const [searchInput, setSearchInput] = useState(search);
 
   const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
   const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const { setIsLoading } = useContext(GlobalContext);
 
-  // Pagination
   const [page, setPage] = useState(1);
   const itemsPerPage = 8;
   const totalPages = Math.ceil(snakes.length / itemsPerPage);
   const paginatedSnakes = snakes.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+
   useEffect(() => { setPage(1); }, []);
 
   useEffect(() => {
-    setSearchParams({
-      sortName,
-      sortPrice,
-      habitat,
-      temperament,
-      discount,
-      morph,
-      search
-    });
+    const params = {};
+
+    if (sortName) params.sortName = sortName;
+    if (sortPrice) params.sortPrice = sortPrice;
+    if (habitat) params.habitat = habitat;
+    if (temperament) params.temperament = temperament;
+    if (discount !== null) params.discount = discount;
+    if (morph !== null) params.morph = morph;
+    if (search.trim() !== "") params.search = search;
+
+    setSearchParams(params);
   }, [sortName, sortPrice, habitat, temperament, discount, morph, search]);
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      setSearch(searchInput);
+    }, 500);
+    return () => clearTimeout(delay);
+  }, [searchInput]);
 
   useEffect(() => {
     getSnakes();
@@ -88,8 +97,8 @@ const SnakesPage = () => {
           type="text"
           className="form-control d-inline w-50"
           placeholder="Cerca per nome..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
         />
       </div>
 
@@ -105,7 +114,7 @@ const SnakesPage = () => {
           {sortDropdownOpen && (
             <div className="border rounded bg-light p-3 mt-2 shadow" style={{ maxWidth: "300px", zIndex: 1000, position: "absolute" }}>
               <div className="mb-2">
-                <label className="form-label">Ordina per nome:</label>
+                <label className="form-label">Ordina per Nome:</label>
                 <select className="form-select" value={sortName} onChange={e => {
                   setSortName(e.target.value);
                   setSortPrice("");
@@ -116,7 +125,7 @@ const SnakesPage = () => {
               </div>
 
               <div className="mb-2">
-                <label className="form-label">Ordina per prezzo:</label>
+                <label className="form-label">Ordina per Prezzo:</label>
                 <select className="form-select" value={sortPrice} onChange={e => {
                   setSortPrice(e.target.value);
                   setSortName("");
@@ -128,7 +137,7 @@ const SnakesPage = () => {
               </div>
 
               <div className="mb-2">
-                <label className="form-label">Habitat:</label>
+                <label className="form-label">Ordina per Habitat:</label>
                 <select className="form-select" value={habitat} onChange={e => setHabitat(e.target.value)}>
                   <option value="">Tutti</option>
                   <option value="Foreste e giungle tropicali umide">Foreste e giungle tropicali umide</option>
@@ -140,7 +149,7 @@ const SnakesPage = () => {
               </div>
 
               <div className="mb-2">
-                <label className="form-label">Temperamento:</label>
+                <label className="form-label">Ordina per Temperamento:</label>
                 <select className="form-select" value={temperament} onChange={e => setTemperament(e.target.value)}>
                   <option value="">Tutti</option>
                   <option value="docile">docile</option>
