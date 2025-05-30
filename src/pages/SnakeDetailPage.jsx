@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SnakeDetailCard from "../components/SnakeDetailCard";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const SnakeDetailPage = () => {
@@ -27,10 +28,7 @@ const SnakeDetailPage = () => {
     if (currentSnake) {
         return (
             <>
-
                 <SnakeDetailCard data={currentSnake} />
-
-                <button type="button" className="btn btn-light mb-5">Aggiungi al carrelo</button>
             </>
         )
     }
