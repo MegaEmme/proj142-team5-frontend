@@ -3,7 +3,6 @@ import funFacts from "../data/funFacts";
 export default function FunFactSection() {
     return (
         <div className="container my-5 ">
-            <h2 className="text-center text-white mb-4">Curiosità dal mondo dei serpenti</h2>
             <div className="row justify-content-center ">
                 {funFacts.length ? (
                     funFacts.map(fact => (
@@ -15,7 +14,7 @@ export default function FunFactSection() {
                                     <h6 className="mt-3">{fact.titolo}</h6>
                                     <p className="small">{fact.contenuto}</p>
                                 </div>
-                                <button className="btn btnblog mt-2 btn-sm">Scopri di più</button>
+                                {/* <button className="btn btnblog mt-2 btn-sm">Scopri di più</button> */}
                             </div>
                         </div>
                     ))

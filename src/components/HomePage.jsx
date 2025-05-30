@@ -116,9 +116,12 @@ export default function HomePage() {
             </div>
 
             {/* Sezione Fun Fact */}
-            <div className="card container mb-3 py-2 blogcard">
-                <h2>Scopri interessanti fun fact sui serpenti!</h2>
+            <div className="container">
+                <div className="card container blogcard py-3 text-center">
+                    <h2>Scopri interessanti fun fact sui serpenti!</h2>
+                </div>
             </div>
+
             <FunFactSection />
         </>
     );
