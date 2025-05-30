@@ -7,6 +7,7 @@ import {
     saveCart,
     clearCart,
     removeItemFromCart,
+    addItemToCart
 } from "../utils/cartUtils";
 import GlobalContext from "../contexts/globalcontext";
 
@@ -20,24 +21,24 @@ const CartAside = ({ isOpen, onClose }) => {
     const [totalPrice, setTotalPrice] = useState(0)
 
 
-    // Carica carrello da localStorage al primo render
+
     useEffect(() => {
         setCart(getCart());
     }, []);
 
 
-    //aggiorna prezzo totale
+
     useEffect(() => {
         const total = cart.reduce((acc, item) => acc + parseInt(item.price), 0);
         setTotalPrice(total);
     }, [cart]);
 
-    // Salva ogni cambiamento del carrello
+
     useEffect(() => {
         saveCart(cart);
     }, [cart]);
 
-    // Mostra/nasconde l'Offcanvas
+
     useEffect(() => {
         if (!offCanvasRef.current) return;
         const bsOffcanvas = Offcanvas.getOrCreateInstance(offCanvasRef.current);
@@ -49,7 +50,7 @@ const CartAside = ({ isOpen, onClose }) => {
         }
     }, [isOpen]);
 
-    // Chiude il pannello su X o clic esterno
+
     useEffect(() => {
         const handleHide = () => onClose();
         const current = offCanvasRef.current;

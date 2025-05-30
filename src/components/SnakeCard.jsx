@@ -1,16 +1,9 @@
 import { Link } from "react-router-dom";
 import GlobalContext from "../contexts/globalcontext";
 import { useContext } from "react";
+import { addItemToCart } from "../utils/cartUtils";
 
 const SnakeCard = ({ data }) => {
-
-  function addSnakeToCart() {
-
-    const addedSnake = [...cart, data]
-    setCart(addedSnake)
-    
-  }
-
   const { cart, setCart } = useContext(GlobalContext);
 
   const {
@@ -22,6 +15,12 @@ const SnakeCard = ({ data }) => {
     discount,
     slug
   } = data;
+
+  function handleAddSnakeToCart() {
+    const updatedCart = addItemToCart(data);
+
+    setCart(updatedCart);
+  }
 
   return (
     <div className="card snakecard h-100">
@@ -40,7 +39,7 @@ const SnakeCard = ({ data }) => {
           <p className="mb-4 fs-3">Prezzo: <strong>{discount ? price - (price * discount) : price} €</strong></p>
           <div className="d-flex justify-content-between gap-2">
             <Link to={`/snakes/${slug}`} className="btn btnblog flex-shrink-2">Dettagli esemplare</Link>
-            <button className="btn btncart flex-shrink-2" onClick={() => {addSnakeToCart()}}><strong>Aggiungi al carrello</strong></button>
+            <button className="btn btncart flex-shrink-2" onClick={handleAddSnakeToCart}><strong>Aggiungi al carrello</strong></button>
           </div>
         </div>
 
