@@ -7,6 +7,7 @@ import {
     saveCart,
     clearCart,
     removeItemFromCart,
+    addItemToCart
 } from "../utils/cartUtils";
 import GlobalContext from "../contexts/globalcontext";
 

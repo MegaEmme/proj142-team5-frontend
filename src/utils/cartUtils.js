@@ -23,3 +23,17 @@ export function removeItemFromCart(slug) {
     saveCart(updatedCart);
     return updatedCart;
 }
+
+export function addItemToCart(newItem) {
+    let currentCart = getCart();
+    const isItemInCart = currentCart.some(item => item.slug === newItem.slug);
+
+    if (isItemInCart) {
+        console.warn(`L'esemplare "${newItem.common_name}" è già presente nel carrello e non può essere aggiunto nuovamente.`);
+        return currentCart;
+    } else {
+        const updatedCart = [...currentCart, newItem];
+        saveCart(updatedCart);
+        return updatedCart;
+    }
+}
