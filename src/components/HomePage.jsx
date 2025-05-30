@@ -46,7 +46,7 @@ export default function HomePage() {
         <>
             {/* Sezione Benvenuto */}
             <div className="container-fluid py-4">
-                <div className="blogcard text-center px-5 py-4 rounded-4 mx-auto w-100 mb-4 mt-5 shadow">
+                <div className="defaultcard text-center px-5 py-4 rounded-4 mx-auto w-100 mb-4 mt-5 shadow">
 
                     {/* Icona decorativa opzionale */}
                     <div className="mb-2">
@@ -117,7 +117,7 @@ export default function HomePage() {
 
             {/* Sezione Fun Fact */}
             <div className="container">
-                <div className="card container blogcard py-3 text-center">
+                <div className="card container defaultcard py-3 text-center">
                     <h2>Scopri interessanti fun fact sui serpenti!</h2>
                 </div>
             </div>

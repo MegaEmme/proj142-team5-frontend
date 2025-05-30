@@ -274,10 +274,8 @@ header a:hover {
         color: white;
     }
 
-    .price,
-    .btnblog,
-    .btnblog,
-    .funfactcard-mini .btnblog {
+
+    .btnblog {
         background-color: greenyellow;
         color: black;
     }
