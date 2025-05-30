@@ -2,28 +2,31 @@ import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import { Offcanvas } from "bootstrap";
 import { useNavigate } from "react-router-dom";
-import { getCart, saveCart, clearCart } from "../utils/cartUtils";
+import {
+    getCart,
+    saveCart,
+    clearCart,
+    removeItemFromCart,
+} from "../utils/cartUtils";
 
 const CartAside = ({ isOpen, onClose }) => {
-    const offCanvasRef = useRef(null);
+    const offCanvasRef = useRef(null); // Collegamento al DOM reale dell'Offcanvas
     const navigate = useNavigate();
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState([]); // Stato locale del carrello
 
-    //carico il carrello dal localstorage al primo render
-
+    // Al primo render, carica il carrello da localStorage
     useEffect(() => {
         setCart(getCart());
     }, []);
 
-    //salvo il carrello a ogni cambiamento
-
+    // Ogni volta che cambia il carrello, lo salva in localStorage
     useEffect(() => {
-        saveCart(cart)
+        saveCart(cart);
     }, [cart]);
 
+    // Controlla apertura/chiusura dinamica dell'Offcanvas
     useEffect(() => {
         if (!offCanvasRef.current) return;
-
         const bsOffcanvas = Offcanvas.getOrCreateInstance(offCanvasRef.current);
 
         if (isOpen) {
@@ -37,13 +40,13 @@ const CartAside = ({ isOpen, onClose }) => {
         }
     }, [isOpen]);
 
+    // Chiude l'Offcanvas anche da click fuori o X
     useEffect(() => {
         const handleHide = () => {
-            onClose(); // chiama la funzione passata dal padre per aggiornare lo stato
+            onClose(); // Notifica al componente padre che è stato chiuso
         };
 
         const current = offCanvasRef.current;
-
         if (current) {
             current.addEventListener("hide.bs.offcanvas", handleHide);
         }
@@ -55,9 +58,22 @@ const CartAside = ({ isOpen, onClose }) => {
         };
     }, [onClose]);
 
+    // Vai alla pagina carrello
     const handleProceedToCartPage = () => {
         onClose();
-        navigate('/cart');
+        navigate("/cart");
+    };
+
+    // Svuota tutto il carrello
+    const handleClearCart = () => {
+        clearCart();
+        setCart([]);
+    };
+
+    // Rimuove un singolo prodotto per nome
+    const handleRemoveItem = (name) => {
+        const updated = removeItemFromCart(name); // Rimuove anche dal localStorage
+        setCart(updated); // Aggiorna lo stato React
     };
 
     return ReactDOM.createPortal(
@@ -79,22 +95,43 @@ const CartAside = ({ isOpen, onClose }) => {
             </div>
 
             <div className="offcanvas-body">
-                <p>Nessun prodotto nel carrello.</p>
-
-                {/* 
-        Esempio prodotti:
-        <ul className="list-group">
-          <li className="list-group-item">Prodotto 1 - Quantità: 2</li>
-          <li className="list-group-item">Prodotto 2 - Quantità: 1</li>
-        </ul>
-        */}
+                {cart.length === 0 ? (
+                    <p>Nessun prodotto nel carrello.</p>
+                ) : (
+                    <>
+                        <ul className="list-group mb-3">
+                            {cart.map((item, index) => (
+                                <li className="list-group-item d-flex justify-content-between align-items-center" key={index}>
+                                    <span>
+                                        {item.name} – Quantità: {item.quantity}
+                                    </span>
+                                    <button
+                                        className="btn btn-sm btn-danger"
+                                        onClick={() => handleRemoveItem(item.name)}
+                                    >
+                                        ✕
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                        <button
+                            className="btn btn-outline-danger w-100"
+                            onClick={handleClearCart}
+                        >
+                            Svuota Carrello
+                        </button>
+                    </>
+                )}
             </div>
 
             <div className="offcanvas-footer p-3 border-top text-center">
                 <button
                     className="btn btn-primary w-100"
                     onClick={handleProceedToCartPage}
-                >Procedi all'acquisto</button>
+                    disabled={cart.length === 0}
+                >
+                    Procedi all'acquisto
+                </button>
             </div>
         </div>,
         document.body
