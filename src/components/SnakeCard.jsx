@@ -16,7 +16,7 @@ const SnakeCard = ({ data }) => {
   } = data;
 
   return (
-    <div className="card snakecard bg-tertiary h-100">
+    <div className="card snakecard h-100">
       <div className="card-body d-flex flex-column justify-content-between">
         <div>
           <h3 className="card-title text-center">{common_name}</h3>
