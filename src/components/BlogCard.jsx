@@ -14,10 +14,10 @@ const BlogCard = ({ blog }) => {
                 </div>
 
                 {/* CONTENUTO TESTUALE */}
-                <div className="d-flex flex-column mx-3">
-                    <h2 className="text-truncate my-2">{blog.title}</h2>
+                <div className="mx-3 w-75 p-2 d-flex flex-column">
+                    <h2 className=" my-2">{blog.title}</h2>
                     <h4 className="mb-2 my-2">{blog.category}</h4>
-                    <h5 className="flex-grow-1 my-2">{blog.excerpt}</h5>
+                    <h5 className=" my-2">{blog.excerpt}</h5>
                     <div className="d-flex justify-content-between align-items-center my-2 px-2 px-md-5">
                         <small>di {blog.author}</small>
                         <small>{blog.date}</small>
