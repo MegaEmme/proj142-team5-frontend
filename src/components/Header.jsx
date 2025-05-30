@@ -6,9 +6,9 @@ import GlobalContext from "../contexts/globalcontext";
 const Header = () => {
     const location = useLocation();
     const [menuOpen, setMenuOpen] = useState(false);
-    const { setIsCartOpen } = useContext(GlobalContext);
+    const { setIsCartOpen, cart } = useContext(GlobalContext);
 
-    const cartItemsCount = 0; //const da rendere dinamica per conteggio articoli carrello e controllo errori tipo se il carrello è vuoto
+    const cartItemsCount = cart?.length || 0; 
 
     const handleOpenCart = () => {
         setIsCartOpen(true);
