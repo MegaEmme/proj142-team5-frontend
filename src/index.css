@@ -36,7 +36,6 @@ header a:hover {
     color: rgb(152, 254, 0);
 }
 
-
 .height-header {
     height: 16vh;
 }
@@ -61,24 +60,21 @@ header a:hover {
     pointer-events: none;
 }
 
+.filter {
+    width: 300px;
+    z-index: 1000;
+    position: absolute;
+}
+
+
 /* Cards generiche */
 
-.blogcard,
-.snakecard,
-.carosello,
-.carosellotext {
+.defaultcard,
+.snakecard {
     background-color: white;
     color: black;
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.card-img-top {
-    width: 150px;
-    height: 150px;
-    border-radius: 0.75rem;
-    object-fit: cover;
-    display: block;
 }
 
 /* Carousel */
@@ -89,14 +85,22 @@ header a:hover {
 .carousel-caption {
     border-radius: 1rem;
     padding: 2rem 1.5rem 2.8rem;
-    /* padding bottom aumentato per dare spazio al bottone */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: green;
+    border-radius: 10%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* bottoni (btnblog= default button, btncart = tasto aggiungi carrello) */
 .btnblog {
     background-color: rgb(1, 81, 1);
     color: white;
@@ -131,20 +135,8 @@ header a:hover {
     transform: scale(1.05);
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: green;
-    border-radius: 10%;
-}
 
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-
+/* blog */
 .blogcard-img {
     width: 100%;
     height: 100%;
@@ -271,31 +263,14 @@ header a:hover {
     }
 
     .snakecard,
-    .blogcard,
-    .funfactcard,
-    .carosello,
-    .carosellotext {
+    .defaultcard {
         background-color: rgba(32, 30, 30, 0.95);
         color: white;
     }
 
-    .titoloshop {
-        background-color: rgba(3, 3, 3, 0.7);
-        color: white;
-    }
-
-
     .btnblog {
         background-color: greenyellow;
         color: black;
-    }
-
-    .carousel-caption .btnblog:hover,
-    .funfactcard-mini .btnblog:hover,
-    .btn-primary-style:hover {
-        background-color: white;
-        color: green;
-        transform: scale(1.05);
     }
 
     .mobile-menu {
@@ -309,11 +284,6 @@ header a:hover {
 
     .mobile-menu a:hover {
         color: greenyellow;
-    }
-
-    .btn-primary-style {
-        background-color: greenyellow;
-        color: black;
     }
 
     /* impaginazione per shop */

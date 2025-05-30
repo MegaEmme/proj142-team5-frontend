@@ -7,7 +7,7 @@ export default function FunFactSection() {
                 {funFacts.length ? (
                     funFacts.map(fact => (
                         <div className="col-12 col-md-4 mb-4 " key={fact.id}>
-                            <div className="card blogcard h-100 p-2 d-flex flex-column align-items-center">
+                            <div className="card defaultcard h-100 p-2 d-flex flex-column align-items-center">
 
                                 <div className=" p-2 text-center">
                                     <img src={fact.image} className="card-img-top rounded-3 img-funfact" alt={fact.titolo} />

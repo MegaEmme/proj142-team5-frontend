@@ -15,7 +15,7 @@ export default function BlogPageDetails() {
     } = blogs[id - 1]
 
     return (
-        <div className="card p-3 my-5 blogcard p-5 d-flex justify-content-center align-items-center shadow-sm">
+        <div className="card p-3 my-5 defaultcard p-5 d-flex justify-content-center align-items-center shadow-sm">
             <img src={image} alt={title} className="img-blog-detail w-75 " />
             <p>
 

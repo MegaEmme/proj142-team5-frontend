@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Carousel() {
     return (
-        <div className="blogcard">
+        <div className="defaultcard">
             <div
                 id="carouselExampleCaptions"
                 className="carousel slide rounded-4 overflow-hidden "
@@ -45,7 +45,7 @@ export default function Carousel() {
                                     objectPosition: "center",
                                 }}
                             />
-                            <div className="blogcard carousel-caption d-none d-md-flex flex-column align-items-center justify-content-center p-2 rounded-4">
+                            <div className="defaultcard carousel-caption d-none d-md-flex flex-column align-items-center justify-content-center p-2 rounded-4">
                                 <h5 className="fw-bold text-center">{blog.title}</h5>
                                 <p className="text-center m-0 p-0">{blog.excerpt}</p>
                                 <Link to={`/blog/${blog.id}`}>
