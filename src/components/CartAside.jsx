@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import { Offcanvas } from "bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const CartAside = ({ isOpen, onClose }) => {
     const offCanvasRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!offCanvasRef.current) return;
@@ -39,6 +41,11 @@ const CartAside = ({ isOpen, onClose }) => {
         };
     }, [onClose]);
 
+    const handleProceedToCartPage = () => {
+        onClose();
+        navigate('/cart');
+    };
+
     return ReactDOM.createPortal(
         <div
             className="offcanvas offcanvas-end"
@@ -70,7 +77,10 @@ const CartAside = ({ isOpen, onClose }) => {
             </div>
 
             <div className="offcanvas-footer p-3 border-top text-center">
-                <button className="btn btn-primary w-100">Procedi all'acquisto</button>
+                <button
+                    className="btn btn-primary w-100"
+                    onClick={handleProceedToCartPage}
+                >Procedi all'acquisto</button>
             </div>
         </div>,
         document.body
