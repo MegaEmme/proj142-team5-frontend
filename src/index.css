@@ -148,10 +148,15 @@ header .btn:focus {
     border: none;
     text-align: center;
     transition: all 0.3s ease-in-out;
-    margin-top: 2rem;
-    /* distanza dal testo sopra */
-    padding: 0.6rem 1.4rem;
-    border-radius: 1rem;
+    font-weight: bold;
+}
+
+.btncart {
+    background-color: rgb(179, 1, 1);
+    color: white;
+    border: none;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
     font-weight: bold;
 }
 
@@ -160,6 +165,16 @@ header .btn:focus {
 .btnblog:hover {
     background-color: greenyellow;
     color: black;
+    transform: scale(1.05);
+}
+
+.btncart:hover {
+    background-color: rgb(255, 1, 1);
+    color: black;
+    border: none;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
     transform: scale(1.05);
 }
 
@@ -226,19 +241,11 @@ header .btn:focus {
 }
 
 
-.funfactcard-mini .btnblog {
+.funfactcard-mini {
     background-color: rgb(1, 81, 1);
     color: white;
-    font-size: 0.8rem;
-    padding: 0.3rem 0.7rem;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease-in-out;
-}
 
-.funfactcard-mini .btnblog:hover {
-    background-color: greenyellow;
-    color: black;
-    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
 }
 
 @media (min-width: 768px) {
