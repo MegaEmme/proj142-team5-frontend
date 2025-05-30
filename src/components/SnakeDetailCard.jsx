@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
 
+function invertDate(date) {
+    const [year, month, day] = date.split("-");
+    return `${day}-${month}-${year}`;
+  }
+
 const SnakeDetailCard = ({ data }) => {
     const {
         common_name,
@@ -28,7 +33,7 @@ const SnakeDetailCard = ({ data }) => {
                     <p className="card-text">Conosciuto come <strong>{common_name}</strong> , è un {description}</p>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">Sesso: <strong>{sex === "m" ? "maschio" : "femmina"}</strong> </li>
-                        <li className="list-group-item">Data di nascita: <strong>{birth}</strong> </li>
+                        <li className="list-group-item">Data di nascita: <strong>{invertDate(birth.split('T')[0])}</strong> </li>
                         <li className="list-group-item">Temperamento: <strong>{temperament}</strong>  </li>
                         <li className="list-group-item">Morfologia: <strong>{morph === "normal" ? "nessuna" : morph}</strong></li>
                         <li className="list-group-item">Lunghezza: <strong>{length} mt</strong></li>
