@@ -101,7 +101,7 @@ header .btn:focus {
 .snakecard,
 .carosello,
 .carosellotext {
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: white;
     color: black;
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -118,7 +118,7 @@ header .btn:focus {
 
 /* Titolo Shop */
 .titoloshop {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 1);
     color: black;
     font-weight: bold;
     font-size: 2rem;
@@ -214,12 +214,12 @@ header .btn:focus {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 1);
 }
 
 .funfactcard-mini:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
 }
 
 .img-funfact {
