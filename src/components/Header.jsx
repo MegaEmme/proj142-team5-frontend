@@ -56,9 +56,10 @@ const Header = () => {
                 {/* CARRELLO */}
                 <div className="text-end">
                     <button
-                        className="btn btnblog position-relative"
+                        className="btn btnblog"
                         type="button"
                         onClick={handleOpenCart}
+                        id="cart-button"
                     >
                         carrello <i className="fa-solid fa-bag-shopping"></i>
                         {cartItemsCount > 0 && (
