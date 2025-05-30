@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <header className="py-3 shadow w-100 position-relative">
             <div className="container d-flex justify-content-between align-items-center position-relative">
-                
+
                 {/* LOGO */}
                 <div className="logo-container">
                     <NavLink to="/" className="text-decoration-none">
@@ -35,14 +35,13 @@ const Header = () => {
 
                 {/* MENU MOBILE */}
                 <div
-                    className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${
-                        menuOpen ? "show" : "hide"
-                    }`}
+                    className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow m-0 ${menuOpen ? "show" : "hide"
+                        }`}
                 >
-                    <li><NavLink to="/" onClick={() => setMenuOpen(false)} className="d-block mb-2 text-decoration-none">Homepage</NavLink></li>
-                    <li><NavLink to="/snakes" onClick={() => setMenuOpen(false)} className="d-block mb-2 text-decoration-none">Shop</NavLink></li>
-                    <li><NavLink to="/blog" onClick={() => setMenuOpen(false)} className="d-block mb-2 text-decoration-none">Blog</NavLink></li>
-                    <li><NavLink to="/cart" onClick={() => setMenuOpen(false)} className="d-block text-decoration-none"><i className="fa-solid fa-bag-shopping"></i></NavLink></li>
+                    <li><NavLink to="/" onClick={() => setMenuOpen(false)} className="d-block m-3 text-decoration-none fs-1">Homepage</NavLink></li>
+                    <li><NavLink to="/snakes" onClick={() => setMenuOpen(false)} className="d-block m-3 text-decoration-none fs-1">Shop</NavLink></li>
+                    <li><NavLink to="/blog" onClick={() => setMenuOpen(false)} className="d-block m-3 text-decoration-none fs-1">Blog</NavLink></li>
+                    <li><NavLink to="/cart" onClick={() => setMenuOpen(false)} className="d-block text-decoration-none m-3 fs-1"><i className="fa-solid fa-bag-shopping"></i></NavLink></li>
                 </div>
             </div>
         </header>

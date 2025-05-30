@@ -86,7 +86,7 @@ export default function HomePage() {
             </div>
 
             {/* Griglia serpenti scontati */}
-            <div className="container w-75 mb-3 py-2">
+            <div className="container mb-3 py-2">
                 <h2 className="text-center text-white">Serpenti in sconto!</h2>
                 <div className="row mt-4 h-100">
                     {discountedSnakes?.map((discountedSnake) => (
@@ -101,7 +101,7 @@ export default function HomePage() {
             </div>
 
             {/* Griglia serpenti appena nati */}
-            <div className="container w-75 mb-3 py-2">
+            <div className="container mb-3 py-2">
                 <h2 className="text-center text-white">Nascite recenti</h2>
                 <div className="row mt-4 h-100">
                     {newBornSnakes?.map((newBornSnake) => (
@@ -116,7 +116,7 @@ export default function HomePage() {
             </div>
 
             {/* Sezione Fun Fact */}
-            <div className="card container w-75 mb-3 py-2 blogcard">
+            <div className="card container mb-3 py-2 blogcard">
                 <h2>Scopri interessanti fun fact sui serpenti!</h2>
             </div>
             <FunFactSection />
