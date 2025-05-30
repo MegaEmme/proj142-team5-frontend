@@ -17,9 +17,9 @@ export function clearCart() {
 }
 
 // Rimuove un singolo elemento dal carrello per nome
-export function removeItemFromCart(name) {
+export function removeItemFromCart(slug) {
     const currentCart = getCart();
-    const updatedCart = currentCart.filter(item => item.name !== name);
+    const updatedCart = currentCart.filter(item => item.slug !== slug);
     saveCart(updatedCart);
     return updatedCart;
 }

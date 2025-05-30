@@ -67,8 +67,8 @@ const CartAside = ({ isOpen, onClose }) => {
         setCart([]);
     };
 
-    const handleRemoveItem = (name) => {
-        const updated = removeItemFromCart(name);
+    const handleRemoveItem = (id) => {
+        const updated = removeItemFromCart(id);
         setCart(updated);
     };
 
@@ -101,7 +101,7 @@ const CartAside = ({ isOpen, onClose }) => {
                                     <span>{item.common_name}</span>
                                     <button
                                         className="btn btn-sm btn-danger"
-                                        onClick={() => handleRemoveItem(item.name)}
+                                        onClick={() => handleRemoveItem(item.slug)}
                                     >
                                         ✕
                                     </button>
