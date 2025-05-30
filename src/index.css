@@ -213,9 +213,6 @@ header .btn:focus {
 
 /* FunFactCard Mini */
 .funfactcard-mini {
-    background-color: rgba(32, 30, 30, 0.95);
-    /* colore scuro */
-    color: white;
     border-radius: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
