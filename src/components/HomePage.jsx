@@ -46,7 +46,7 @@ export default function HomePage() {
         <>
             {/* Sezione Benvenuto */}
             <div className="container-fluid py-4">
-                <div className=" bg-dark bg-opacity-75 text-white text-center px-5 py-4 rounded-4 mx-auto w-100 mb-4 mt-5S shadow">
+                <div className="blogcard bg-opacity-75 text-white text-center px-5 py-4 rounded-4 mx-auto w-100 mb-4 mt-5S shadow">
 
                     {/* Icona decorativa opzionale */}
                     <div className="mb-2">
@@ -72,7 +72,7 @@ export default function HomePage() {
                         </span>
                     </p>
 
-                    <a href="/snakes" className="btn-primary-style mt-4 btn btnblog mt-4 px-4 py-2 fs-5 rounded-pill">
+                    <a href="/snakes" className="mt-4 btn btnblog mt-4 px-4 py-2 fs-5 rounded-pill">
                         🐍 Scopri i nostri esemplari
                     </a>
                 </div>

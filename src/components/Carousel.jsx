@@ -6,7 +6,7 @@ export default function Carousel() {
         <div className="container py-4"> {/* container e non container-fluid */}
             <div
                 id="carouselExampleCaptions"
-                className="carousel slide shadow rounded-4 overflow-hidden bg-dark bg-opacity-75"
+                className="carousel slide shadow rounded-4 overflow-hidden bg-opacity-75 "
                 data-bs-ride="carousel"
                 data-bs-interval="3000"
                 style={{
@@ -49,7 +49,7 @@ export default function Carousel() {
                                     opacity: "0.6",
                                 }}
                             />
-                            <div className="carousel-caption d-none d-md-flex flex-column align-items-center justify-content-center bg-dark bg-opacity-75 p-4 rounded-4">
+                            <div className="carousel-caption d-none d-md-flex flex-column align-items-center justify-content-center bg-opacity-75 p-4 rounded-4">
                                 <h5 className="fw-bold text-center">{blog.title}</h5>
                                 <p className="text-center">{blog.excerpt}</p>
                                 <Link to={`/blog/${blog.id}`}>
