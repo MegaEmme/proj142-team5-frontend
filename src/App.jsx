@@ -13,13 +13,17 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cart, setCart] = useState([]);
 
   return (
     <GlobalContext.Provider value={{
       isLoading,
       setIsLoading,
       isCartOpen,
-      setIsCartOpen
+      setIsCartOpen,
+      cart,
+      setCart
+
     }}>
       <BrowserRouter>
         <Routes>
