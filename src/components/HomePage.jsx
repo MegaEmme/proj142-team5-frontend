@@ -46,7 +46,7 @@ export default function HomePage() {
         <>
             {/* Sezione Benvenuto */}
             <div className="container-fluid py-4">
-                <div className="blogcard bg-opacity-75 text-white text-center px-5 py-4 rounded-4 mx-auto w-100 mb-4 mt-5S shadow">
+                <div className="blogcard text-center px-5 py-4 rounded-4 mx-auto w-100 mb-4 mt-5 shadow">
 
                     {/* Icona decorativa opzionale */}
                     <div className="mb-2">
@@ -58,7 +58,7 @@ export default function HomePage() {
                     </h2>
 
                     {/* Linea decorativa */}
-                    <hr className="border border-success border-2 opacity-50 w-25 mx-auto my-3" />
+                    <hr className="border border-success border-2 opacity-50 w-50 mx-auto my-3" />
 
                     <p className="mt-3 px-md-4">
                         Scopri il lato affascinante e misterioso del mondo dei serpenti.
@@ -81,13 +81,13 @@ export default function HomePage() {
 
 
             {/* Carousel */}
-            <div className="d-flex justify-content-center">
+            <div className="container d-flex justify-content-center">
                 <Carousel />
             </div>
 
             {/* Griglia serpenti scontati */}
-            <div className="container w-75 mb-3 py-2">
-                <h2 className="text-center text-white">Serpenti in sconto!</h2>
+            <div className="container mb-3 py-2">
+                <h2 className="text-center text-white pt-5">Serpenti in sconto!</h2>
                 <div className="row mt-4 h-100">
                     {discountedSnakes?.map((discountedSnake) => (
                         <div
@@ -101,10 +101,10 @@ export default function HomePage() {
             </div>
 
             {/* Griglia serpenti appena nati */}
-            <div className="container w-75 mb-3 py-2">
-                <h2 className="text-center text-white">Nascite recenti</h2>
+            <div className="container mb-3 py-2">
+                <h2 className="text-center text-white pt-5">Nascite recenti</h2>
                 <div className="row mt-4 h-100">
-                    {newBornSnakes?.slice(0, 6).map((newBornSnake) => (
+                    {newBornSnakes?.map((newBornSnake) => (
                         <div
                             className="col-12 col-md-6 col-lg-4 mb-4"
                             key={newBornSnake.id}
@@ -116,9 +116,12 @@ export default function HomePage() {
             </div>
 
             {/* Sezione Fun Fact */}
-            <div className="card container w-75 mb-3 py-2 blogcard">
-                <h2>Scopri interessanti fun fact sui serpenti!</h2>
+            <div className="container">
+                <div className="card container blogcard py-3 text-center">
+                    <h2>Scopri interessanti fun fact sui serpenti!</h2>
+                </div>
             </div>
+
             <FunFactSection />
         </>
     );

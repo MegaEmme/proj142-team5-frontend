@@ -46,11 +46,13 @@ const Header = () => {
                 <div
                     className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${menuOpen ? "show" : "hide"
                         }`}
+                    className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow m-0 ${menuOpen ? "show" : "hide"
+                        }`}
                 >
-                    <li><NavLink to="/" onClick={() => setMenuOpen(false)} className="d-block mb-2 text-decoration-none">Homepage</NavLink></li>
-                    <li><NavLink to="/snakes" onClick={() => setMenuOpen(false)} className="d-block mb-2 text-decoration-none">Shop</NavLink></li>
-                    <li><NavLink to="/blog" onClick={() => setMenuOpen(false)} className="d-block mb-2 text-decoration-none">Blog</NavLink></li>
-                    <li><NavLink to="/cart" onClick={() => setMenuOpen(false)} className="d-block text-decoration-none"><i className="fa-solid fa-bag-shopping"></i></NavLink></li>
+                    <li><NavLink to="/" onClick={() => setMenuOpen(false)} className="d-block m-3 mb-4 text-decoration-none fs-1"><h2>Homepage</h2></NavLink></li>
+                    <li><NavLink to="/snakes" onClick={() => setMenuOpen(false)} className="d-block m-3 mb-4 text-decoration-none fs-1"><h2>Shop</h2></NavLink></li>
+                    <li><NavLink to="/blog" onClick={() => setMenuOpen(false)} className="d-block m-3 mb-4 text-decoration-none fs-1"><h2>Blog</h2></NavLink></li>
+                    <li><NavLink to="/cart" onClick={() => setMenuOpen(false)} className="d-block text-decoration-none m-3 fs-1"><i className="fa-solid fa-bag-shopping"></i></NavLink></li>
                 </div>
 
                 {/* CARRELLO */}

@@ -34,14 +34,14 @@ header a {
     color: rgb(24, 71, 0);
 }
 
+header a:hover {
+    color: greenyellow;
+}
+
 header .btn {
     margin: auto;
     background-color: greenyellow;
     color: rgb(24, 71, 0);
-}
-
-header .btn:hover {
-    background-color: white;
 }
 
 header .btn:focus {
@@ -101,7 +101,7 @@ header .btn:focus {
 .snakecard,
 .carosello,
 .carosellotext {
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: white;
     color: black;
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -112,13 +112,12 @@ header .btn:focus {
     height: 150px;
     border-radius: 0.75rem;
     object-fit: cover;
-    margin: auto;
     display: block;
 }
 
 /* Titolo Shop */
 .titoloshop {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 1);
     color: black;
     font-weight: bold;
     font-size: 2rem;
@@ -126,16 +125,11 @@ header .btn:focus {
 
 /* Carousel */
 .carousel {
-    margin: 30px 0;
-    max-width: 1200px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
     padding: 1rem;
-    border-radius: 1rem;
 }
 
 .carousel-caption {
-    background-color: rgba(0, 0, 0, 0.6);
+
     border-radius: 1rem;
     padding: 2rem 1.5rem 2.8rem;
     /* padding bottom aumentato per dare spazio al bottone */
@@ -146,7 +140,7 @@ header .btn:focus {
     text-align: center;
 }
 
-.carousel-caption .btnblog,
+.btnblog,
 .price,
 .btnblog {
     background-color: rgb(1, 81, 1);
@@ -154,18 +148,33 @@ header .btn:focus {
     border: none;
     text-align: center;
     transition: all 0.3s ease-in-out;
-    margin-top: 2rem;
-    /* distanza dal testo sopra */
-    padding: 0.6rem 1.4rem;
-    border-radius: 1rem;
     font-weight: bold;
 }
 
-.carousel-caption .btnblog:hover,
+.btncart {
+    background-color: rgb(179, 1, 1);
+    color: white;
+    border: none;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.btnblog:hover,
 .price:hover,
 .btnblog:hover {
     background-color: greenyellow;
     color: black;
+    transform: scale(1.05);
+}
+
+.btncart:hover {
+    background-color: rgb(255, 1, 1);
+    color: black;
+    border: none;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
     transform: scale(1.05);
 }
 
@@ -199,7 +208,6 @@ header .btn:focus {
     width: 100%;
     max-width: 400px;
     flex-shrink: 0;
-    border-radius: 1rem;
     overflow: hidden;
 }
 
@@ -213,19 +221,11 @@ header .btn:focus {
 
 /* FunFactCard Mini */
 .funfactcard-mini {
-    border-radius: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
     display: flex;
-    flex-direction: column;
+    height: 100%;
     justify-content: space-between;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
-.funfactcard-mini:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
 
 .img-funfact {
     width: 100%;
@@ -240,25 +240,6 @@ header .btn:focus {
     color: white;
 }
 
-.funfactcard-mini .card-text {
-    font-size: 0.85rem;
-    color: #ccc;
-}
-
-.funfactcard-mini .btnblog {
-    background-color: rgb(1, 81, 1);
-    color: white;
-    font-size: 0.8rem;
-    padding: 0.3rem 0.7rem;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease-in-out;
-}
-
-.funfactcard-mini .btnblog:hover {
-    background-color: greenyellow;
-    color: black;
-    transform: scale(1.05);
-}
 
 @media (min-width: 768px) {
     .carousel-inner {
@@ -297,7 +278,7 @@ header .btn:focus {
 
     .price,
     .btnblog,
-    .carousel-caption .btnblog,
+    .btnblog,
     .funfactcard-mini .btnblog {
         background-color: greenyellow;
         color: black;
