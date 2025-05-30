@@ -1,11 +1,25 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import { Offcanvas } from "bootstrap";
 import { useNavigate } from "react-router-dom";
+import { getCart, saveCart, clearCart } from "../utils/cartUtils";
 
 const CartAside = ({ isOpen, onClose }) => {
     const offCanvasRef = useRef(null);
     const navigate = useNavigate();
+    const [cart, setCart] = useState([]);
+
+    //carico il carrello dal localstorage al primo render
+
+    useEffect(() => {
+        setCart(getCart());
+    }, []);
+
+    //salvo il carrello a ogni cambiamento
+
+    useEffect(() => {
+        saveCart(cart)
+    }, [cart]);
 
     useEffect(() => {
         if (!offCanvasRef.current) return;
