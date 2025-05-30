@@ -17,12 +17,20 @@ const CartAside = ({ isOpen, onClose }) => {
     const { cart, setCart } = useContext(GlobalContext);
     const offCanvasRef = useRef(null);
     const navigate = useNavigate();
+    const [totalPrice, setTotalPrice] = useState(0)
 
 
     // Carica carrello da localStorage al primo render
     useEffect(() => {
         setCart(getCart());
     }, []);
+
+
+    //aggiorna prezzo totale
+    useEffect(() => {
+        const total = cart.reduce((acc, item) => acc + parseInt(item.price), 0);
+        setTotalPrice(total);
+    }, [cart]);
 
     // Salva ogni cambiamento del carrello
     useEffect(() => {
@@ -124,7 +132,7 @@ const CartAside = ({ isOpen, onClose }) => {
                     onClick={handleProceedToCartPage}
                     disabled={cart.length === 0}
                 >
-                    Procedi all'acquisto
+                    Procedi all'acquisto (tot. {totalPrice.toFixed(2)} €)
                 </button>
             </div>
         </div>,
