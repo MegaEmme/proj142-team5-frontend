@@ -88,7 +88,7 @@ const SnakesPage = () => {
   return (
     <>
       <div className="mb-3 text-center">
-        <h1 className="titoloshop mb-4 mx-5 py-4 rounded-3">I nostri Serpenti</h1>
+        <h1 className="titoloshop mb-4 mt-5 mx-5 py-4 rounded-3">I nostri Serpenti</h1>
       </div>
 
       {/* Barra di ricerca */}
