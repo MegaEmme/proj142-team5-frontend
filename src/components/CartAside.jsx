@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import ReactDOM from "react-dom";
 import { Offcanvas } from "bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -8,11 +8,16 @@ import {
     clearCart,
     removeItemFromCart,
 } from "../utils/cartUtils";
+import GlobalContext from "../contexts/globalcontext";
+
+
 
 const CartAside = ({ isOpen, onClose }) => {
+
+    const { cart, setCart } = useContext(GlobalContext);
     const offCanvasRef = useRef(null);
     const navigate = useNavigate();
-    const [cart, setCart] = useState([]);
+
 
     // Carica carrello da localStorage al primo render
     useEffect(() => {
@@ -93,7 +98,7 @@ const CartAside = ({ isOpen, onClose }) => {
                         <ul className="list-group mb-3">
                             {cart.map((item, index) => (
                                 <li className="list-group-item d-flex justify-content-between align-items-center" key={index}>
-                                    <span>{item.name} – Quantità: {item.quantity}</span>
+                                    <span>{item.common_name}</span>
                                     <button
                                         className="btn btn-sm btn-danger"
                                         onClick={() => handleRemoveItem(item.name)}
