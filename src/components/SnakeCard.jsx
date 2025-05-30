@@ -31,8 +31,8 @@ const SnakeCard = ({ data }) => {
           {discount > 0 && <p className="text-danger">SCONTATO DEL <strong>{discount * 100}%</strong></p>}
           {discount > 0 && <p className="text-danger">Prezzo originale: <strong className="text-decoration-line-through">{price}€</strong></p>}
           <div className="d-flex justify-content-between gap-2">
-            <Link to={`/snakes/${slug}`} className="btn btnblog">Dettagli esemplare</Link>
-            <p className="mb-2 price p-2 rounded-3 fs-6 bg-danger"><strong>Aggiungi al carrello</strong></p>
+            <Link to={`/snakes/${slug}`} className="btn btnblog flex-shrink-2">Dettagli esemplare</Link>
+            <Link to={`/snakes/${slug}`} className="btn btncart flex-shrink-2"><strong>Aggiungi al carrello</strong></Link>
           </div>
         </div>
 
