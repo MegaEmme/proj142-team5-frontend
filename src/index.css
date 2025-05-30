@@ -137,7 +137,8 @@ header .btn:focus {
 .carousel-caption {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 1rem;
-    padding: 2rem 1.5rem 2.8rem; /* padding bottom aumentato per dare spazio al bottone */
+    padding: 2rem 1.5rem 2.8rem;
+    /* padding bottom aumentato per dare spazio al bottone */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -153,7 +154,8 @@ header .btn:focus {
     border: none;
     text-align: center;
     transition: all 0.3s ease-in-out;
-    margin-top: 2rem; /* distanza dal testo sopra */
+    margin-top: 2rem;
+    /* distanza dal testo sopra */
     padding: 0.6rem 1.4rem;
     border-radius: 1rem;
     font-weight: bold;
@@ -179,12 +181,7 @@ header .btn:focus {
     object-fit: cover;
     object-position: center;
 }
-.blogcard-img-container {
-    width: 100%;
-    flex-shrink: 0;
-    overflow: hidden;
-    border-radius: 0.75rem;
-}
+
 
 .blogcard-img {
     width: 100%;
@@ -192,7 +189,6 @@ header .btn:focus {
     object-fit: cover;
     object-position: center;
     display: block;
-    border-radius: 0.75rem;
 }
 
 .blog-detail-wrapper {
@@ -208,16 +204,17 @@ header .btn:focus {
 }
 
 .img-blog-detail {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  border-radius: 0.75rem;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 0.75rem;
 }
 
 /* FunFactCard Mini */
 .funfactcard-mini {
-    background-color: rgba(32, 30, 30, 0.95); /* colore scuro */
+    background-color: rgba(32, 30, 30, 0.95);
+    /* colore scuro */
     color: white;
     border-radius: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -265,6 +262,7 @@ header .btn:focus {
     color: black;
     transform: scale(1.05);
 }
+
 @media (min-width: 768px) {
     .carousel-inner {
         height: 400px;

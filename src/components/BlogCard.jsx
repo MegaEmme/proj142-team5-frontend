@@ -2,19 +2,19 @@ import { Link } from "react-router-dom";
 
 const BlogCard = ({ blog }) => {
     return (
-        <div className="mb-5 p-3 card blogcard shadow-sm">
+        <div className="mb-5 p-3 card  blogcard shadow-sm">
             <div className="h-100 d-flex flex-column flex-md-row">
                 {/* WRAPPER IMMAGINE */}
-                <div className="blogcard-img-container me-md-4 mb-3 mb-md-0">
+                <div className=" mb-3 mb-md-0 w-25 flex-shrink-0">
                     <img
                         src={blog.image}
-                        className="blogcard-img"
+                        className="blogcard-img rounded-3"
                         alt={blog.title}
                     />
                 </div>
 
                 {/* CONTENUTO TESTUALE */}
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column mx-3">
                     <h2 className="text-truncate my-2">{blog.title}</h2>
                     <h4 className="mb-2 my-2">{blog.category}</h4>
                     <h5 className="flex-grow-1 my-2">{blog.excerpt}</h5>
