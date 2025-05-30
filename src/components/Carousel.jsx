@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Carousel() {
     return (
-        <div className="container py-4"> {/* container e non container-fluid */}
+        <div className="blogcard">
             <div
                 id="carouselExampleCaptions"
                 className="carousel slide rounded-4 overflow-hidden "
