@@ -241,13 +241,6 @@ header .btn:focus {
 }
 
 
-.funfactcard-mini {
-    background-color: rgb(1, 81, 1);
-    color: white;
-
-    transition: all 0.3s ease-in-out;
-}
-
 @media (min-width: 768px) {
     .carousel-inner {
         height: 400px;
