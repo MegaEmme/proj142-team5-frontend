@@ -88,7 +88,7 @@ const SnakesPage = () => {
   return (
     <>
       <div className="mb-3 text-center">
-        <h1 className="fw-bolder blogcard mb-4 mt-5 mx-5 py-4 rounded-3">I nostri Serpenti</h1>
+        <h1 className="fw-bolder defaultcard mb-4 mt-5 mx-5 py-4 rounded-3">I nostri Serpenti</h1>
       </div>
 
       {/* Barra di ricerca */}
