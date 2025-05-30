@@ -104,7 +104,7 @@ export default function HomePage() {
             <div className="container w-75 mb-3 py-2">
                 <h2 className="text-center text-white">Nascite recenti</h2>
                 <div className="row mt-4 h-100">
-                    {newBornSnakes?.slice(0, 6).map((newBornSnake) => (
+                    {newBornSnakes?.map((newBornSnake) => (
                         <div
                             className="col-12 col-md-6 col-lg-4 mb-4"
                             key={newBornSnake.id}
