@@ -12,10 +12,14 @@ import BlogPageDetails from "./pages/BlogPageDetails";
 function App() {
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
   return (
     <GlobalContext.Provider value={{
       isLoading,
-      setIsLoading
+      setIsLoading,
+      isCartOpen,
+      setIsCartOpen
     }}>
       <BrowserRouter>
         <Routes>
