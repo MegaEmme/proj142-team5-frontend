@@ -6,14 +6,11 @@ export default function Carousel() {
         <div className="container py-4"> {/* container e non container-fluid */}
             <div
                 id="carouselExampleCaptions"
-                className="carousel slide shadow rounded-4 overflow-hidden bg-opacity-75 "
+                className="carousel slide rounded-4 overflow-hidden "
                 data-bs-ride="carousel"
                 data-bs-interval="3000"
                 style={{
-                    maxWidth: "1200px",   // limite fisso per evitare stretching
-                    width: "100%",
-                    aspectRatio: "3 / 1", // mantiene proporzione
-                    margin: "0 auto",
+                    aspectRatio: "3 / 2", // mantiene proporzione
                 }}
             >
                 {/* Indicatori */}
@@ -46,14 +43,13 @@ export default function Carousel() {
                                 style={{
                                     objectFit: "cover",
                                     objectPosition: "center",
-                                    opacity: "0.6",
                                 }}
                             />
-                            <div className="carousel-caption d-none d-md-flex flex-column align-items-center justify-content-center bg-opacity-75 p-4 rounded-4">
+                            <div className="blogcard carousel-caption d-none d-md-flex flex-column align-items-center justify-content-center p-2 rounded-4">
                                 <h5 className="fw-bold text-center">{blog.title}</h5>
-                                <p className="text-center">{blog.excerpt}</p>
+                                <p className="text-center m-0 p-0">{blog.excerpt}</p>
                                 <Link to={`/blog/${blog.id}`}>
-                                    <button className="btn btnblog">Leggi di più</button>
+                                    <button className="btn btnblog mt-2 p-2">Leggi di più</button>
                                 </Link>
                             </div>
                         </div>

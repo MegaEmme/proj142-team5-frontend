@@ -46,7 +46,7 @@ export default function HomePage() {
         <>
             {/* Sezione Benvenuto */}
             <div className="container-fluid py-4">
-                <div className="blogcard bg-opacity-75 text-white text-center px-5 py-4 rounded-4 mx-auto w-100 mb-4 mt-5S shadow">
+                <div className="blogcard text-center px-5 py-4 rounded-4 mx-auto w-100 mb-4 mt-5 shadow">
 
                     {/* Icona decorativa opzionale */}
                     <div className="mb-2">
@@ -58,7 +58,7 @@ export default function HomePage() {
                     </h2>
 
                     {/* Linea decorativa */}
-                    <hr className="border border-success border-2 opacity-50 w-25 mx-auto my-3" />
+                    <hr className="border border-success border-2 opacity-50 w-50 mx-auto my-3" />
 
                     <p className="mt-3 px-md-4">
                         Scopri il lato affascinante e misterioso del mondo dei serpenti.
