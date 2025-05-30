@@ -17,7 +17,7 @@ export default function BlogPageDetails() {
     return (
         <div className="card p-3 my-5 blogcard">
 
-            <p><img src={image} alt={title} className="imgfloat m-4" />
+            <p><img src={image} alt={title} className="img-blog-detail m-4" />
                 <span className="fs-1">{title}</span><br />
                 <span className="fs-2">categoria: {category}</span><br />
                 <span>{text}</span><br />

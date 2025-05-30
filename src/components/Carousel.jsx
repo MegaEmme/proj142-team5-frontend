@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 
 export default function Carousel() {
     return (
-        <div className="container-fluid py-4">
+        <div className="container py-4"> {/* container e non container-fluid */}
             <div
                 id="carouselExampleCaptions"
                 className="carousel slide shadow rounded-4 overflow-hidden bg-dark bg-opacity-75"
                 data-bs-ride="carousel"
                 data-bs-interval="3000"
                 style={{
-                    maxWidth: "100%",
-                    height: "400px",
+                    maxWidth: "1200px",   // limite fisso per evitare stretching
+                    width: "100%",
+                    aspectRatio: "3 / 1", // mantiene proporzione
                     margin: "0 auto",
                 }}
             >
@@ -31,18 +32,18 @@ export default function Carousel() {
                 </div>
 
                 {/* Slide */}
-                <div className="carousel-inner">
+                <div className="carousel-inner" style={{ height: "100%" }}>
                     {blogs.map((blog, index) => (
                         <div
                             key={blog.id}
                             className={`carousel-item ${index === 0 ? "active" : ""}`}
+                            style={{ height: "100%" }}
                         >
                             <img
                                 src={blog.image}
-                                className="d-block w-100"
+                                className="d-block w-100 h-100"
                                 alt={blog.title}
                                 style={{
-                                    height: "400px",
                                     objectFit: "cover",
                                     objectPosition: "center",
                                     opacity: "0.6",
@@ -52,7 +53,7 @@ export default function Carousel() {
                                 <h5 className="fw-bold text-center">{blog.title}</h5>
                                 <p className="text-center">{blog.excerpt}</p>
                                 <Link to={`/blog/${blog.id}`}>
-                                    <button className="btn btnblog mt-4">Leggi di più</button>
+                                    <button className="btn btnblog mb-3">Leggi di più</button>
                                 </Link>
                             </div>
                         </div>

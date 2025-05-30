@@ -173,6 +173,49 @@ header .btn:focus {
     border-radius: 10%;
 }
 
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.blogcard-img-container {
+    width: 220px;
+    height: 160px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.blogcard-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0.75rem;
+}
+
+.blog-detail-wrapper {
+    align-items: flex-start;
+}
+
+.blog-detail-image-container {
+    width: 100%;
+    max-width: 400px;
+    flex-shrink: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.img-blog-detail {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.75rem;
+}
+
 /* FunFactCard Mini */
 .funfactcard-mini {
     background-color: rgba(32, 30, 30, 0.95); /* Ora scura anche in modalità chiara */
@@ -221,6 +264,13 @@ header .btn:focus {
     color: black;
     transform: scale(1.05);
 }
+
+@media (min-width: 768px) {
+    .carousel-inner {
+        height: 400px;
+    }
+}
+
 
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
