@@ -60,6 +60,11 @@ header a:hover {
     pointer-events: none;
 }
 
+.filter {
+    width: 300px;
+    z-index: 1000;
+    position: absolute;
+}
 
 
 /* Cards generiche */

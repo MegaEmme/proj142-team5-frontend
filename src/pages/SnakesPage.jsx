@@ -88,31 +88,20 @@ const SnakesPage = () => {
   return (
     <>
       <div className="mb-3 text-center">
-        <h1 className="fw-bolder defaultcard mb-4 mt-5 mx-5 py-4 rounded-3">I nostri Serpenti</h1>
+        <h1 className="fw-bolder defaultcard mb-4 mt-5 py-4 rounded-3">I nostri Serpenti</h1>
       </div>
 
-      {/* Barra di ricerca */}
-      <div className="mb-4 text-center">
-        <input
-          type="text"
-          className="form-control d-inline w-50"
-          placeholder="Cerca per nome..."
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-        />
-      </div>
-
-      {/* Bottoni Ordina e Filtra */}
-      <div className="mb-4 d-flex gap-3" ref={dropdownRef}>
+      {/* Bottoni Ordina e Filtra con in mezzo la ricerca*/}
+      <div className="mb-4 d-flex gap-3 justify-content-between" ref={dropdownRef}>
         <div className="position-relative">
           <button
-            className="btn btn-secondary"
+            className="btn btnblog"
             onClick={() => setSortDropdownOpen(prev => !prev)}
           >
             Ordina {sortDropdownOpen ? "▲" : "▼"}
           </button>
           {sortDropdownOpen && (
-            <div className="border rounded bg-light p-3 mt-2 shadow" style={{ maxWidth: "300px", zIndex: 1000, position: "absolute" }}>
+            <div className="border bg-light rounded p-3 mt-2 shadow filter" >
               <div className="mb-2">
                 <label className="form-label">Ordina per Nome:</label>
                 <select className="form-select" value={sortName} onChange={e => {
@@ -163,15 +152,15 @@ const SnakesPage = () => {
           )}
         </div>
 
-        <div className="position-relative">
+        <div>
           <button
-            className="btn btn-secondary"
+            className="btn btnblog"
             onClick={() => setFilterDropdownOpen(prev => !prev)}
           >
             Filtra {filterDropdownOpen ? "▲" : "▼"}
           </button>
           {filterDropdownOpen && (
-            <div className="border rounded bg-light p-3 mt-2 shadow" style={{ maxWidth: "300px", zIndex: 1000, position: "absolute" }}>
+            <div className="border rounded bg-light p-3 mt-2 shadow filter">
               <div className="mb-2">
                 <label className="form-label mt-2 me-3">Morph:</label><br />
                 <input type="radio" name="morph" checked={morph === true} onChange={() => setMorph(true)} />
@@ -193,6 +182,17 @@ const SnakesPage = () => {
               </div>
             </div>
           )}
+        </div>
+
+        {/* Barra di ricerca */}
+        <div className="mb-4 text-center flex-grow-1">
+          <input
+            type="text"
+            className="form-control d-inline"
+            placeholder="Cerca per nome..."
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
         </div>
       </div>
 
