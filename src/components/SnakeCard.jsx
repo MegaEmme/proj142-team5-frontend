@@ -24,7 +24,7 @@ const SnakeCard = ({ data }) => {
         </div>
         <img src={`./snake-imgs/${image}`} alt={common_name} />
         <div>
-          <p className="my-4">{description}</p>
+          <p>{description}</p>
         </div>
         <div>
           {discount > 0 && <p className="text-danger">SCONTATO DEL <strong>{discount * 100}%</strong></p>}

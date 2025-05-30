@@ -10,19 +10,7 @@ body {
     height: 7rem;
     border-radius: 50%;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
     border: 3px solid greenyellow;
-    background-color: greenyellow;
-}
-
-.img-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
 }
 
 /* Header */
@@ -35,19 +23,9 @@ header a {
 }
 
 header a:hover {
-    color: greenyellow;
+    color: rgb(152, 254, 0);
 }
 
-header .btn {
-    margin: auto;
-    background-color: greenyellow;
-    color: rgb(24, 71, 0);
-}
-
-header .btn:focus {
-    background-color: greenyellow;
-    color: rgb(24, 71, 0);
-}
 
 .height-header {
     height: 16vh;
@@ -220,16 +198,9 @@ header .btn:focus {
 }
 
 /* FunFactCard Mini */
-.funfactcard-mini {
-    display: flex;
-    height: 100%;
-    justify-content: space-between;
-}
-
-
 .img-funfact {
     width: 100%;
-    height: 150px;
+    height: 200px;
     object-fit: cover;
     border-radius: 0.75rem;
 }

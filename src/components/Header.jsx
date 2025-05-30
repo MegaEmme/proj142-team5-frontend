@@ -21,7 +21,7 @@ const Header = () => {
                 {/* LOGO */}
                 <div className="logo-container">
                     <NavLink to="/" className="text-decoration-none">
-                        <img src="/logo-sergente-serpente.jpg" alt="Logo" className="img-logo" />
+                        <img src="/logo-sergente-serpente.jpg" alt="Logo" className="w-100 h-100" />
                     </NavLink>
                 </div>
 
@@ -56,12 +56,10 @@ const Header = () => {
                 {/* CARRELLO */}
                 <div className="text-end">
                     <button
-                        className="btn btn-primary position-relative"
+                        className="btn btnblog position-relative"
                         type="button"
                         onClick={handleOpenCart}
                     >
-
-                        <i className="bi bi-cart me-1"></i>
                         Carrello
                         {cartItemsCount > 0 && (
                             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

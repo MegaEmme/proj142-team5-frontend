@@ -72,7 +72,7 @@ export default function HomePage() {
                         </span>
                     </p>
 
-                    <a href="/snakes" className="mt-4 btn btnblog mt-4 px-4 py-2 fs-5 rounded-pill">
+                    <a href="/snakes" className="mt-4 btn btnblog mt-4 px-4 py-2 fs-5 rounded-3">
                         🐍 Scopri i nostri esemplari
                     </a>
                 </div>
@@ -91,7 +91,7 @@ export default function HomePage() {
                 <div className="row mt-4 h-100">
                     {discountedSnakes?.map((discountedSnake) => (
                         <div
-                            className="col-12 col-md-6 col-lg-4 mb-4"
+                            className="col-12 col-md-6 col-lg-4 mb-4 "
                             key={discountedSnake.id}
                         >
                             <SnakeCard data={discountedSnake} />
