@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const CartCard = () => {
+
+    const navigate = useNavigate();
 
     return (
         <>
@@ -6,6 +10,7 @@ const CartCard = () => {
                 <div className="card-body">
                     <h1>CARRELLO!</h1>
                 </div>
+                <button>Checkout</button>
             </div>
         </>
     )
