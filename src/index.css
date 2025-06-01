@@ -339,3 +339,7 @@ header a:hover {
     }
 
 }
+
+.main-content{
+    min-height: 80vh;
+}
