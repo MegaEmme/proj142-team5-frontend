@@ -1,6 +1,5 @@
 const CART_KEY = "sergente_serpente_cart";
 
-
 export function saveCart(cart) {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }

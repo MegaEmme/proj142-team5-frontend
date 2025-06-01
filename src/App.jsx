@@ -8,12 +8,13 @@ import HomePage from "./components/HomePage";
 import BlogPage from "./pages/blog";
 import CartPage from "./pages/CartPage";
 import BlogPageDetails from "./pages/BlogPageDetails";
+import { getCart } from "./utils/cartUtils";
 
 function App() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(getCart());
 
   return (
     <GlobalContext.Provider value={{
