@@ -8,7 +8,7 @@ const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const { setIsCartOpen, cart } = useContext(GlobalContext);
 
-    const cartItemsCount = cart?.length || 0; 
+    const cartItemsCount = cart?.length || 0;
 
     const handleOpenCart = () => {
         setIsCartOpen(true);
@@ -56,7 +56,7 @@ const Header = () => {
                 {/* CARRELLO */}
                 <div className="text-end">
                     <button
-                        className="btn btnblog"
+                        className="btn btnblog z-3"
                         type="button"
                         onClick={handleOpenCart}
                         id="cart-button"
