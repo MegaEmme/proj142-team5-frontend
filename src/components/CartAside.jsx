@@ -83,7 +83,7 @@ const CartAside = ({ isOpen, onClose }) => {
 
     return ReactDOM.createPortal(
         <div
-            className="offcanvas offcanvas-end"
+            className="offcanvas offcanvas-end defaultcard"
             tabIndex="-1"
             id="cartOffcanvas"
             aria-labelledby="cartOffcanvasLabel"
