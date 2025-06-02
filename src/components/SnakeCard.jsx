@@ -45,13 +45,13 @@ const SnakeCard = ({ data, isListView }) => {
           <h5 className="fs-2 mb-3 card-title fst-italic">{scientific_name}</h5>
           <div className="d-flex flex-column flex-md-row mb-3">
             <div className="me-5">
-              <p className="m-1"><strong>{sex === "m" ? "Maschio" : "Femmina"}</strong> </p>
-              <p className="m-1"><strong>{temperament}</strong>  </p>
+              <p className="m-1">Sesso: <strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p>
+              <p className="m-1">Temperamento: <strong>{temperament}</strong>  </p>
               <p className="m-1"> Difficoltà: <strong>{difficulty}</strong></p>
             </div>
             <div>
               <p className="m-1"> Data di nascita: <strong> {invertDate(birth.split('T')[0])}</strong> </p>
-              <p className="m-1"> Morfologia: <strong>{morph === "normal" ? "wild type" : morph}</strong></p>
+              <p className="m-1"> Morfologia: <strong>{morph === "normal" ? "nessuna" : morph}</strong></p>
               <p className="m-1"> Lunghezza: <strong>{length} m</strong></p>
             </div>
           </div>
@@ -76,7 +76,7 @@ const SnakeCard = ({ data, isListView }) => {
           </div>
           <img src={`./snake-imgs/${image}`} alt={common_name} />
           <ul className="list-group list-group-flush">
-            <li className="list-group-item"><p className="m-1">Sesso: <strong>{sex === "m" ? "Maschio" : "Femmina"}</strong> </p></li>
+            <li className="list-group-item"><p className="m-1">Sesso: <strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p></li>
             <li className="list-group-item"><p className="m-1"> Data di nascita: <strong> {invertDate(birth.split('T')[0])}</strong></p></li>
             <li className="list-group-item"><p className="m-1"> Lunghezza: <strong>{length} m</strong></p></li>
 
