@@ -195,13 +195,13 @@ const SnakesPage = () => {
         </div>
         <div className="d-flex gap-2 ms-auto align-items-start"> {/* 'ms-auto' spingerà questi bottoni a destra */}
           <button
-            className={`btn d-flex ${isCardLayout ? "btn-success" : "btn-outline-success"}`}
+            className={`btn d-flex ${isCardLayout ? "btnstyle" : "btn-outline-style"}`}
             onClick={() => setIsCardLayout(true)} // Al click, imposta la vista a card
           >
             <FontAwesomeIcon icon={faThLarge} className="me-1" /> {/* Icona per la griglia */}
           </button>
           <button
-            className={`btn d-flex ${!isCardLayout ? "btn-success" : "btn-outline-success"}`}
+            className={`btn d-flex ${!isCardLayout ? "btnstyle" : "btn-outline-style"}`}
             onClick={() => setIsCardLayout(false)} // Al click, imposta la vista a lista
           >
             <FontAwesomeIcon icon={faList} className="me-1" /> {/* Icona per la lista */}
@@ -218,7 +218,7 @@ const SnakesPage = () => {
             onChange={(e) => setSearchInput(e.target.value)}
           />
         </div>
-      </div>
+      </div >
 
       <section>
         {/* Controlla se ci sono serpenti da visualizzare */}
@@ -242,20 +242,6 @@ const SnakesPage = () => {
           )
         )}
       </section>
-
-      {/* <section>
-        <div className="row mt-4 h-100">
-          {snakes.length > 0 ? (
-            paginatedSnakes.map((snake) => (
-              <div className="col-12 col-md-6 col-lg-4 col-xl-3 mb-4" key={snake.id}>
-                <SnakeCard data={snake} />
-              </div>
-            ))
-          ) : (
-            <div className="text-light">Nessun serpente trovato.</div>
-          )}
-        </div>
-      </section> */}
 
       <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
     </>

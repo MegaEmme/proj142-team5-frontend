@@ -3,6 +3,7 @@ body {
     /* background-image: url('/background-light.jpeg'); */
     background-color: rgb(240, 253, 220);
     background-repeat: repeat;
+    box-sizing: border-box;
 }
 
 /* Logo */
@@ -112,6 +113,28 @@ header a:hover {
 }
 
 .btnblog:hover {
+    background-color: greenyellow;
+    color: black;
+    transform: scale(1.05);
+}
+
+.btnstyle {
+    background-color: rgb(1, 81, 1);
+    color: white;
+    border: none;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    border: 2px solid rgb(1, 81, 1);
+}
+
+.btn-outline-style {
+    color: green;
+    border: solid green 2px;
+}
+
+.btnstyle:hover,
+.btn-outline-style:hover {
     background-color: greenyellow;
     color: black;
     transform: scale(1.05);
@@ -273,6 +296,24 @@ header a:hover {
     .btnblog {
         background-color: greenyellow;
         color: black;
+    }
+
+    .btnstyle {
+        background-color: greenyellow;
+        color: black;
+        border: solid greenyellow 2px;
+    }
+
+    .btn-outline-style {
+        color: greenyellow;
+        border: solid greenyellow 2px;
+    }
+
+    .btnstyle:hover,
+    .btn-outline-style:hover {
+        background-color: green;
+        color: black;
+        transform: scale(1.05);
     }
 
     .mobile-menu {
