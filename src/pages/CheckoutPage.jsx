@@ -1,7 +1,26 @@
-import { useState } from 'react';
+import { useState, useContext } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import {
+
+    clearCart,
+
+} from "../utils/cartUtils";
+import GlobalContext from "../contexts/globalcontext";
+
 
 export default function CheckoutPage() {
+
+
+    const handleClearCart = () => {
+        clearCart();
+        setCart([]);
+    };
+
+    const navigate = useNavigate();
+    const { cart, setCart } = useContext(GlobalContext);
+
+
 
     const [formData, setFormData] = useState({
         status: 'pagato',
@@ -28,6 +47,8 @@ export default function CheckoutPage() {
         axios.post("http://127.0.0.1:3000/api/orders", formData)
             .then((res) => { console.log("dati inviati con successo") })
             .catch((err) => { console.log("errore nell'invio dati", err.response.data) })
+            .then(navigate("/"))
+            .then(handleClearCart())
 
     }
 
