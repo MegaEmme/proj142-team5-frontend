@@ -23,7 +23,6 @@ const SnakeDetailPage = () => {
         }
     }, [slug])
 
-    console.log(currentSnake)
 
     if (currentSnake) {
         return (
