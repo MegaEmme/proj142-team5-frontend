@@ -1,6 +1,7 @@
 /* LIGHT MODE */
 body {
-    background-image: url('/background-light.jpeg');
+    /* background-image: url('/background-light.jpeg'); */
+    background-color: rgb(240, 253, 220);
     background-repeat: repeat;
 }
 
@@ -251,7 +252,7 @@ header a:hover {
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
     body {
-        background-image: url('/background-dark.jpeg');
+        background-color: rgb(87, 96, 45);
     }
 
     header {
@@ -340,6 +341,6 @@ header a:hover {
 
 }
 
-.main-content{
+.main-content {
     min-height: 80vh;
 }
