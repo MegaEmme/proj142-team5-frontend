@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function invertDate(date) {
     const [year, month, day] = date.split("-");
     return `${day}-${month}-${year}`;
-  }
+}
 
 const SnakeDetailCard = ({ data }) => {
     const {
@@ -26,8 +26,8 @@ const SnakeDetailCard = ({ data }) => {
     return (
 
         <>
-            <div className="card details">
-                <img src={`../snake-imgs/${image}`} className="card-img-top" alt={scientific_name} />
+            <div className="card details m-5 mx-auto">
+                <img src={`../snake-imgs/${image}`} className="card-img-top p-5" alt={scientific_name} />
                 <div className="card-body">
                     <h5 className="card-title"><strong>{scientific_name}</strong>  </h5>
                     <p className="card-text">Conosciuto come <strong>{common_name}</strong> , è un {description}</p>
@@ -38,7 +38,7 @@ const SnakeDetailCard = ({ data }) => {
                         <li className="list-group-item">Morfologia: <strong>{morph === "normal" ? "nessuna" : morph}</strong></li>
                         <li className="list-group-item">Lunghezza: <strong>{length} mt</strong></li>
                         <li className="list-group-item">Difficoltà: <strong>{difficulty}</strong></li>
-                        {CITES !== 0 && <li className="list-group-item"><strong>CITES {CITES} necessario per possedere questo serpente</strong></li>}
+                        {CITES !== 0 && <li className="list-group-item"><strong>CITES {CITES} è necessario per possedere questo serpente</strong></li>}
                         {discount ?
                             <li className="list-group-item">
                                 <h2 className="text-danger"> Serpente scontato!</h2>
