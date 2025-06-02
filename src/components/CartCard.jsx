@@ -58,7 +58,7 @@ const CartCard = () => {
                                             <img src={`./snake-imgs/${item.image}`} alt={item.image} className="cart-imgs me-1" />
                                             <div className="d-flex flex-column">
                                                 <span>{item.common_name}</span>
-                                                <span className="fst-italic">{item.price} €</span>
+                                                <span className="fst-italic">{item.discount ? item.price - (item.price * item.discount) : item.price} €</span>
                                             </div>
                                         </div>
 
