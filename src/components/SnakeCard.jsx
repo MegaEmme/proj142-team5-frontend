@@ -45,7 +45,7 @@ const SnakeCard = ({ data, isListView }) => {
           <h5 className="fs-2 mb-3 card-title fst-italic">{scientific_name}</h5>
           <div className="d-flex flex-column flex-md-row mb-3">
             <div className="me-5">
-              <p className="m-1"><strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p>
+              <p className="m-1"><strong>{sex === "m" ? "Maschio" : "Femmina"}</strong> </p>
               <p className="m-1"><strong>{temperament}</strong>  </p>
               <p className="m-1"> Difficoltà: <strong>{difficulty}</strong></p>
             </div>
@@ -75,24 +75,21 @@ const SnakeCard = ({ data, isListView }) => {
             <h4 className=" text-center fst-italic my-text">({scientific_name})</h4>
           </div>
           <img src={`./snake-imgs/${image}`} alt={common_name} />
-          <div>
-            <p className="m-1"><strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p>
-            <p className="m-1"><strong>{temperament}</strong>  </p>
-            <p className="m-1"> Difficoltà: <strong>{difficulty}</strong></p>
-            <p className="m-1"> Data di nascita: <strong> {invertDate(birth.split('T')[0])}</strong> </p>
-            <p className="m-1"> Morfologia: <strong>{morph === "normal" ? "wild type" : morph}</strong></p>
-            <p className="m-1"> Lunghezza: <strong>{length} m</strong></p>
-          </div>
-          <div>
-            {discount > 0 && <p className="text-danger">SCONTATO DEL <strong>{discount * 100}%</strong></p>}
-            {discount > 0 && <p className="text-danger">Prezzo originale: <strong className="text-decoration-line-through">{price}€</strong></p>}
-            <p className="mb-4 fs-3">Prezzo: <strong>{discount ? price - (price * discount) : price} €</strong></p>
-            <div className="d-flex justify-content-between gap-2 my-container">
-              <Link to={`/snakes/${slug}`} className="btn btnblog flex-shrink-2 my-text">Dettagli esemplare</Link>
-              <button className="btn btncart flex-shrink-2 my-text" onClick={handleAddSnakeToCart}><strong>Aggiungi al carrello</strong></button>
-            </div>
-          </div>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item"><p className="m-1">Sesso: <strong>{sex === "m" ? "Maschio" : "Femmina"}</strong> </p></li>
+            <li className="list-group-item"><p className="m-1"> Data di nascita: <strong> {invertDate(birth.split('T')[0])}</strong></p></li>
+            <li className="list-group-item"><p className="m-1"> Lunghezza: <strong>{length} m</strong></p></li>
 
+            <li className="list-group-item">
+              {discount > 0 && <p className="text-danger">SCONTATO DEL <strong>{discount * 100}%</strong></p>}
+              {discount > 0 && <p className="text-danger">Prezzo originale: <strong className="text-decoration-line-through">{price}€</strong></p>}
+              <p className="mb-4 fs-3">Prezzo: <strong>{discount ? price - (price * discount) : price} €</strong></p>
+              <div className="d-flex justify-content-between gap-2 my-container">
+                <Link to={`/snakes/${slug}`} className="btn btnblog flex-shrink-2 my-text">Dettagli esemplare</Link>
+                <button className="btn btncart flex-shrink-2 my-text" onClick={handleAddSnakeToCart}><strong>Aggiungi al carrello</strong></button>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     );
