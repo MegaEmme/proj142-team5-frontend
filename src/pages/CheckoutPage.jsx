@@ -1,12 +1,16 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function CheckoutPage() {
 
     const [formData, setFormData] = useState({
-        nome: '',
-        cognome: '',
-        indirizzo: '',
-        telefono: '',
+        status: 'pagato',
+        total_price: 0,
+        payment_method: 'Paypal',
+        first_name: '',
+        last_name: '',
+        address: '',
+        phone_number: '',
         email: '',
     });
 
@@ -20,10 +24,12 @@ export default function CheckoutPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Dati inviati:', formData);
-        // Qui puoi aggiungere una chiamata API o altro
-    };
 
+        axios.post("http://127.0.0.1:3000/api/orders", formData)
+            .then((res) => { console.log("dati inviati con successo") })
+            .catch((err) => { console.log("errore nell'invio dati", err.response.data) })
+
+    }
 
     return (
 
@@ -37,8 +43,8 @@ export default function CheckoutPage() {
                         <input
                             type="text"
                             className="form-control"
-                            name="nome"
-                            value={formData.nome}
+                            name="first_name"
+                            value={formData.first_name}
                             onChange={handleChange}
                             required
                         />
@@ -49,8 +55,8 @@ export default function CheckoutPage() {
                         <input
                             type="text"
                             className="form-control"
-                            name="cognome"
-                            value={formData.cognome}
+                            name="last_name"
+                            value={formData.last_name}
                             onChange={handleChange}
                             required
                         />
@@ -61,8 +67,8 @@ export default function CheckoutPage() {
                         <input
                             type="text"
                             className="form-control"
-                            name="indirizzo"
-                            value={formData.indirizzo}
+                            name="address"
+                            value={formData.address}
                             onChange={handleChange}
                             required
                         />
@@ -73,8 +79,8 @@ export default function CheckoutPage() {
                         <input
                             type="tel"
                             className="form-control"
-                            name="telefono"
-                            value={formData.telefono}
+                            name="phone_number"
+                            value={formData.phone_number}
                             onChange={handleChange}
                             required
                         />
@@ -100,4 +106,5 @@ export default function CheckoutPage() {
 
 
     );
-};
+
+}
