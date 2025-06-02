@@ -30,7 +30,7 @@ const CartCard = () => {
 
     return (
         <>
-            <div className="card mb-5 bg-tertiary">
+            <div className="card my-4 defaultcard">
                 <div className="card-body">
                     <h1>Il tuo carrello</h1>
                     <div className="cointainer">
@@ -51,7 +51,7 @@ const CartCard = () => {
                                 ))}
                             </ul>
                             <button
-                                className="btn btn-primary w-100"
+                                className="btn btn-success w-100 mb-3"
                                 disabled={cart.length === 0}
                             >
                                 Vai al checkout (tot. {totalPrice.toFixed(2)} €)
