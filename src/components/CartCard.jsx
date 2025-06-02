@@ -37,7 +37,7 @@ const CartCard = () => {
         <>
             <div className="card my-4 defaultcard">
                 <div className="card-body">
-                    <div className="d-flex justify-content-between my-4">
+                    <div className="d-flex justify-content-between align-items-center my-4">
                         <h1>Il tuo carrello</h1>
                         <button
                             className="btn btn-outline-danger"
@@ -54,9 +54,12 @@ const CartCard = () => {
                             <ul className="list-group mb-3">
                                 {cart.map((item, index) => (
                                     <li className="list-group-item d-flex justify-content-between align-items-center" key={index}>
-                                        <div>
+                                        <div className="d-flex">
                                             <img src={`./snake-imgs/${item.image}`} alt={item.image} className="cart-imgs me-1" />
-                                            <span>{item.common_name}</span>
+                                            <div className="d-flex flex-column">
+                                                <span>{item.common_name}</span>
+                                                <span className="fst-italic">{item.price} €</span>
+                                            </div>
                                         </div>
 
                                         <button
