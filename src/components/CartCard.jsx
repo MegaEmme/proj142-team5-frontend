@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useContext } from "react";
-
+import { useNavigate } from "react-router-dom";
 import GlobalContext from "../contexts/globalcontext";
 import {
     clearCart,
@@ -10,6 +10,7 @@ const CartCard = () => {
 
     const { cart, setCart } = useContext(GlobalContext);
     const [totalPrice, setTotalPrice] = useState(0)
+    const navigate = useNavigate();
 
 
     const handleClearCart = () => {
@@ -20,6 +21,10 @@ const CartCard = () => {
     const handleRemoveItem = (id) => {
         const updated = removeItemFromCart(id);
         setCart(updated);
+    };
+
+    const handleProceedToCheckoutPage = () => {
+        navigate("/cart/checkout");
     };
 
     useEffect(() => {
@@ -52,6 +57,7 @@ const CartCard = () => {
                             </ul>
                             <button
                                 className="btn btn-primary w-100 my-1"
+                                onClick={handleProceedToCheckoutPage}
                                 disabled={cart.length === 0}
                             >
                                 Vai al checkout (tot. {totalPrice.toFixed(2)} €)

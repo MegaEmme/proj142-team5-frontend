@@ -7,6 +7,7 @@ import SnakesPage from "./pages/SnakesPage";
 import HomePage from "./components/HomePage";
 import BlogPage from "./pages/blog";
 import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
 import BlogPageDetails from "./pages/BlogPageDetails";
 import { getCart } from "./utils/cartUtils";
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:id" element={<BlogPageDetails />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/cart/checkout" element={<CheckoutPage />} />
           </Route>
           <Route path="*" element={<div>404</div>} />
         </Routes>
