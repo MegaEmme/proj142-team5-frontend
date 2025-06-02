@@ -15,18 +15,19 @@ export default function BlogPageDetails() {
     } = blogs[id - 1]
 
     return (
-        <div className="card p-3 my-5 defaultcard p-5 d-flex justify-content-center align-items-center shadow-sm">
-            <img src={image} alt={title} className="img-blog-detail w-75 " />
-            <p>
+        <div className="card p-3 my-5 defaultcard p-5">
 
-                <span className="fs-1">{title}</span><br />
-                <span className="fs-2">categoria: {category}</span><br />
-                <span>{text}</span><br />
+            <h2 className="fs-1 text-center">{title}</h2><br />
+            <h4 className="fs-3 text-center">categoria: {category}</h4><br />
+            <p>
+                <img src={image} alt={title} className="img-blog-detail w-50 float-start me-4" />{text}
             </p>
-            <div className="d-flex">
+            <div className="d-flex justify-content-between mt-3">
                 <p>{author}</p>
                 <p>{date}</p>
             </div>
+
+
         </div>
     )
 }
