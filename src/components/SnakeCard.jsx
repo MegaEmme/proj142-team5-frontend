@@ -26,8 +26,8 @@ const SnakeCard = ({ data, isListView }) => {
   if (isListView) {
     // Layout per la visualizzazione a LISTA
     return (
-      <div className="defaultcard d-flex flex-sm-row flex-column justify-content-between align-items-center mb-4 p-3 rounded shadow-sm">
-        <img className="col-xl-5 col-sm-4 col-12" src={`./snake-imgs/${image}`} alt={common_name} />
+      <div className="defaultcard d-flex flex-md-row flex-column justify-content-between align-items-center mb-4 p-3 rounded shadow-sm">
+        <img className="col-xl-3 col-md-4 col-12" src={`./snake-imgs/${image}`} alt={common_name} />
         <div className="flex-grow-1 mx-xl-5 mx-md-3 mx-2">
           <h5 className="fs-1 mb-3 card-title">{common_name}</h5>
           <h5 className="fs-2 mb-3 card-title fst-italic">{scientific_name}</h5>

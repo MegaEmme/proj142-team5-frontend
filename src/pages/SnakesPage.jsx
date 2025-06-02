@@ -96,7 +96,7 @@ const SnakesPage = () => {
       </div>
 
       {/* Bottoni Ordina e Filtra*/}
-      <div className="mb-4 d-flex gap-3 justify-content-between" ref={dropdownRef}>
+      <div className="mb-4 d-flex gap-3 justify-content-between align-items-stretch" ref={dropdownRef}>
         <div className="position-relative">
           <button
             className="btn btnblog"
@@ -193,23 +193,22 @@ const SnakesPage = () => {
             </div>
           )}
         </div>
-        <div className="d-flex gap-2 ms-auto align-items-start"> {/* 'ms-auto' spingerà questi bottoni a destra */}
-          <button
-            className={`btn d-flex ${isCardLayout ? "btnstyle" : "btn-outline-style"}`}
-            onClick={() => setIsCardLayout(true)} // Al click, imposta la vista a card
-          >
-            <FontAwesomeIcon icon={faThLarge} className="me-1" /> {/* Icona per la griglia */}
-          </button>
-          <button
-            className={`btn d-flex ${!isCardLayout ? "btnstyle" : "btn-outline-style"}`}
-            onClick={() => setIsCardLayout(false)} // Al click, imposta la vista a lista
-          >
-            <FontAwesomeIcon icon={faList} className="me-1" /> {/* Icona per la lista */}
-          </button>
-        </div>
+        {/* bottoni lista/card */}
+        <button
+          className={`btn d-flex text-center ${isCardLayout ? "btnstyle" : "btn-outline-style"}`}
+          onClick={() => setIsCardLayout(true)} // Al click, imposta la vista a card
+        >
+          <FontAwesomeIcon icon={faThLarge} className="mx-auto my-auto" /> {/* Icona per la griglia */}
+        </button>
+        <button
+          className={`btn d-flex ${!isCardLayout ? "btnstyle" : "btn-outline-style"}`}
+          onClick={() => setIsCardLayout(false)} // Al click, imposta la vista a lista
+        >
+          <FontAwesomeIcon icon={faList} className="mx-auto my-auto" /> {/* Icona per la lista */}
+        </button>
 
         {/* Barra di ricerca */}
-        <div className="mb-4 text-center flex-grow-1">
+        <div className=" text-center flex-grow-1">
           <input
             type="text"
             className="form-control d-inline"

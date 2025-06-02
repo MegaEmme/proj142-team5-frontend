@@ -3,7 +3,6 @@ body {
     /* background-image: url('/background-light.jpeg'); */
     background-color: rgb(240, 253, 220);
     background-repeat: repeat;
-    box-sizing: border-box;
 }
 
 /* Logo */
