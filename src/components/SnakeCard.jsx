@@ -14,7 +14,8 @@ const SnakeCard = ({ data, isListView }) => {
     price,
     image,
     discount,
-    slug
+    slug,
+    birth,
   } = data;
 
   function handleAddSnakeToCart() {
@@ -45,15 +46,15 @@ const SnakeCard = ({ data, isListView }) => {
   } else {
     // Layout per la visualizzazione a CARD
     return (
-      <div className="card snakecard h-100">
+      <div className="card snakecard h-100 ">
         <div className="card-body d-flex flex-column justify-content-between">
-          <div>
-            <h3 className="card-title text-center">{common_name}</h3>
-            <h4 className="card-title text-center fst-italic">({scientific_name})</h4>
+          <div className="my-container">
+            <h3 className=" text-center my-text">{common_name}</h3>
+            <h4 className=" text-center fst-italic my-text">({scientific_name})</h4>
           </div>
           <img src={`./snake-imgs/${image}`} alt={common_name} />
           <div>
-            <p>{description}</p>
+            <p>{birth}</p>
           </div>
           <div>
             {discount > 0 && <p className="text-danger">SCONTATO DEL <strong>{discount * 100}%</strong></p>}

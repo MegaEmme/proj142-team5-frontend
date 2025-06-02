@@ -67,6 +67,14 @@ header a:hover {
     position: absolute;
 }
 
+.my-container {
+    container-type: inline-size;
+}
+
+.my-container .my-text {
+    font-size: 7cqi;
+}
+
 
 /* Cards generiche */
 
