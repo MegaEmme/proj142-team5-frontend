@@ -30,7 +30,7 @@ const CartCard = () => {
 
     return (
         <>
-            <div className="card mb-5 bg-tertiary">
+            <div className="card my-5 bg-tertiary">
                 <div className="card-body">
                     <h1>Il tuo carrello</h1>
                     <div className="cointainer">
