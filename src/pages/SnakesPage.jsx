@@ -4,6 +4,8 @@ import axios from "axios";
 import GlobalContext from "../contexts/globalcontext";
 import SnakeCard from "../components/SnakeCard";
 import Pagination from "../components/Pagination";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThLarge, faList } from '@fortawesome/free-solid-svg-icons';
 
 const SnakesPage = () => {
   const [snakes, setSnakes] = useState([]);
@@ -22,6 +24,8 @@ const SnakesPage = () => {
   const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const { setIsLoading } = useContext(GlobalContext);
+
+  const [isCardLayout, setIsCardLayout] = useState(true); // true = layout a card (griglia), false = layout a lista
 
   const [page, setPage] = useState(1);
   const itemsPerPage = 8;
@@ -189,6 +193,20 @@ const SnakesPage = () => {
             </div>
           )}
         </div>
+        <div className="d-flex gap-2 ms-auto align-items-start"> {/* 'ms-auto' spingerà questi bottoni a destra */}
+          <button
+            className={`btn d-flex ${isCardLayout ? "btn-success" : "btn-outline-success"}`}
+            onClick={() => setIsCardLayout(true)} // Al click, imposta la vista a card
+          >
+            <FontAwesomeIcon icon={faThLarge} className="me-1" /> {/* Icona per la griglia */}
+          </button>
+          <button
+            className={`btn d-flex ${!isCardLayout ? "btn-success" : "btn-outline-success"}`}
+            onClick={() => setIsCardLayout(false)} // Al click, imposta la vista a lista
+          >
+            <FontAwesomeIcon icon={faList} className="me-1" /> {/* Icona per la lista */}
+          </button>
+        </div>
 
         {/* Barra di ricerca */}
         <div className="mb-4 text-center flex-grow-1">
@@ -203,6 +221,29 @@ const SnakesPage = () => {
       </div>
 
       <section>
+        {/* Controlla se ci sono serpenti da visualizzare */}
+        {snakes.length === 0 ? (
+          <div className="text-light text-center mt-5">Nessun serpente trovato.</div>
+        ) : (
+          isCardLayout ? ( // Se isCardLayout è TRUE: Visualizzazione a GRIGLIA (Card View)
+            <div className="row mt-4 h-100">
+              {paginatedSnakes.map((snake) => (
+                <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={snake.id}>
+                  <SnakeCard data={snake} isListView={false} />
+                </div>
+              ))}
+            </div>
+          ) : ( // Altrimenti, se isCardLayout è FALSE: Visualizzazione a LISTA (List View)
+            <div className="list-group mt-4">
+              {paginatedSnakes.map((snake) => (
+                <SnakeCard key={snake.id} data={snake} isListView={true} />
+              ))}
+            </div>
+          )
+        )}
+      </section>
+
+      {/* <section>
         <div className="row mt-4 h-100">
           {snakes.length > 0 ? (
             paginatedSnakes.map((snake) => (
@@ -214,7 +255,7 @@ const SnakesPage = () => {
             <div className="text-light">Nessun serpente trovato.</div>
           )}
         </div>
-      </section>
+      </section> */}
 
       <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
     </>
