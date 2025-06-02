@@ -7,15 +7,26 @@ import { addItemToCart } from "../utils/cartUtils";
 const SnakeCard = ({ data, isListView }) => {
   const { cart, setCart } = useContext(GlobalContext);
 
+  function invertDate(date) {
+    const [year, month, day] = date.split("-");
+    return `${day}-${month}-${year}`;
+  }
+
   const {
     common_name,
     scientific_name,
+    difficulty,
+    temperament,
+    sex,
     description,
     price,
     image,
-    discount,
-    slug,
+    morph,
     birth,
+    length,
+    CITES,
+    slug,
+    discount
   } = data;
 
   function handleAddSnakeToCart() {
@@ -32,7 +43,18 @@ const SnakeCard = ({ data, isListView }) => {
         <div className="flex-grow-1 mx-xl-5 mx-md-3 mx-2">
           <h5 className="fs-1 mb-3 card-title">{common_name}</h5>
           <h5 className="fs-2 mb-3 card-title fst-italic">{scientific_name}</h5>
-          <p className="mb-3">{description}</p>
+          <div className="d-flex flex-column flex-md-row mb-3">
+            <div className="me-5">
+              <p className="m-1"><strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p>
+              <p className="m-1"><strong>{temperament}</strong>  </p>
+              <p className="m-1"> Difficoltà: <strong>{difficulty}</strong></p>
+            </div>
+            <div>
+              <p className="m-1"> Data di nascita: <strong> {invertDate(birth.split('T')[0])}</strong> </p>
+              <p className="m-1"> Morfologia: <strong>{morph === "normal" ? "wild type" : morph}</strong></p>
+              <p className="m-1"> Lunghezza: <strong>{length} m</strong></p>
+            </div>
+          </div>
           {discount > 0 && <p className="text-danger">SCONTATO DEL <strong>{discount * 100}%</strong></p>}
           {discount > 0 && <p className="text-danger">Prezzo originale: <strong className="text-decoration-line-through">{price}€</strong></p>}
           <p className="mb-4 fs-3">Prezzo: <strong>{discount ? price - (price * discount) : price} €</strong></p>
@@ -54,15 +76,20 @@ const SnakeCard = ({ data, isListView }) => {
           </div>
           <img src={`./snake-imgs/${image}`} alt={common_name} />
           <div>
-            <p>{birth}</p>
+            <p className="m-1"><strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p>
+            <p className="m-1"><strong>{temperament}</strong>  </p>
+            <p className="m-1"> Difficoltà: <strong>{difficulty}</strong></p>
+            <p className="m-1"> Data di nascita: <strong> {invertDate(birth.split('T')[0])}</strong> </p>
+            <p className="m-1"> Morfologia: <strong>{morph === "normal" ? "wild type" : morph}</strong></p>
+            <p className="m-1"> Lunghezza: <strong>{length} m</strong></p>
           </div>
           <div>
             {discount > 0 && <p className="text-danger">SCONTATO DEL <strong>{discount * 100}%</strong></p>}
             {discount > 0 && <p className="text-danger">Prezzo originale: <strong className="text-decoration-line-through">{price}€</strong></p>}
             <p className="mb-4 fs-3">Prezzo: <strong>{discount ? price - (price * discount) : price} €</strong></p>
-            <div className="d-flex justify-content-between gap-2">
-              <Link to={`/snakes/${slug}`} className="btn btnblog flex-shrink-2">Dettagli esemplare</Link>
-              <button className="btn btncart flex-shrink-2" onClick={handleAddSnakeToCart}><strong>Aggiungi al carrello</strong></button>
+            <div className="d-flex justify-content-between gap-2 my-container">
+              <Link to={`/snakes/${slug}`} className="btn btnblog flex-shrink-2 my-text">Dettagli esemplare</Link>
+              <button className="btn btncart flex-shrink-2 my-text" onClick={handleAddSnakeToCart}><strong>Aggiungi al carrello</strong></button>
             </div>
           </div>
 
