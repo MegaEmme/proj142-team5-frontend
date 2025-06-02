@@ -96,8 +96,8 @@ const SnakesPage = () => {
       </div>
 
       {/* Bottoni Ordina e Filtra*/}
-      <div className="mb-4 d-flex gap-3 justify-content-between align-items-stretch" ref={dropdownRef}>
-        <div className="position-relative">
+      <div className="mb-4 d-flex gap-3 justify-content-between align-items-stretch flex-wrap" ref={dropdownRef}>
+        <div>
           <button
             className="btn btnblog"
             onClick={() => {
@@ -208,7 +208,7 @@ const SnakesPage = () => {
         </button>
 
         {/* Barra di ricerca */}
-        <div className=" text-center flex-grow-1">
+        <div className=" text-center flex-grow-1 col-sm-6 col-12">
           <input
             type="text"
             className="form-control d-inline"
