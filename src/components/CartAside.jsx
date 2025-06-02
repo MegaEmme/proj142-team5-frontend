@@ -129,7 +129,7 @@ const CartAside = ({ isOpen, onClose }) => {
 
             <div className="offcanvas-footer p-3 border-top text-center">
                 <button
-                    className="btn btnblog w-100"
+                    className="btn btnblog"
                     onClick={handleProceedToCartPage}
                     disabled={cart.length === 0}
                 >

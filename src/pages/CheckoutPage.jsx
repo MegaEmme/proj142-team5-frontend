@@ -98,7 +98,7 @@ export default function CheckoutPage() {
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-primary">Conferma</button>
+                    <button type="submit" className="btn btn btnblog">Conferma</button>
                 </form>
             </div>
         </div>

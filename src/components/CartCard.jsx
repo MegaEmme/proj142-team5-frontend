@@ -37,7 +37,16 @@ const CartCard = () => {
         <>
             <div className="card my-4 defaultcard">
                 <div className="card-body">
-                    <h1>Il tuo carrello</h1>
+                    <div className="d-flex justify-content-between my-4">
+                        <h1>Il tuo carrello</h1>
+                        <button
+                            className="btn btn-outline-danger"
+                            onClick={handleClearCart}
+                        >
+                            Svuota Carrello
+                        </button>
+                    </div>
+                    
                     <div className="cointainer">
                         {cart.length === 0 ? (
                             <p>Nessun prodotto nel carrello.</p>
@@ -56,18 +65,13 @@ const CartCard = () => {
                                 ))}
                             </ul>
                             <button
-                                className="btn btn-success w-100 mb-3"
+                                    className="btn btnblog mb-3"
                                     onClick={handleProceedToCheckoutPage}
                                 disabled={cart.length === 0}
                             >
                                 Vai al checkout (tot. {totalPrice.toFixed(2)} €)
                             </button>
-                            <button
-                                className="btn btn-outline-danger w-100"
-                                onClick={handleClearCart}
-                            >
-                                Svuota Carrello
-                            </button>
+
                         </>
                         )}
                     </div>
