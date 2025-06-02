@@ -107,7 +107,10 @@ const CartAside = ({ isOpen, onClose }) => {
                         <ul className="list-group mb-3">
                             {cart.map((item, index) => (
                                 <li className="list-group-item d-flex justify-content-between align-items-center" key={index}>
-                                    <span>{item.common_name}</span>
+                                    <div>
+                                        <img src={`./snake-imgs/${item.image}`} alt={item.image} className="cart-imgs me-1" />
+                                        <span>{item.common_name}</span>
+                                    </div>
                                     <button
                                         className="btn btn-sm btn-danger"
                                         onClick={() => handleRemoveItem(item.slug)}

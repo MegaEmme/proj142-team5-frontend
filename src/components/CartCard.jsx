@@ -46,7 +46,7 @@ const CartCard = () => {
                             Svuota Carrello
                         </button>
                     </div>
-                    
+
                     <div className="cointainer">
                         {cart.length === 0 ? (
                             <p>Nessun prodotto nel carrello.</p>
@@ -54,7 +54,11 @@ const CartCard = () => {
                             <ul className="list-group mb-3">
                                 {cart.map((item, index) => (
                                     <li className="list-group-item d-flex justify-content-between align-items-center" key={index}>
-                                        <span>{item.common_name}</span>
+                                        <div>
+                                            <img src={`./snake-imgs/${item.image}`} alt={item.image} className="cart-imgs me-1" />
+                                            <span>{item.common_name}</span>
+                                        </div>
+
                                         <button
                                             className="btn btn-sm btn-danger"
                                             onClick={() => handleRemoveItem(item.slug)}
@@ -65,8 +69,8 @@ const CartCard = () => {
                                 ))}
                             </ul>
                             <button
-                                    className="btn btnblog mb-3"
-                                    onClick={handleProceedToCheckoutPage}
+                                className="btn btnblog mb-3"
+                                onClick={handleProceedToCheckoutPage}
                                 disabled={cart.length === 0}
                             >
                                 Vai al checkout (tot. {totalPrice.toFixed(2)} €)
