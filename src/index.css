@@ -195,6 +195,12 @@ header a:hover {
     border-radius: 0.75rem;
 }
 
+/*immagini del carrello */
+.cart-imgs {
+    width: 50px;
+    border: 1px solid greenyellow
+}
+
 /* immagine funfact*/
 .img-funfact {
     width: 100%;
