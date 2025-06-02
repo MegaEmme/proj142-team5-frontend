@@ -340,6 +340,10 @@ header a:hover {
         /* Bordo grigio chiaro */
     }
 
+    .btn-close {
+        background-color: white;
+        opacity: 1;
+    }
 }
 
 .main-content {
