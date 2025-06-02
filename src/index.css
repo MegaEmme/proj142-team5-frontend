@@ -264,7 +264,8 @@ header a:hover {
     }
 
     .snakecard,
-    .defaultcard {
+    .defaultcard,
+    .list-group-item {
         background-color: rgba(32, 30, 30, 0.95);
         color: white;
     }

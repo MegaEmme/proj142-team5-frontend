@@ -26,8 +26,8 @@ const SnakeDetailCard = ({ data }) => {
     return (
 
         <>
-            <div className="card details m-5 mx-auto">
-                <img src={`../snake-imgs/${image}`} className="card-img-top p-5" alt={scientific_name} />
+            <div className="card defaultcard details m-5 mx-auto d-flex flex-row justify-content-center align-items-center">
+                <img src={`../snake-imgs/${image}`} className="card-img-top p-5 w-50" alt={scientific_name} />
                 <div className="card-body">
                     <h5 className="card-title"><strong>{scientific_name}</strong>  </h5>
                     <p className="card-text">Conosciuto come <strong>{common_name}</strong> , è un {description}</p>
@@ -48,7 +48,7 @@ const SnakeDetailCard = ({ data }) => {
 
 
 
-                        <Link to={`/snakes/${slug}`} className="btn btncart"><strong>Aggiungi al carrello</strong></Link>
+                        <Link to={`/snakes/${slug}`} className="btn btncart mt-3 w-75 mx-auto"><strong>Aggiungi al carrello</strong></Link>
                     </ul>
                 </div>
             </div>
