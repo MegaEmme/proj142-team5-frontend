@@ -57,6 +57,7 @@ const CartCard = () => {
                             </ul>
                             <button
                                 className="btn btn-success w-100 mb-3"
+                                    onClick={handleProceedToCheckoutPage}
                                 disabled={cart.length === 0}
                             >
                                 Vai al checkout (tot. {totalPrice.toFixed(2)} €)
