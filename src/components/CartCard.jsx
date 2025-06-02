@@ -51,7 +51,7 @@ const CartCard = () => {
                                 ))}
                             </ul>
                             <button
-                                className="btn btn-primary w-100"
+                                className="btn btn-primary w-100 my-1"
                                 disabled={cart.length === 0}
                             >
                                 Vai al checkout (tot. {totalPrice.toFixed(2)} €)
