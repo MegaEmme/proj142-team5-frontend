@@ -9,7 +9,7 @@ const SnakeCard = ({ data, isListView }) => {
 
   function invertDate(date) {
     const [year, month, day] = date.split("-");
-    return `${day}-${month}-${year}`;
+    return `${day}/${month}/${year}`;
   }
 
   const {
@@ -96,7 +96,7 @@ const SnakeCard = ({ data, isListView }) => {
           <ul className="list-group list-group-flush">
             <li className="list-group-item"><p className="m-1"> Difficoltà: <strong>{difficulty}</strong></p></li>
             <li className="list-group-item"><p className="m-1">Sesso: <strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p></li>
-            <li className="list-group-item"><p className="m-1"> Data di nascita: <strong>{invertDate(birth.split("T")[0]).replace(/-/g, "/")}</strong></p></li>
+            <li className="list-group-item"><p className="m-1"> Data di nascita: <strong>{invertDate(birth.split("T")[0])}</strong></p></li>
             <li className="list-group-item"><p className="m-1"> Lunghezza: <strong>{length} m</strong></p></li>
             <li className="list-group-item"><p className="m-1"> morph: <strong>{morph}</strong></p></li>
 
