@@ -64,7 +64,7 @@ const SnakeCard = ({ data, isListView }) => {
 
   const renderHeartIcon = () => (
     <i
-      className={`fa-solid fa-heart fs-5 wishlistcuore ${isInWishlist ? "text-danger" : "text-dark"
+      className={`fa-solid fa-heart fs-5 wishlistcuore ${isInWishlist ? "defaultcard" : "text-success"
         }`}
       onClick={handleToggleWishlist}
       style={{ cursor: "pointer" }}
