@@ -36,6 +36,8 @@ export default function CheckoutPage() {
         email: '',
     });
 
+    const [orderSuccess, setOrderSuccess] = useState(false)
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevData => ({
@@ -60,10 +62,12 @@ export default function CheckoutPage() {
         axios.post("http://127.0.0.1:3000/api/orders", updatedFormData)
             .then((res) => {
                 console.log("dati inviati con successo");
-                navigate("/");
                 handleClearCart();
             })
             .catch((err) => { console.log("errore nell'invio dati", err.response.data) })
+            .then((res) => setOrderSuccess(true))
+            .then(handleClearCart())
+
     }
 
     return (
@@ -132,8 +136,16 @@ export default function CheckoutPage() {
                             required
                         />
                     </div>
+                    <button type="submit" className="btn btn btnblog mb-3">Conferma</button>
 
-                    <button type="submit" className="btn btn btnblog">Conferma</button>
+                    <div className={`bg-success p-4 rounded ${orderSuccess ? "" : "visually-hidden"}`}>Ordine effettuato con successo:
+                        Spedire a: { }<strong>
+                            {formData.first_name} {formData.last_name}</strong> -
+                        Indirizzo: { }<strong>
+                            {formData.address}</strong> - { }
+                        mail: <strong>{formData.email}</strong> -
+                        Prezzo totale ordine: <strong>{formData.total_price} €</strong>
+                    </div>
                 </form>
             </div>
         </div>
