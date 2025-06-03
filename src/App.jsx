@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import GlobalContext from "./contexts/globalcontext";
 import DefaultLayout from "./layouts/DefaultLayout";
 import SnakeDetailPage from "./pages/SnakeDetailPage";
@@ -10,6 +10,9 @@ import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import BlogPageDetails from "./pages/BlogPageDetails";
 import { getCart } from "./utils/cartUtils";
+import CompletePayment from "./pages/CompletePayment";
+import CancelPayment from "./pages/CancelPayment";
+import PaypalPayment from "./components/PaypalPayment";
 
 function App() {
 
@@ -38,6 +41,9 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/cart/checkout" element={<CheckoutPage />} />
           </Route>
+          <Route path="/paypal" element={<PaypalPayment />} />
+          <Route path="/paypal/complete-payment" element={<CompletePayment />} />
+          <Route path="/paypal/cancel-payment" element={<CancelPayment />} />
           <Route path="*" element={<div>404</div>} /> //creare component errore 404
         </Routes>
       </BrowserRouter>
