@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import {
@@ -12,6 +12,8 @@ import GlobalContext from "../contexts/globalcontext";
 export default function CheckoutPage() {
 
 
+
+
     const handleClearCart = () => {
         clearCart();
         setCart([]);
@@ -19,12 +21,13 @@ export default function CheckoutPage() {
 
     const navigate = useNavigate();
     const { cart, setCart } = useContext(GlobalContext);
+    const [totalPrice, setTotalPrice] = useState(0)
 
 
 
     const [formData, setFormData] = useState({
         status: 'pagato',
-        total_price: 0,
+        total_price: totalPrice.toFixed(2),
         payment_method: 'Paypal',
         first_name: '',
         last_name: '',
@@ -41,15 +44,26 @@ export default function CheckoutPage() {
         }));
     };
 
+    useEffect(() => {
+        const total = cart.reduce((acc, item) => acc + parseInt(item.price), 0);
+        setTotalPrice(total);
+    }, [cart]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post("http://127.0.0.1:3000/api/orders", formData)
-            .then((res) => { console.log("dati inviati con successo") })
-            .catch((err) => { console.log("errore nell'invio dati", err.response.data) })
-            .then(navigate("/"))
-            .then(handleClearCart())
+        const updatedFormData = {
+            ...formData,
+            total_price: totalPrice,
+        };
 
+        axios.post("http://127.0.0.1:3000/api/orders", updatedFormData)
+            .then((res) => {
+                console.log("dati inviati con successo");
+                navigate("/");
+                handleClearCart();
+            })
+            .catch((err) => { console.log("errore nell'invio dati", err.response.data) })
     }
 
     return (
