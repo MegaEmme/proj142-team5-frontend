@@ -72,10 +72,14 @@ export default function HomePage() {
                         </span>
                     </p>
 
-                    <a href="/snakes" className="mt-4 btn btnblog mt-4 px-4 py-2 fs-5 rounded-3">
+                    <a href="/snakes" className="mt-4 btn btnblog w-75 mx-auto mt-4 px-4 py-2 fs-5 rounded-3">
                         🐍 Scopri i nostri esemplari
                     </a>
+                    <div>
+                        <p className="fs-2 text-uppercase mt-3 fw-bold">spedizione gratis  se fai un ordine a partire da...€!<i class="fa-solid fa-truck-fast ms-2"></i></p>
+                    </div>
                 </div>
+
             </div>
 
 

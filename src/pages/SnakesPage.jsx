@@ -91,8 +91,11 @@ const SnakesPage = () => {
 
   return (
     <>
-      <div className="mb-3 text-center">
-        <h1 className="fw-bolder card defaultcard mb-4 mt-5 py-4 rounded-3">I nostri Serpenti</h1>
+      <div className="mb-3 card defaultcard text-center  mt-4 py-4">
+        <h1 className="fw-bolder ">I nostri Serpenti</h1>
+      </div>
+      <div className="mb-3 text-center card defaultcard">
+        <p className="fs-3  mt-3 fw-bold">spedizione gratis  se fai un ordine a partire da...€!<i class="fa-solid fa-truck-fast ms-2"></i></p>
       </div>
 
       {/* Bottoni Ordina e Filtra*/}

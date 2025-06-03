@@ -45,9 +45,9 @@ export default function Carousel() {
                                     objectPosition: "center",
                                 }}
                             />
-                            <div className="defaultcard carousel-caption d-none d-md-flex flex-column align-items-center justify-content-center p-2 rounded-4">
-                                <h5 className="fw-bold text-center">{blog.title}</h5>
-                                <p className="text-center m-0 p-0">{blog.excerpt}</p>
+                            <div className="defaultcard carousel-caption flex-column align-items-center justify-content-center p-2 rounded-4">
+                                <h5 className="fw-bold text-center fs-4">{blog.title}</h5>
+                                <p className="text-center m-0 p-0 d-none d-md-block">{blog.excerpt}</p>
                                 <Link to={`/blog/${blog.id}`}>
                                     <button className="btn btnblog mt-2 p-2">Leggi di più</button>
                                 </Link>
