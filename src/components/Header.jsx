@@ -122,7 +122,7 @@ const Header = () => {
             id="cart-button"
           >
             <span className="d-none d-md-inline me-2">Carrello</span>
-            <i class="fa-solid fa-cart-shopping"></i>
+            <i className="fa-solid fa-cart-shopping"></i>
             {cartItemsCount > 0 && (
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 {cartItemsCount}

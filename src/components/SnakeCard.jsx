@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom";
 import GlobalContext from "../contexts/globalcontext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { addItemToCart } from "../utils/cartUtils";
 
 
 const SnakeCard = ({ data, isListView }) => {
   const { cart, setCart } = useContext(GlobalContext);
+
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+
+  // AGGIUNTO: useEffect per aggiornare lo stato del bottone in base al carrello
+  useEffect(() => {
+    // Controlla se l'ID del serpente di QUESTA card è presente in un elemento del carrello
+    const itemInCart = cart.find(item => item.id === data.id);
+    // Imposta isAddedToCart a true se l'articolo è trovato, altrimenti false
+    setIsAddedToCart(!!itemInCart); // Il !! converte un valore truthy/falsy in true/false
+  }, [cart, data.id]); // Le dipendenze: l'effetto si ri-esegue quando 'cart' o 'data.id' cambiano
 
   function invertDate(date) {
     const [year, month, day] = date.split("-");
@@ -30,16 +40,26 @@ const SnakeCard = ({ data, isListView }) => {
   } = data;
 
   function handleAddSnakeToCart() {
-    const updatedCart = addItemToCart(data);
+    // const updatedCart = addItemToCart(data);
 
+    // setCart(updatedCart);
+
+    // AGGIUNTO: Controlla se è già stato aggiunto per evitare duplicati
+    if (isAddedToCart) {
+      console.log("Questo oggetto è già nel carrello.");
+      return; // Ferma l'esecuzione della funzione
+    }
+
+    const updatedCart = addItemToCart(data);
     setCart(updatedCart);
+    // Rimosso: setIsAddedToCart(true); // Non serve più qui, useEffect lo gestirà
   }
 
   if (isListView) {
     // Layout per la visualizzazione a LISTA
     return (
       <div className="defaultcard d-flex flex-row align-items-center mb-2 rounded shadow-sm">
-        <img className="col-md-1 col-2" src={`./snake-imgs/${image}`} alt={common_name} />
+        <img className="col-md-1 col-2 ms-3" src={`./snake-imgs/${image}`} alt={common_name} />
         <div className="d-flex flex-row justify-content-between align-items-center flex-grow-1 ">
           {/* parte info */}
           <div className="flex-grow-1 mx-xl-5 mx-md-3 mx-2">
@@ -72,9 +92,9 @@ const SnakeCard = ({ data, isListView }) => {
           </div>
 
           {/* parte tasti */}
-          <div className="d-flex flex-column justify-content-between gap-2 me-2 div-btn flex-shrink-0">
+          <div className="d-flex flex-column justify-content-between gap-2 me-2 flex-shrink-0 py-2" id="div-btn">
             <Link to={`/snakes/${slug}`} className="btn btnblog">Dettagli esemplare</Link>
-            <button className="btn btncart" onClick={handleAddSnakeToCart}><strong>Aggiungi al carrello</strong></button>
+            <button className="btn btncart" onClick={handleAddSnakeToCart} disabled={isAddedToCart}><strong>{isAddedToCart ? "Nel tuo carrello" : "Aggiungi al carrello"}</strong></button>
           </div>
         </div >
       </div >
@@ -109,7 +129,7 @@ const SnakeCard = ({ data, isListView }) => {
               </p>
               <div className="d-flex justify-content-between gap-2 my-container">
                 <Link to={`/snakes/${slug}`} className="btn btnblog flex-shrink-2 my-text">Dettagli esemplare</Link>
-                <button className="btn btncart flex-shrink-2 my-text" onClick={handleAddSnakeToCart}><strong>Aggiungi al carrello</strong></button>
+                <button className="btn btncart flex-shrink-2 my-text" onClick={handleAddSnakeToCart} disabled={isAddedToCart}><strong>{isAddedToCart ? "Nel tuo carrello" : "Aggiungi al carrello"}</strong></button>
               </div>
             </li>
           </ul>
