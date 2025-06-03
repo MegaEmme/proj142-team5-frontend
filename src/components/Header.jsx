@@ -67,7 +67,9 @@ const Header = () => {
 
         {/* MENU MOBILE */}
         <div
-          className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${menuOpen ? "show" : "hide"}`}
+          className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${menuOpen ? "show" : "hide"
+            }`}
+         
         >
           <li>
             <NavLink to="/" onClick={() => setMenuOpen(false)} className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header">
@@ -106,12 +108,13 @@ const Header = () => {
         <div className="d-flex align-items-center gap-3">
           {/* 🛒 Carrello */}
           <button
-            className="btn position-relative"
+            className="btn btnblog"
             type="button"
             onClick={handleOpenCart}
             id="cart-button"
           >
-            <i className="fa-solid fa-bag-shopping fs-5"></i>
+            <span className="d-none d-md-inline me-2">Carrello</span>
+            <i class="fa-solid fa-cart-shopping"></i>
             {cartItemsCount > 0 && (
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 {cartItemsCount}

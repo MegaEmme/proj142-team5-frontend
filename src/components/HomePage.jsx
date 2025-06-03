@@ -46,7 +46,7 @@ export default function HomePage() {
         <>
             {/* Sezione Benvenuto */}
             <div className="container-fluid py-4">
-                <div className="defaultcard text-center px-5 py-4 rounded-4 mx-auto w-100 mb-4 mt-5 shadow">
+                <div className="defaultcard card text-center px-5 py-4 rounded-4 mx-auto w-100 mb-4 mt-5">
 
                     {/* Icona decorativa opzionale */}
                     <div className="mb-2">
@@ -72,10 +72,14 @@ export default function HomePage() {
                         </span>
                     </p>
 
-                    <a href="/snakes" className="mt-4 btn btnblog mt-4 px-4 py-2 fs-5 rounded-3">
+                    <a href="/snakes" className="mt-4 btn btnblog w-75 mx-auto mt-4 px-4 py-2 fs-5 rounded-3">
                         🐍 Scopri i nostri esemplari
                     </a>
+                    <div>
+                        <p className="fs-2 text-uppercase mt-3 fw-bold">spedizione gratis  se fai un ordine a partire da...€!<i class="fa-solid fa-truck-fast ms-2"></i></p>
+                    </div>
                 </div>
+
             </div>
 
 
@@ -87,7 +91,7 @@ export default function HomePage() {
 
             {/* Griglia serpenti scontati */}
             <div className="container mb-3 py-2">
-                <h2 className="text-center homesubtitle fs-1 pt-5">Serpenti in sconto!</h2>
+                <h2 className="text-center card defaultcard mb-4 mt-4 py-4 rounded-3">Serpenti in sconto!</h2>
                 <div className="row mt-4 h-100">
                     {discountedSnakes?.map((discountedSnake) => (
                         <div
@@ -102,7 +106,7 @@ export default function HomePage() {
 
             {/* Griglia serpenti appena nati */}
             <div className="container mb-3 py-2">
-                <h2 className="text-center homesubtitle fs-1 pt-5">Nascite recenti</h2>
+                <h2 className="text-center card defaultcard mb-4 mt-4 py-4 rounded-3">Nascite recenti</h2>
                 <div className="row mt-4 h-100">
                     {newBornSnakes?.map((newBornSnake) => (
                         <div
