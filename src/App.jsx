@@ -1,6 +1,8 @@
-import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import GlobalContext from "./contexts/globalcontext";
+import { GlobalProvider } from "./contexts/globalcontext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import DefaultLayout from "./layouts/DefaultLayout";
 import SnakeDetailPage from "./pages/SnakeDetailPage";
 import SnakesPage from "./pages/SnakesPage";
@@ -9,25 +11,16 @@ import BlogPage from "./pages/blog";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import BlogPageDetails from "./pages/BlogPageDetails";
-import { getCart } from "./utils/cartUtils";
+import WishlistPage from "./pages/WishlistPage";
 
 function App() {
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cart, setCart] = useState(getCart());
-
   return (
-    <GlobalContext.Provider value={{
-      isLoading,
-      setIsLoading,
-      isCartOpen,
-      setIsCartOpen,
-      cart,
-      setCart
-
-    }}>
+    <GlobalProvider>
       <BrowserRouter>
+        {/* ✅ Mostra toast in ogni pagina */}
+       <ToastContainer position="bottom-center" autoClose={3000} />
+
+        
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<HomePage />} />
@@ -35,14 +28,15 @@ function App() {
             <Route path="/snakes/:slug" element={<SnakeDetailPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:id" element={<BlogPageDetails />} />
+            <Route path="/wishlist" element={<WishlistPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/cart/checkout" element={<CheckoutPage />} />
           </Route>
-          <Route path="*" element={<div>404</div>} /> //creare component errore 404
+          <Route path="*" element={<div>404 - Pagina non trovata</div>} />
         </Routes>
       </BrowserRouter>
-    </GlobalContext.Provider>
-  )
-};
+    </GlobalProvider>
+  );
+}
 
 export default App;

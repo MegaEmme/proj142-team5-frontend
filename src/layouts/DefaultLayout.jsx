@@ -1,3 +1,5 @@
+// src/layouts/DefaultLayout.jsx
+
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Loader from "../components/Loader";
@@ -6,11 +8,16 @@ import GlobalContext from "../contexts/globalcontext";
 import Footer from "../components/Footer";
 import CartAside from "../components/CartAside";
 
+
 const DefaultLayout = () => {
-  const { isLoading, isCartOpen, setIsCartOpen } = useContext(GlobalContext);
+  const { isLoading, isCartOpen, setIsCartOpen, isWishlistOpen, setIsWishlistOpen } = useContext(GlobalContext);
 
   const handleCloseCart = () => {
     setIsCartOpen(false);
+  };
+
+  const handleCloseWishlist = () => {
+    setIsWishlistOpen(false);
   };
 
   return (
@@ -21,6 +28,7 @@ const DefaultLayout = () => {
       </main>
       {isLoading && <Loader />}
       <CartAside isOpen={isCartOpen} onClose={handleCloseCart} />
+      
       <Footer />
     </>
   );
