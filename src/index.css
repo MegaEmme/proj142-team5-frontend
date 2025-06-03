@@ -425,3 +425,13 @@ header a:hover {
 .main-content {
     min-height: 80vh;
 }
+
+@media (max-width: 576px) {
+    .div-btn {
+        width: 100px;
+    }
+
+    .div-btn .btn {
+        font-size: small;
+    }
+}

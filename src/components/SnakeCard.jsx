@@ -40,19 +40,20 @@ const SnakeCard = ({ data, isListView }) => {
     return (
       <div className="defaultcard d-flex flex-row align-items-center mb-2 rounded shadow-sm">
         <img className="col-md-1 col-2" src={`./snake-imgs/${image}`} alt={common_name} />
-        <div className="d-flex flex-row justify-content-between align-items-center flex-grow-1">
+        <div className="d-flex flex-row justify-content-between align-items-center flex-grow-1 ">
           {/* parte info */}
           <div className="flex-grow-1 mx-xl-5 mx-md-3 mx-2">
-            <div className="d-flex flex-row ">
-              <div className="me-5">
-                <h5 className="fs-4">{common_name}</h5>
-              </div>
+            <div className="d-flex flex-row justify-content-between align-items-center">
               <div>
-                <h5 className="fs-5 fst-italic">{scientific_name}</h5>
+                <h5 className="fs-6 fs-md-4 m-0">{common_name}</h5>
               </div>
+              {/* <div>
+                <h5 className="fs-5 me-5 fst-italic">{scientific_name}</h5>
+              </div> */}
+              <i class="fa-solid fa-heart fs-5 fs-md-3 wishlistcuore"></i>
             </div>
             <div className="d-flex flex-column flex-md-row">
-              <div className="me-5">
+              <div>
                 <p p className="m-1" > Sesso: <strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p>
               </div >
               <div>
@@ -60,7 +61,7 @@ const SnakeCard = ({ data, isListView }) => {
               </div>
             </div >
             <div className="d-flex flex-column flex-md-row">
-              <div className="me-5">
+              <div>
                 Prezzo: <strong>{discount ? price - (price * discount) : price} €</strong>
 
               </div >
@@ -71,7 +72,7 @@ const SnakeCard = ({ data, isListView }) => {
           </div>
 
           {/* parte tasti */}
-          <div className="d-flex flex-column justify-content-between gap-2 me-2">
+          <div className="d-flex flex-column justify-content-between gap-2 me-2 div-btn flex-shrink-0">
             <Link to={`/snakes/${slug}`} className="btn btnblog">Dettagli esemplare</Link>
             <button className="btn btncart" onClick={handleAddSnakeToCart}><strong>Aggiungi al carrello</strong></button>
           </div>
