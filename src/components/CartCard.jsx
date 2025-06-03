@@ -55,7 +55,7 @@ const CartCard = () => {
                                 {cart.map((item, index) => (
                                     <li className="list-group-item d-flex justify-content-between align-items-center" key={index}>
                                         <div className="d-flex">
-                                            <img src={`./snake-imgs/${item.image}`} alt={item.image} className="cart-imgs me-1" />
+                                            <img src={`/snake-imgs/${item.image}`} alt={item.image} className="cart-imgs me-1" />
                                             <div className="d-flex flex-column">
                                                 <span>{item.common_name}</span>
                                                 <span className="fst-italic">{item.discount ? item.price - (item.price * item.discount) : item.price} €</span>
