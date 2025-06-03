@@ -18,9 +18,9 @@ function App() {
     <GlobalProvider>
       <BrowserRouter>
         {/* ✅ Mostra toast in ogni pagina */}
-       <ToastContainer position="bottom-center" autoClose={3000} />
+        <ToastContainer position="bottom-center" autoClose={3000} />
 
-        
+
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<HomePage />} />
