@@ -6,7 +6,7 @@ export default function Carousel() {
         <div className="defaultcard">
             <div
                 id="carouselExampleCaptions"
-                className="carousel slide rounded-4 overflow-hidden "
+                className="carousel card defaultcard slide rounded-4 overflow-hidden "
                 data-bs-ride="carousel"
                 data-bs-interval="3000"
                 style={{

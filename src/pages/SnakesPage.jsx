@@ -92,7 +92,7 @@ const SnakesPage = () => {
   return (
     <>
       <div className="mb-3 text-center">
-        <h1 className="fw-bolder defaultcard mb-4 mt-5 py-4 rounded-3">I nostri Serpenti</h1>
+        <h1 className="fw-bolder card defaultcard mb-4 mt-5 py-4 rounded-3">I nostri Serpenti</h1>
       </div>
 
       {/* Bottoni Ordina e Filtra*/}
@@ -227,7 +227,7 @@ const SnakesPage = () => {
           isCardLayout ? ( // Se isCardLayout è TRUE: Visualizzazione a GRIGLIA (Card View)
             <div className="row mt-4 h-100">
               {paginatedSnakes.map((snake) => (
-                <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={snake.id}>
+                <div className="col-12 col-md-6 col-lg-4 mb-4" key={snake.id}>
                   <SnakeCard data={snake} isListView={false} />
                 </div>
               ))}
