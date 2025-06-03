@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import {
@@ -12,6 +12,8 @@ import GlobalContext from "../contexts/globalcontext";
 export default function CheckoutPage() {
 
 
+
+
     const handleClearCart = () => {
         clearCart();
         setCart([]);
@@ -19,10 +21,13 @@ export default function CheckoutPage() {
 
     const navigate = useNavigate();
     const { cart, setCart } = useContext(GlobalContext);
+    const [totalPrice, setTotalPrice] = useState(0)
+    const [submittedData, setSubmittedData] = useState(null);
+
+
 
     const [formData, setFormData] = useState({
         status: 'pagato',
-        total_price: 0,
         payment_method: 'Paypal',
         first_name: '',
         last_name: '',
@@ -41,15 +46,27 @@ export default function CheckoutPage() {
         }));
     };
 
+    useEffect(() => {
+        const total = cart.reduce((acc, item) => acc + parseInt(item.price), 0);
+        setTotalPrice(total);
+    }, [cart]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post("http://127.0.0.1:3000/api/orders", formData)
-            .then((res) => { console.log("dati inviati con successo") })
+        const updatedFormData = {
+            ...formData,
+            total_price: totalPrice,
+        };
+
+        axios.post("http://127.0.0.1:3000/api/orders", updatedFormData)
+            .then((res) => {
+                console.log("dati inviati con successo");
+                setSubmittedData(updatedFormData);
+                setOrderSuccess(true)
+                handleClearCart()
+            })
             .catch((err) => { console.log("errore nell'invio dati", err.response.data) })
-            // .then(navigate("/"))
-            .then((res) => setOrderSuccess(true))
-            .then(handleClearCart())
 
     }
 
@@ -121,14 +138,16 @@ export default function CheckoutPage() {
                     </div>
                     <button type="submit" className="btn btn btnblog mb-3">Conferma</button>
 
+
+                    {submittedData && orderSuccess &&
                     <div className={`bg-success p-4 rounded ${orderSuccess ? "" : "visually-hidden"}`}>Ordine effettuato con successo:
                         Spedire a: { }<strong>
                             {formData.first_name} {formData.last_name}</strong> -
                         Indirizzo: { }<strong>
                             {formData.address}</strong> - { }
                         mail: <strong>{formData.email}</strong> -
-                        Prezzo totale ordine: <strong>{formData.total_price} €</strong>
-                    </div>
+                        Prezzo totale ordine: <strong>{submittedData.total_price} €</strong>
+                    </div>}
                 </form>
             </div>
         </div>

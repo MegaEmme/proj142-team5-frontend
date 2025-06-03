@@ -70,8 +70,12 @@ const SnakeCard = ({ data, isListView }) => {
     return (
       <div className="card snakecard h-100 ">
         <div className="card-body d-flex flex-column justify-content-between">
+
           <div className="my-container">
-            <h3 className=" text-center my-text">{common_name}</h3>
+            <div className="d-flex justify-content-around align-items-center mb-3">
+              <h3 className=" text-center my-text">{common_name}</h3>
+              <li className="list-group-item"><i class="fa-solid fa-heart"></i></li>
+            </div>
             <h4 className=" text-center fst-italic my-text">({scientific_name})</h4>
           </div>
           <img src={`./snake-imgs/${image}`} alt={common_name} />
@@ -79,6 +83,7 @@ const SnakeCard = ({ data, isListView }) => {
             <li className="list-group-item"><p className="m-1">Sesso: <strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p></li>
             <li className="list-group-item"><p className="m-1"> Data di nascita: <strong> {invertDate(birth.split('T')[0])}</strong></p></li>
             <li className="list-group-item"><p className="m-1"> Lunghezza: <strong>{length} m</strong></p></li>
+
 
             <li className="list-group-item">
               {discount > 0 && <p className="text-danger">SCONTATO DEL <strong>{discount * 100}%</strong></p>}
