@@ -72,9 +72,8 @@ const Header = () => {
 
         {/* MENU MOBILE */}
         <div
-          className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${
-            menuOpen ? "show" : "hide"
-          }`}
+          className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${menuOpen ? "show" : "hide"
+            }`}
         >
           <li>
             <NavLink
@@ -117,7 +116,7 @@ const Header = () => {
         {/* CARRELLO */}
         <div className="text-end">
           <button
-            className=""
+            className="btn btnblog"
             type="button"
             onClick={handleOpenCart}
             id="cart-button"

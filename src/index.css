@@ -17,13 +17,9 @@ body {
 /* Carrello */
 #cart-button {
     position: fixed;
-    top: 50rem;
-    right: 3rem;
-    bottom: 3rem;
-    border: 2px solid white;
+    right: 1rem;
+    bottom: 1rem;
     z-index: 1000;
-    background-color: greenyellow;
-    border: 2px solid white;
     padding: 15px 25px;
     font-weight: bold;
     font-size: 1.2rem;
@@ -36,14 +32,6 @@ body {
     font-size: 1.4rem;
 }
 
-/*Hover Carrello*/
-#cart-button:hover {
-    background-color: rgb(1, 81, 1);
-    color: white;
-    border-color: black;
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
 
 /* Header */
 header {
