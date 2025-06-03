@@ -20,8 +20,6 @@ export default function CheckoutPage() {
     const navigate = useNavigate();
     const { cart, setCart } = useContext(GlobalContext);
 
-
-
     const [formData, setFormData] = useState({
         status: 'pagato',
         total_price: 0,
@@ -32,6 +30,8 @@ export default function CheckoutPage() {
         phone_number: '',
         email: '',
     });
+
+    const [orderSuccess, setOrderSuccess] = useState(false)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -47,7 +47,8 @@ export default function CheckoutPage() {
         axios.post("http://127.0.0.1:3000/api/orders", formData)
             .then((res) => { console.log("dati inviati con successo") })
             .catch((err) => { console.log("errore nell'invio dati", err.response.data) })
-            .then(navigate("/"))
+            // .then(navigate("/"))
+            .then((res) => setOrderSuccess(true))
             .then(handleClearCart())
 
     }
@@ -118,8 +119,16 @@ export default function CheckoutPage() {
                             required
                         />
                     </div>
+                    <button type="submit" className="btn btn btnblog mb-3">Conferma</button>
 
-                    <button type="submit" className="btn btn btnblog">Conferma</button>
+                    <div className={`bg-success p-4 rounded ${orderSuccess ? "" : "visually-hidden"}`}>Ordine effettuato con successo:
+                        Spedire a: { }<strong>
+                            {formData.first_name} {formData.last_name}</strong> -
+                        Indirizzo: { }<strong>
+                            {formData.address}</strong> - { }
+                        mail: <strong>{formData.email}</strong> -
+                        Prezzo totale ordine: <strong>{formData.total_price} €</strong>
+                    </div>
                 </form>
             </div>
         </div>
