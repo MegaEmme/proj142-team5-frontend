@@ -55,16 +55,17 @@ const PaypalPayment = () => {
 
     return (
         <>
-            <h1>Paypal Payment Demo</h1>
-            <PayPalScriptProvider options={initialOptions}>
-                <PayPalButtons
-                    style={styles}
-                    createOrder={onCreateOrder}
-                    onApprove={onApprove}
-                    onError={onError}
-                    fundingSource="paypal"
-                />
-            </PayPalScriptProvider>
+            <div className="container mt-4">
+                <PayPalScriptProvider options={initialOptions}>
+                    <PayPalButtons
+                        style={styles}
+                        createOrder={onCreateOrder}
+                        onApprove={onApprove}
+                        onError={onError}
+                        fundingSource="paypal"
+                    />
+                </PayPalScriptProvider>
+            </div>
         </>
     );
 };
