@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { GlobalProvider } from "./contexts/globalcontext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import DefaultLayout from "./layouts/DefaultLayout";
 import SnakeDetailPage from "./pages/SnakeDetailPage";
 import SnakesPage from "./pages/SnakesPage";
@@ -12,6 +11,9 @@ import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import BlogPageDetails from "./pages/BlogPageDetails";
 import WishlistPage from "./pages/WishlistPage";
+import PaypalPayment from "./components/PaypalPayment";
+import CompletePayment from "./pages/CompletePayment";
+import CancelPayment from "./pages/CancelPayment";
 
 function App() {
   return (
@@ -32,6 +34,9 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/cart/checkout" element={<CheckoutPage />} />
           </Route>
+          <Route path="/paypal" element={<PaypalPayment />} />
+          <Route path="/paypal/complete-payment" element={<CompletePayment />} />
+          <Route path="/paypal/cancel-payment" element={<CancelPayment />} />
           <Route path="*" element={<div>404 - Pagina non trovata</div>} />
         </Routes>
       </BrowserRouter>
