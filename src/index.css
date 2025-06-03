@@ -80,6 +80,11 @@ header a:hover {
     min-height: 3em;
 }
 
+.wishlistcuore:hover {
+    color: greenyellow;
+    transform: scale(1.10);
+}
+
 /* Cards generiche */
 
 .defaultcard,
@@ -340,6 +345,11 @@ header a:hover {
         background-color: green;
         color: white;
         transform: scale(1.05);
+    }
+
+    .wishlistcuore:hover {
+        color: rgb(1, 81, 1);
+        transform: scale(1.10);
     }
 
     .mobile-menu {

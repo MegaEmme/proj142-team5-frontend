@@ -76,7 +76,7 @@ const SnakeCard = ({ data, isListView }) => {
               <h3 className="m-0 my-text-container">{common_name}</h3>
               <h4 className=" fst-italic m-0 my-text-container">({scientific_name})</h4>
             </div>
-            <li className="list-group-item"><i class="fa-solid fa-heart"></i></li>
+            <li className="list-group-item"><i class="fa-solid fa-heart fs-3 wishlistcuore"></i></li>
           </div>
           <img src={`./snake-imgs/${image}`} alt={common_name} />
           <ul className="list-group list-group-flush">
