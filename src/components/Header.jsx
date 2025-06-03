@@ -1,14 +1,13 @@
-import { useContext } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 import GlobalContext from "../contexts/globalcontext";
 
 const Header = () => {
-  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { setIsCartOpen, cart } = useContext(GlobalContext);
+  const { setIsCartOpen, cart, wishlist } = useContext(GlobalContext);
 
   const cartItemsCount = cart?.length || 0;
+  const wishlistCount = wishlist?.length || 0;
 
   const handleOpenCart = () => {
     setIsCartOpen(true);
@@ -17,6 +16,7 @@ const Header = () => {
   return (
     <header className="py-3 shadow w-100 position-relative">
       <div className="container d-flex justify-content-between align-items-center position-relative">
+        
         {/* LOGO */}
         <div className="logo-container">
           <NavLink to="/" className="text-decoration-none">
@@ -38,95 +38,83 @@ const Header = () => {
         </button>
 
         {/* MENU DESKTOP */}
-        <ul className="d-none d-md-flex list-unstyled m-0 gap-5 fs-4 fw-semibold">
+        <ul className="d-none d-md-flex list-unstyled m-0 gap-5 fs-4 fw-semibold align-items-center">
           <li>
-            <NavLink to="/" className="text-decoration-none nav-link-header">
-              Homepage
-            </NavLink>
+            <NavLink to="/" className="text-decoration-none nav-link-header">Homepage</NavLink>
           </li>
           <li>
-            <NavLink
-              to="/snakes"
-              className="text-decoration-none nav-link-header"
-            >
-              Shop
-            </NavLink>
+            <NavLink to="/snakes" className="text-decoration-none nav-link-header">Shop</NavLink>
           </li>
           <li>
-            <NavLink
-              to="/blog"
-              className="text-decoration-none nav-link-header"
-            >
-              Blog
-            </NavLink>
+            <NavLink to="/blog" className="text-decoration-none nav-link-header">Blog</NavLink>
           </li>
-          <li>
+          <li className="position-relative">
             <NavLink
-              to="/cart"
-              className="text-decoration-none nav-link-header"
+              to="/wishlist"
+              className="text-decoration-none nav-link-header d-flex align-items-center"
             >
-              Carrello
+              <span className="me-1">Preferiti</span>
+              <i className="fa-solid fa-heart text-white" style={{ fontSize: "0.9rem" }}></i>
+              {wishlistCount > 0 && (
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {wishlistCount}
+                  <span className="visually-hidden">elementi nei preferiti</span>
+                </span>
+              )}
             </NavLink>
           </li>
         </ul>
 
         {/* MENU MOBILE */}
         <div
-          className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${
-            menuOpen ? "show" : "hide"
-          }`}
+          className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${menuOpen ? "show" : "hide"}`}
         >
           <li>
-            <NavLink
-              to="/"
-              onClick={() => setMenuOpen(false)}
-              className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header"
-            >
+            <NavLink to="/" onClick={() => setMenuOpen(false)} className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header">
               <h2>Homepage</h2>
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/snakes"
-              onClick={() => setMenuOpen(false)}
-              className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header"
-            >
+            <NavLink to="/snakes" onClick={() => setMenuOpen(false)} className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header">
               <h2>Shop</h2>
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/blog"
-              onClick={() => setMenuOpen(false)}
-              className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header"
-            >
+            <NavLink to="/blog" onClick={() => setMenuOpen(false)} className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header">
               <h2>Blog</h2>
             </NavLink>
           </li>
-          <li>
+          <li className="position-relative">
             <NavLink
-              to="/cart"
+              to="/wishlist"
               onClick={() => setMenuOpen(false)}
-              className="d-block text-decoration-none m-3 fs-1 nav-link-header"
+              className="d-flex align-items-center text-decoration-none fs-1 nav-link-header"
             >
-              <i className="fa-solid fa-bag-shopping"></i>
+              <span className="me-2">Preferiti</span>
+              <i className="fa-solid fa-heart text-white" style={{ fontSize: "1.2rem" }}></i>
+              {wishlistCount > 0 && (
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {wishlistCount}
+                  <span className="visually-hidden">elementi nei preferiti</span>
+                </span>
+              )}
             </NavLink>
           </li>
         </div>
 
-        {/* CARRELLO */}
-        <div className="text-end">
+        {/* BOTTONI DESTRA */}
+        <div className="d-flex align-items-center gap-3">
+          {/* 🛒 Carrello */}
           <button
-            className=""
+            className="btn position-relative"
             type="button"
             onClick={handleOpenCart}
             id="cart-button"
           >
-            Carrello <i className="fa-solid fa-bag-shopping"></i>
+            <i className="fa-solid fa-bag-shopping fs-5"></i>
             {cartItemsCount > 0 && (
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 {cartItemsCount}
-                <span className="visually-hidden">articoli nel carrello</span>
               </span>
             )}
           </button>
