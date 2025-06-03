@@ -117,12 +117,12 @@ const Header = () => {
         {/* CARRELLO */}
         <div className="text-end">
           <button
-            className="btn btnblog z-3"
+            className=""
             type="button"
             onClick={handleOpenCart}
             id="cart-button"
           >
-            carrello <i className="fa-solid fa-bag-shopping"></i>
+            Carrello <i className="fa-solid fa-bag-shopping"></i>
             {cartItemsCount > 0 && (
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 {cartItemsCount}

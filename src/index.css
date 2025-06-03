@@ -14,17 +14,37 @@ body {
   border: 3px solid greenyellow;
 }
 
-/* Header */
-
+/* Carrello */
 #cart-button {
   position: fixed;
   top: 50rem;
-  right: 10rem;
-  padding: 20px;
-  border-radius: 50%;
+  right: 3rem;
+  bottom: 3rem;
   border: 2px solid white;
+  z-index: 1000;
+  background-color: greenyellow;
+  border: 2px solid white;
+  padding: 15px 25px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+#cart-button i {
+  font-size: 1.4rem;
 }
 
+/*Hover Carrello*/
+#cart-button:hover {
+  background-color: rgb(1, 81, 1);
+  color: white;
+  border-color: black;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
 header {
   background-color: rgb(192, 237, 192);
 }
@@ -78,7 +98,6 @@ header a:hover {
 
 .nav-link-header {
   position: relative;
-
   transition: color 0.3s;
 }
 .nav-link-header::after {
