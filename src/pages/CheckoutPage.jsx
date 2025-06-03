@@ -22,12 +22,12 @@ export default function CheckoutPage() {
     const navigate = useNavigate();
     const { cart, setCart } = useContext(GlobalContext);
     const [totalPrice, setTotalPrice] = useState(0)
+    const [submittedData, setSubmittedData] = useState(null);
 
 
 
     const [formData, setFormData] = useState({
         status: 'pagato',
-        total_price: totalPrice.toFixed(2),
         payment_method: 'Paypal',
         first_name: '',
         last_name: '',
@@ -62,11 +62,11 @@ export default function CheckoutPage() {
         axios.post("http://127.0.0.1:3000/api/orders", updatedFormData)
             .then((res) => {
                 console.log("dati inviati con successo");
-                handleClearCart();
+                setSubmittedData(updatedFormData);
+                setOrderSuccess(true)
+                handleClearCart()
             })
             .catch((err) => { console.log("errore nell'invio dati", err.response.data) })
-            .then((res) => setOrderSuccess(true))
-            .then(handleClearCart())
 
     }
 
@@ -138,14 +138,16 @@ export default function CheckoutPage() {
                     </div>
                     <button type="submit" className="btn btn btnblog mb-3">Conferma</button>
 
+
+                    {submittedData && orderSuccess &&
                     <div className={`bg-success p-4 rounded ${orderSuccess ? "" : "visually-hidden"}`}>Ordine effettuato con successo:
                         Spedire a: { }<strong>
                             {formData.first_name} {formData.last_name}</strong> -
                         Indirizzo: { }<strong>
                             {formData.address}</strong> - { }
                         mail: <strong>{formData.email}</strong> -
-                        Prezzo totale ordine: <strong>{formData.total_price} €</strong>
-                    </div>
+                        Prezzo totale ordine: <strong>{submittedData.total_price} €</strong>
+                    </div>}
                 </form>
             </div>
         </div>
