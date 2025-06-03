@@ -298,6 +298,14 @@ header a:hover {
         color: rgb(130, 255, 67);
     }
 
+    header a:hover {
+        color: white;
+    }
+
+    .homesubtitle {
+        color: white;
+    }
+
     .snakecard,
     .defaultcard,
     .list-group-item {
@@ -321,10 +329,11 @@ header a:hover {
         border: solid greenyellow 2px;
     }
 
+    .btnblog:hover,
     .btnstyle:hover,
     .btn-outline-style:hover {
         background-color: green;
-        color: black;
+        color: white;
         transform: scale(1.05);
     }
 

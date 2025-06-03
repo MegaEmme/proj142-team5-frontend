@@ -87,7 +87,7 @@ export default function HomePage() {
 
             {/* Griglia serpenti scontati */}
             <div className="container mb-3 py-2">
-                <h2 className="text-center text-white pt-5">Serpenti in sconto!</h2>
+                <h2 className="text-center homesubtitle fs-1 pt-5">Serpenti in sconto!</h2>
                 <div className="row mt-4 h-100">
                     {discountedSnakes?.map((discountedSnake) => (
                         <div
@@ -102,7 +102,7 @@ export default function HomePage() {
 
             {/* Griglia serpenti appena nati */}
             <div className="container mb-3 py-2">
-                <h2 className="text-center text-white pt-5">Nascite recenti</h2>
+                <h2 className="text-center homesubtitle fs-1 pt-5">Nascite recenti</h2>
                 <div className="row mt-4 h-100">
                     {newBornSnakes?.map((newBornSnake) => (
                         <div
