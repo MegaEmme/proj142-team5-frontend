@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
 import GlobalContext from "../contexts/globalcontext";
-import { useContext } from "react";
 import { toast } from "react-toastify";
 import { useContext, useEffect, useState } from "react";
 import { addItemToCart } from "../utils/cartUtils";
-import {
-  addItemToWishlist,
-  removeItemFromWishlist,
-} from "../utils/wishlistUtils";
+import { addItemToWishlist, removeItemFromWishlist } from "../utils/wishlistUtils";
 
 const SnakeCard = ({ data, isListView }) => {
   const { cart, setCart, wishlist, setWishlist } = useContext(GlobalContext);
@@ -42,11 +38,6 @@ const SnakeCard = ({ data, isListView }) => {
     discount,
   } = data;
 
-  const invertDate = (date) => {
-    const [year, month, day] = date.split("-");
-    return `${day}-${month}-${year}`;
-  };
-
   const isInWishlist = wishlist.some((item) => item.slug === slug);
 
   const handleToggleWishlist = () => {
@@ -62,6 +53,10 @@ const SnakeCard = ({ data, isListView }) => {
   };
 
   const handleAddSnakeToCart = () => {
+    if (isAddedToCart) {
+      console.log("Questo oggetto è già nel carrello.");
+      return; // Ferma l'esecuzione della funzione
+    }
     const updatedCart = addItemToCart(data);
     setCart(updatedCart);
     toast.success("Aggiunto al carrello!");
@@ -75,21 +70,7 @@ const SnakeCard = ({ data, isListView }) => {
       style={{ cursor: "pointer" }}
     ></i>
   );
-  function handleAddSnakeToCart() {
-    // const updatedCart = addItemToCart(data);
 
-    // setCart(updatedCart);
-
-    // AGGIUNTO: Controlla se è già stato aggiunto per evitare duplicati
-    if (isAddedToCart) {
-      console.log("Questo oggetto è già nel carrello.");
-      return; // Ferma l'esecuzione della funzione
-    }
-
-    const updatedCart = addItemToCart(data);
-    setCart(updatedCart);
-    // Rimosso: setIsAddedToCart(true); // Non serve più qui, useEffect lo gestirà
-  }
 
   if (isListView) {
     return (
@@ -137,7 +118,7 @@ const SnakeCard = ({ data, isListView }) => {
               <h3 className="m-0 my-text-container">{common_name}</h3>
               <h4 className=" fst-italic m-0 my-text-container">({scientific_name})</h4>
             </div>
-            <li className="list-group-item"><i class="fa-solid fa-heart fs-3 wishlistcuore"></i></li>
+            <li className="list-group-item">{renderHeartIcon()}</li>
           </div>
           <img src={`./snake-imgs/${image}`} alt={common_name} />
           <ul className="list-group list-group-flush">
