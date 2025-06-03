@@ -38,32 +38,45 @@ const SnakeCard = ({ data, isListView }) => {
   if (isListView) {
     // Layout per la visualizzazione a LISTA
     return (
-      <div className="defaultcard d-flex flex-md-row flex-column justify-content-between align-items-center mb-4 p-3 rounded shadow-sm">
-        <img className="col-xl-3 col-md-4 col-12" src={`./snake-imgs/${image}`} alt={common_name} />
-        <div className="flex-grow-1 mx-xl-5 mx-md-3 mx-2">
-          <h5 className="fs-1 mb-3 card-title">{common_name}</h5>
-          <h5 className="fs-2 mb-3 card-title fst-italic">{scientific_name}</h5>
-          <div className="d-flex flex-column flex-md-row mb-3">
-            <div className="me-5">
-              <p className="m-1">Sesso: <strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p>
-              <p className="m-1">Temperamento: <strong>{temperament}</strong>  </p>
-              <p className="m-1"> Difficoltà: <strong>{difficulty}</strong></p>
+      <div className="defaultcard d-flex flex-row align-items-center mb-2 rounded shadow-sm">
+        <img className="col-md-1 col-2" src={`./snake-imgs/${image}`} alt={common_name} />
+        <div className="d-flex flex-row justify-content-between align-items-center flex-grow-1">
+          {/* parte info */}
+          <div className="flex-grow-1 mx-xl-5 mx-md-3 mx-2">
+            <div className="d-flex flex-row ">
+              <div className="me-5">
+                <h5 className="fs-4">{common_name}</h5>
+              </div>
+              <div>
+                <h5 className="fs-5 fst-italic">{scientific_name}</h5>
+              </div>
             </div>
-            <div>
-              <p className="m-1"> Data di nascita: <strong> {invertDate(birth.split("T")[0]).replace(/-/g, "/")}</strong> </p>
-              <p className="m-1"> Morfologia: <strong>{morph === "normal" ? "nessuna" : morph}</strong></p>
-              <p className="m-1"> Lunghezza: <strong>{length} m</strong></p>
-            </div>
+            <div className="d-flex flex-column flex-md-row">
+              <div className="me-5">
+                <p p className="m-1" > Sesso: <strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p>
+              </div >
+              <div>
+                <p className="m-1"> Lunghezza: <strong>{length} m</strong></p>
+              </div>
+            </div >
+            <div className="d-flex flex-column flex-md-row">
+              <div className="me-5">
+                Prezzo: <strong>{discount ? price - (price * discount) : price} €</strong>
+
+              </div >
+              <div className="mb-2">
+                {discount > 0 && <span className="text-danger"><strong>{discount * 100}%</strong></span>}
+              </div>
+            </div >
           </div>
-          {discount > 0 && <p className="text-danger">SCONTATO DEL <strong>{discount * 100}%</strong></p>}
-          {discount > 0 && <p className="text-danger">Prezzo originale: <strong className="text-decoration-line-through">{price}€</strong></p>}
-          <p className="mb-4 fs-3">Prezzo: <strong>{discount ? price - (price * discount) : price} €</strong></p>
-          <div className="d-flex justify-content-between mx-5 gap-2">
+
+          {/* parte tasti */}
+          <div className="d-flex flex-column justify-content-between gap-2 me-2">
             <Link to={`/snakes/${slug}`} className="btn btnblog">Dettagli esemplare</Link>
             <button className="btn btncart" onClick={handleAddSnakeToCart}><strong>Aggiungi al carrello</strong></button>
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
     );
   } else {
     // Layout per la visualizzazione a CARD
@@ -83,12 +96,14 @@ const SnakeCard = ({ data, isListView }) => {
             <li className="list-group-item"><p className="m-1">Sesso: <strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p></li>
             <li className="list-group-item"><p className="m-1"> Data di nascita: <strong>{invertDate(birth.split("T")[0]).replace(/-/g, "/")}</strong></p></li>
             <li className="list-group-item"><p className="m-1"> Lunghezza: <strong>{length} m</strong></p></li>
+            <li className="list-group-item"><p className="m-1"> Temperamento: <strong>{temperament}</strong></p></li>
+            <li className="list-group-item"><p className="m-1"> Difficoltà: <strong>{difficulty}</strong></p></li>
 
             <li className="list-group-item">
 
               <p className="mb-4 fs-3 my-text-container">
-                {discount > 0 && <span className="text-danger fs-4 me-2"><strong className="text-decoration-line-through">{price}€</strong></span>}
-                {discount > 0 && <span className="text-danger fs-4"><strong>{discount * 100}%</strong></span>} <br />
+                {discount > 0 && <span className="text-danger fs-3 me-3"><strong>{discount * 100}%</strong></span>}
+                {discount > 0 && <span className="text-danger fs-4 "><strong className="text-decoration-line-through">{price}€</strong></span>}<br />
                 Prezzo: <strong>{discount ? price - (price * discount) : price}€</strong>
               </p>
               <div className="d-flex justify-content-between gap-2 my-container">
