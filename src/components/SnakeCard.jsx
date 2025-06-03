@@ -50,7 +50,7 @@ const SnakeCard = ({ data, isListView }) => {
               <p className="m-1"> Difficoltà: <strong>{difficulty}</strong></p>
             </div>
             <div>
-              <p className="m-1"> Data di nascita: <strong> {invertDate(birth.split('T')[0])}</strong> </p>
+              <p className="m-1"> Data di nascita: <strong> {invertDate(birth.split("T")[0]).replace(/-/g, "/")}</strong> </p>
               <p className="m-1"> Morfologia: <strong>{morph === "normal" ? "nessuna" : morph}</strong></p>
               <p className="m-1"> Lunghezza: <strong>{length} m</strong></p>
             </div>
@@ -71,24 +71,26 @@ const SnakeCard = ({ data, isListView }) => {
       <div className="card snakecard h-100 ">
         <div className="card-body d-flex flex-column justify-content-between">
 
-          <div className="my-container">
-            <div className="d-flex justify-content-around align-items-center mb-3">
-              <h3 className=" text-center my-text">{common_name}</h3>
-              <li className="list-group-item"><i class="fa-solid fa-heart"></i></li>
+          <div className=" d-flex justify-content-between align-items-center">
+            <div className="">
+              <h3 className="m-0 my-text-container">{common_name}</h3>
+              <h4 className=" fst-italic m-0 my-text-container">({scientific_name})</h4>
             </div>
-            <h4 className=" text-center fst-italic my-text">({scientific_name})</h4>
+            <li className="list-group-item"><i class="fa-solid fa-heart"></i></li>
           </div>
           <img src={`./snake-imgs/${image}`} alt={common_name} />
           <ul className="list-group list-group-flush">
             <li className="list-group-item"><p className="m-1">Sesso: <strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p></li>
-            <li className="list-group-item"><p className="m-1"> Data di nascita: <strong> {invertDate(birth.split('T')[0])}</strong></p></li>
+            <li className="list-group-item"><p className="m-1"> Data di nascita: <strong>{invertDate(birth.split("T")[0]).replace(/-/g, "/")}</strong></p></li>
             <li className="list-group-item"><p className="m-1"> Lunghezza: <strong>{length} m</strong></p></li>
 
-
             <li className="list-group-item">
-              {discount > 0 && <p className="text-danger">SCONTATO DEL <strong>{discount * 100}%</strong></p>}
-              {discount > 0 && <p className="text-danger">Prezzo originale: <strong className="text-decoration-line-through">{price}€</strong></p>}
-              <p className="mb-4 fs-3">Prezzo: <strong>{discount ? price - (price * discount) : price} €</strong></p>
+
+              <p className="mb-4 fs-3 my-text-container">
+                {discount > 0 && <span className="text-danger fs-4 me-2"><strong className="text-decoration-line-through">{price}€</strong></span>}
+                {discount > 0 && <span className="text-danger fs-4"><strong>{discount * 100}%</strong></span>} <br />
+                Prezzo: <strong>{discount ? price - (price * discount) : price}€</strong>
+              </p>
               <div className="d-flex justify-content-between gap-2 my-container">
                 <Link to={`/snakes/${slug}`} className="btn btnblog flex-shrink-2 my-text">Dettagli esemplare</Link>
                 <button className="btn btncart flex-shrink-2 my-text" onClick={handleAddSnakeToCart}><strong>Aggiungi al carrello</strong></button>

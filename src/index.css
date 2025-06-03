@@ -75,6 +75,11 @@ header a:hover {
     font-size: 7cqi;
 }
 
+.my-text-container {
+    font-size: 20px;
+    min-height: 3em;
+}
+
 /* Cards generiche */
 
 .defaultcard,
