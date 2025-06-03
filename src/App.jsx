@@ -38,7 +38,7 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/cart/checkout" element={<CheckoutPage />} />
           </Route>
-          <Route path="*" element={<div>404</div>} />
+          <Route path="*" element={<div>404</div>} /> //creare component errore 404
         </Routes>
       </BrowserRouter>
     </GlobalContext.Provider>
