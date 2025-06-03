@@ -1,4 +1,9 @@
-import { Link } from "react-router-dom";
+import { addItemToCart } from "../utils/cartUtils";
+import { useContext } from "react";
+import GlobalContext from "../contexts/globalcontext";
+
+
+
 
 function invertDate(date) {
     const [year, month, day] = date.split("-");
@@ -6,6 +11,15 @@ function invertDate(date) {
 }
 
 const SnakeDetailCard = ({ data }) => {
+
+    const { cart, setCart } = useContext(GlobalContext);
+
+    function handleAddSnakeToCart() {
+        const updatedCart = addItemToCart(data);
+
+        setCart(updatedCart);
+    }
+
     const {
         common_name,
         scientific_name,
@@ -47,8 +61,8 @@ const SnakeDetailCard = ({ data }) => {
                             : <li className="list-group-item">Prezzo: <strong>{price} €</strong></li>}
 
 
+                        <button className="btn btncart flex-shrink-2 my-text" onClick={handleAddSnakeToCart}><strong>Aggiungi al carrello</strong></button>
 
-                        <Link to={`/snakes/${slug}`} className="btn btncart mt-3 w-75 mx-auto"><strong>Aggiungi al carrello</strong></Link>
                     </ul>
                 </div>
             </div>
