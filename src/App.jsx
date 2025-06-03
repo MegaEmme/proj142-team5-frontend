@@ -14,7 +14,7 @@ import WishlistPage from "./pages/WishlistPage";
 import PaypalPayment from "./components/PaypalPayment";
 import CompletePayment from "./pages/CompletePayment";
 import CancelPayment from "./pages/CancelPayment";
-
+import NotFound from "./components/NotFound";
 function App() {
   return (
     <GlobalProvider>
@@ -37,7 +37,7 @@ function App() {
           <Route path="/paypal" element={<PaypalPayment />} />
           <Route path="/paypal/complete-payment" element={<CompletePayment />} />
           <Route path="/paypal/cancel-payment" element={<CancelPayment />} />
-          <Route path="*" element={<div>404 - Pagina non trovata</div>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </GlobalProvider>
