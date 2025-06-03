@@ -76,7 +76,7 @@ export default function HomePage() {
                         🐍 Scopri i nostri esemplari
                     </a>
                     <div>
-                        <p className="fs-2 text-uppercase mt-3 fw-bold">spedizione gratis  se fai un ordine a partire da...€!<i class="fa-solid fa-truck-fast ms-2"></i></p>
+                        <p className="fs-2 text-uppercase mt-3 fw-bold">spedizione gratis  se fai un ordine a partire da 250€!<i className="fa-solid fa-truck-fast ms-2"></i></p>
                     </div>
                 </div>
 

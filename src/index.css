@@ -459,8 +459,13 @@ header a:hover {
     min-height: 80vh;
 }
 
-@media (min-width: 576px) {
-    .div-btn {
+@media (max-width: 576px) {
+    #div-btn {
         width: 100px;
+    }
+
+    #div-btn .btn {
+        font-size: 10px;
+        padding: 4px 8px;
     }
 }
