@@ -13,7 +13,7 @@ const PaypalPayment = () => {
 
     const onCreateOrder = async () => {
         try {
-            const response = await fetch("/paypal/createorder", {
+            const response = await fetch("http://localhost:3000/paypal/createorder", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -29,16 +29,28 @@ const PaypalPayment = () => {
 
     const onApprove = async (data) => {
         try {
-
+            const response = await fetch("http://localhost:3000/paypal/captureorder", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ orderId: data.orderID }),
+            });
+            const result = await response.json();
+            if (result.status === "COMPLETED") {
+                window.location.href = "/paypal/complete-payment";
+            } else {
+                window.location.href = "/paypal/cancel-payment";
+            }
         } catch (error) {
             console.error("Error verifying PayPal order:", error);
-            window.location.href = "/cancel-payment";
+            window.location.href = "/paypal/cancel-payment";
         }
     };
 
     const onError = (error) => {
         console.error("PayPal error", error);
-        window.location.href = "/cancel-payment";
+        window.location.href = "/paypal/cancel-payment";
     };
 
     return (
