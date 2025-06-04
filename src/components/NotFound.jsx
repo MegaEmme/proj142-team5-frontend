@@ -1,7 +1,11 @@
 const NotFound = () => {
     return (
-        <div className="container bg-danger mt-4 p-4 rounded text-center text-white vh-100">404 - non trovato</div>
-    )
+        <div className="container vh-100 d-flex justify-content-center align-items-center">
+            <div className="bg-danger p-4 rounded text-center text-white w-100">
+                <h2>Ops... qui non ci sono serpenti...</h2>
+            </div>
+        </div>
+    );
 };
 
 export default NotFound;
