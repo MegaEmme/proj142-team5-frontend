@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "../contexts/globalcontext";
+import CheckoutPage from "../pages/CheckoutPage"; 
 
 const CartCard = () => {
   const navigate = useNavigate();
   const { cart, setCart } = useContext(GlobalContext);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [showCheckout, setShowCheckout] = useState(false);
   const deliveryPrice = 75;
 
   // Rimuove un singolo item
@@ -19,6 +21,10 @@ const CartCard = () => {
     const total = cart.reduce((acc, item) => acc + parseFloat(item.price), 0);
     setTotalPrice(total);
   }, [cart]);
+
+  if (showCheckout) {
+    return <CheckoutPage onBack={() => setShowCheckout(false)} />;
+  }
 
   return (
     <div className="container my-4">
@@ -79,7 +85,7 @@ const CartCard = () => {
 
               <button
                 className="btn btnblog w-100 mt-3"
-                onClick={() => navigate("/cart/checkout")}
+                onClick={() => setShowCheckout(true)}
               >
                 Procedi al checkout
               </button>

@@ -9,7 +9,7 @@ import {
 import GlobalContext from "../contexts/globalcontext";
 
 
-export default function CheckoutPage() {
+export default function CheckoutPage({ onBack }) {
 
 
 
@@ -137,8 +137,15 @@ export default function CheckoutPage() {
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn btnblog mb-3">Conferma</button>
-
+                    <div className="d-flex justify-content-end gap-2 mt-4">
+                    <button
+                        className="btn btnblog"
+                        onClick={onBack}
+                    >
+                        Indietro
+                    </button>
+                    <button type="submit" className="btn btnblog">Conferma</button>
+                    </div>
 
                     {submittedData && orderSuccess &&
                     <div className={`bg-success p-4 rounded ${orderSuccess ? "" : "visually-hidden"}`}>Ordine effettuato con successo:

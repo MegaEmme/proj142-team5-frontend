@@ -31,7 +31,6 @@ function App() {
             <Route path="/snakes/:slug" element={<SnakeDetailPage />} />
             <Route path="/wishlist" element={<WishlistPage />} />
             <Route path="/cart" element={<CartPage />} />
-            <Route path="/cart/checkout" element={<CheckoutPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:id" element={<BlogPageDetails />} />
           </Route>
