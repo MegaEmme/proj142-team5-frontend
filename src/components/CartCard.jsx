@@ -1,36 +1,12 @@
-import { useEffect, useRef, useState, useContext } from "react";
-import { Offcanvas } from "bootstrap";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "../contexts/globalcontext";
 
-const CartAside = ({ isOpen, onClose }) => {
-  const offCanvasRef = useRef(null);
+const CartCard = () => {
   const navigate = useNavigate();
-
   const { cart, setCart } = useContext(GlobalContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const deliveryPrice = 75;
-
-  // Gestione apertura/chiusura Offcanvas
-  useEffect(() => {
-    if (!offCanvasRef.current) return;
-
-    const bsOffcanvas = Offcanvas.getOrCreateInstance(offCanvasRef.current);
-
-    if (isOpen) {
-      bsOffcanvas.show();
-    } else {
-      bsOffcanvas.hide();
-    }
-
-    // Listener per chiusura manuale
-    const handleHide = () => onClose();
-    offCanvasRef.current.addEventListener("hidden.bs.offcanvas", handleHide);
-
-    return () => {
-      offCanvasRef.current.removeEventListener("hidden.bs.offcanvas", handleHide);
-    };
-  }, [isOpen, onClose]);
 
   // Rimuove un singolo item
   const handleRemoveItem = (slug) => {
@@ -44,77 +20,75 @@ const CartAside = ({ isOpen, onClose }) => {
     setTotalPrice(total);
   }, [cart]);
 
-  const goToCheckout = () => {
-    onClose(); // chiudi il carrello
-    navigate("/cart/checkout");
-  };
-
   return (
-    <div
-      className="offcanvas offcanvas-end"
-      tabIndex="-1"
-      ref={offCanvasRef}
-    >
-      <div className="offcanvas-header">
-        <h5 className="offcanvas-title">🛒 Il tuo carrello</h5>
-        <button
-          type="button"
-          className="btn-close text-reset"
-          data-bs-dismiss="offcanvas"
-          aria-label="Chiudi"
-        ></button>
-      </div>
+    <div className="container my-4">
+      <h2 className="mb-4">Il tuo carrello</h2>
 
-      <div className="offcanvas-body">
-        {cart.length === 0 ? (
-          <p>Il tuo carrello è vuoto.</p>
-        ) : (
-          <>
-            <ul className="list-group mb-3">
+      {cart.length === 0 ? (
+        <div className="alert alert-info">Il tuo carrello è vuoto.</div>
+      ) : (
+        <>
+          <div className="card">
+            <div className="card-body">
               {cart.map((item) => (
-                <li
-                  className="list-group-item d-flex justify-content-between align-items-center"
+                <div
                   key={item.slug}
+                  className="d-flex justify-content-between align-items-center mb-3 p-2 border-bottom"
                 >
                   <div className="d-flex align-items-center">
                     <img
                       src={`/snake-imgs/${item.image}`}
                       alt={item.common_name}
-                      className="me-2"
-                      style={{ width: "60px", height: "40px", objectFit: "cover" }}
+                      className="me-3"
+                      style={{ width: "100px", height: "70px", objectFit: "cover" }}
                     />
                     <div>
-                      <div>{item.common_name}</div>
-                      <small className="text-muted">{item.price} €</small>
+                      <h5 className="mb-0">{item.common_name}</h5>
+                      <p className="text-muted mb-0">{item.price} €</p>
                     </div>
                   </div>
                   <button
-                    className="btn btn-sm btn-danger"
+                    className="btn btn-outline-danger"
                     onClick={() => handleRemoveItem(item.slug)}
                   >
-                    ✕
+                    Rimuovi
                   </button>
-                </li>
+                </div>
               ))}
-            </ul>
-
-            <div className="d-flex justify-content-between align-items-center">
-              <strong>Totale:</strong>
-              <span> Tot. {parseInt(totalPrice).toFixed(2) < 250 ? `${parseInt(totalPrice).toFixed(2)} € + ${deliveryPrice.toFixed(2)} € spese di spedizione` : `${parseInt(totalPrice).toFixed(2)} €`}</span>
             </div>
+          </div>
 
-            <button
-              className="btn btnblog mt-3 w-100"
-              onClick={goToCheckout}
-            >
-              Procedi al checkout
-            </button>
+          <div className="card mt-4">
+            <div className="card-body">
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <h5>Subtotale:</h5>
+                <span>{totalPrice.toFixed(2)} €</span>
+              </div>
 
-          </>
-        )}
-      </div>
+              {totalPrice < 250 && (
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                  <h5>Spese di spedizione:</h5>
+                  <span>{deliveryPrice.toFixed(2)} €</span>
+                </div>
+              )}
+
+              <div className="d-flex justify-content-between align-items-center border-top pt-3">
+                <h4>Totale:</h4>
+                <h4>{totalPrice < 250 ? (totalPrice + deliveryPrice).toFixed(2) : totalPrice.toFixed(2)} €</h4>
+              </div>
+
+              <button
+                className="btn btnblog w-100 mt-3"
+                onClick={() => navigate("/cart/checkout")}
+              >
+                Procedi al checkout
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
 
-export default CartAside;
+export default CartCard;

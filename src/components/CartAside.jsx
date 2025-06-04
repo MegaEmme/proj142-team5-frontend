@@ -1,12 +1,8 @@
-// src/components/CartAside.jsx
 import { useEffect, useRef, useState, useContext } from "react";
 import ReactDOM from "react-dom";
 import { Offcanvas } from "bootstrap";
 import { useNavigate } from "react-router-dom";
-import {
-  clearCart,
-  removeItemFromCart
-} from "../utils/cartUtils";
+import { clearCart, removeItemFromCart } from "../utils/cartUtils";
 import GlobalContext from "../contexts/globalcontext";
 
 const CartAside = ({ isOpen, onClose }) => {
@@ -59,6 +55,15 @@ const CartAside = ({ isOpen, onClose }) => {
       if (instance) instance.hide();
     }
     navigate("/cart/checkout");
+  };
+
+  const handleGoToCart = () => {
+    const canvas = offCanvasRef.current;
+    if (canvas) {
+      const instance = Offcanvas.getInstance(canvas);
+      if (instance) instance.hide();
+    }
+    navigate("/cart");
   };
 
   return ReactDOM.createPortal(
@@ -134,12 +139,26 @@ const CartAside = ({ isOpen, onClose }) => {
       </div>
 
       {cart.length > 0 && (
-        <div className="offcanvas-footer p-3 border-top text-center">
-          <button className="btn btnblog mb-2" onClick={handleProceedToCheckout}>
-            Procedi all'acquisto
-          </button>
-          <br />
-          Tot. {parseInt(totalPrice).toFixed(2) < 250 ? `${parseInt(totalPrice).toFixed(2)} € + ${deliveryPrice.toFixed(2)} € spese di spedizione` : `${parseInt(totalPrice).toFixed(2)} €`}
+        <div className="offcanvas-footer p-3 border-top">
+          <div className="d-flex gap-2 mb-2">
+            <button
+              className="btn btnblog flex-grow-1"
+              onClick={handleGoToCart}
+            >
+              Vai al carrello
+            </button>
+            <button
+              className="btn btnblog flex-grow-1"
+              onClick={handleProceedToCheckout}
+            >
+              Procedi all'acquisto
+            </button>
+          </div>
+          <div className="text-center">
+            Tot. {parseInt(totalPrice).toFixed(2) < 250
+              ? `${parseInt(totalPrice).toFixed(2)} € + ${deliveryPrice.toFixed(2)} € spese di spedizione`
+              : `${parseInt(totalPrice).toFixed(2)} €`}
+          </div>
         </div>
       )}
     </div>,
