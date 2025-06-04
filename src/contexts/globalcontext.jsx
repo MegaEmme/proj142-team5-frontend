@@ -9,6 +9,7 @@ export const GlobalProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
+  const [submittedData, setSubmittedData] = useState(null);
 
   useEffect(() => {
     setCart(getCart());
@@ -34,6 +35,8 @@ export const GlobalProvider = ({ children }) => {
         setCart,
         wishlist,
         setWishlist,
+        submittedData,
+        setSubmittedData
       }}
     >
       {children}

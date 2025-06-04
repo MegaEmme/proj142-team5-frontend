@@ -1,6 +1,11 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import GlobalContext from "../contexts/globalcontext";
+import { useContext } from "react";
+
 
 const PaypalPayment = () => {
+
+    const { submittedData } = useContext(GlobalContext);
 
     const initialOptions = {
         clientId: import.meta.env.VITE_PAYPAL_CLIENTID
@@ -11,7 +16,11 @@ const PaypalPayment = () => {
         layout: "vertical",
     };
 
-    // const totalPrice = 999.99
+    if (!submittedData || !submittedData.total_price) {
+        return <div>Caricamento dati pagamento...</div>;
+    }
+    // prezzo totale che passo a paypal
+    const totalPrice = submittedData.total_price
 
     const onCreateOrder = async () => {
         try {
@@ -20,7 +29,7 @@ const PaypalPayment = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                // body: JSON.stringify({ total: total.toFixed(2) }),
+                body: JSON.stringify({ total: totalPrice }),
             });
             const data = await response.json();
             return data.orderId;
@@ -41,19 +50,19 @@ const PaypalPayment = () => {
             });
             const result = await response.json();
             if (result.status === "COMPLETED") {
-                window.location.href = "/paypal/complete-payment";
+                window.location.href = "/payPal/complete-payment";
             } else {
-                window.location.href = "/paypal/cancel-payment";
+                window.location.href = "/payPal/cancel-payment";
             }
         } catch (error) {
             console.error("Error verifying PayPal order:", error);
-            window.location.href = "/paypal/cancel-payment";
+            window.location.href = "/payPal/cancel-payment";
         }
     };
 
     const onError = (error) => {
         console.error("PayPal error", error);
-        window.location.href = "/paypal/cancel-payment";
+        window.location.href = "/payPal/cancel-payment";
     };
 
     return (

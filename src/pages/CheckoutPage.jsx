@@ -20,9 +20,9 @@ export default function CheckoutPage() {
     };
 
     const navigate = useNavigate();
-    const { cart, setCart } = useContext(GlobalContext);
+    const { cart, setCart, submittedData, setSubmittedData } = useContext(GlobalContext);
     const [totalPrice, setTotalPrice] = useState(0)
-    const [submittedData, setSubmittedData] = useState(null);
+   
 
 
 
@@ -65,6 +65,7 @@ export default function CheckoutPage() {
                 setSubmittedData(updatedFormData);
                 setOrderSuccess(true)
                 handleClearCart()
+                navigate("/payPal");
             })
             .catch((err) => { console.log("errore nell'invio dati", err.response.data) })
 
