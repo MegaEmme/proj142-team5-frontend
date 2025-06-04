@@ -9,6 +9,7 @@ const CartAside = ({ isOpen, onClose }) => {
 
   const { cart, setCart } = useContext(GlobalContext);
   const [totalPrice, setTotalPrice] = useState(0);
+  const deliveryPrice = 75;
 
   // Gestione apertura/chiusura Offcanvas
   useEffect(() => {
@@ -99,7 +100,7 @@ const CartAside = ({ isOpen, onClose }) => {
 
             <div className="d-flex justify-content-between align-items-center">
               <strong>Totale:</strong>
-              <span>{totalPrice.toFixed(2)} €</span>
+              <span> Tot. {parseInt(totalPrice).toFixed(2) < 250 ? `${parseInt(totalPrice).toFixed(2)} € + ${deliveryPrice.toFixed(2)} € spese di spedizione` : `${parseInt(totalPrice).toFixed(2)} €`}</span>
             </div>
 
             <button
@@ -108,6 +109,7 @@ const CartAside = ({ isOpen, onClose }) => {
             >
               Procedi al checkout
             </button>
+
           </>
         )}
       </div>

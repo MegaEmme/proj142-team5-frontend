@@ -14,6 +14,7 @@ const CartAside = ({ isOpen, onClose }) => {
   const offCanvasRef = useRef(null);
   const navigate = useNavigate();
   const [totalPrice, setTotalPrice] = useState(0);
+  const deliveryPrice = 75;
 
   useEffect(() => {
     const total = cart.reduce((acc, item) => {
@@ -134,9 +135,11 @@ const CartAside = ({ isOpen, onClose }) => {
 
       {cart.length > 0 && (
         <div className="offcanvas-footer p-3 border-top text-center">
-          <button className="btn btnblog" onClick={handleProceedToCheckout}>
-            Procedi all'acquisto (tot. {totalPrice.toFixed(2)} €)
+          <button className="btn btnblog mb-2" onClick={handleProceedToCheckout}>
+            Procedi all'acquisto
           </button>
+          <br />
+          Tot. {parseInt(totalPrice).toFixed(2) < 250 ? `${parseInt(totalPrice).toFixed(2)} € + ${deliveryPrice.toFixed(2)} € spese di spedizione` : `${parseInt(totalPrice).toFixed(2)} €`}
         </div>
       )}
     </div>,

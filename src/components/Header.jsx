@@ -48,13 +48,21 @@ const Header = () => {
           <li>
             <NavLink to="/blog" className="text-decoration-none nav-link-header">Blog</NavLink>
           </li>
+          <li>
+            <NavLink to="/cart"
+              className="text-decoration-none nav-link-header d-flex align-items-center"
+            >
+              Carrello
+            </NavLink>
+          </li>
           <li className="position-relative">
+
             <NavLink
               to="/wishlist"
               className="text-decoration-none nav-link-header d-flex align-items-center"
             >
               <span className="me-1">Preferiti</span>
-              <i className="fa-solid fa-heart pt-2" style={{ fontSize: "0.9rem" }}></i>
+              {/* <i className="fa-solid fa-heart pt-2" style={{ fontSize: "0.9rem" }}></i> */}
               {wishlistCount > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {wishlistCount}
@@ -86,13 +94,21 @@ const Header = () => {
               <h2>Blog</h2>
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/cart"
+              className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header"
+            >
+              <h2> Carrello</h2>
+            </NavLink>
+          </li>
           <li className="position-relative">
             <NavLink
               to="/wishlist"
               onClick={() => setMenuOpen(false)}
               className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header"
             >
-              <h2 className="me-2">Preferiti<i className="fa-solid fa-heart" style={{ fontSize: "1.2rem" }}></i></h2>
+              <h2 className="me-2">Preferiti</h2>
+              {/* <i className="fa-solid fa-heart" style={{ fontSize: "1.2rem" }}></i> eventualmente da riposizionare dentro all' h2 ^ */}
 
               {wishlistCount > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

@@ -21,7 +21,7 @@ const PaypalPayment = () => {
     }
     // prezzo totale che passo a paypal
     const totalPrice = submittedData.total_price
-
+    const deliveryPrice = 75
     const onCreateOrder = async () => {
         try {
             const response = await fetch("http://localhost:3000/paypal/createorder", {
@@ -29,7 +29,7 @@ const PaypalPayment = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ total: totalPrice }),
+                body: JSON.stringify({ total: totalPrice < 250 ? totalPrice + deliveryPrice : totalPrice }),
             });
             const data = await response.json();
             return data.orderId;
