@@ -110,17 +110,23 @@ const SnakeCard = ({ data, isListView }) => {
   } else {
     // Layout per la visualizzazione a CARD
     return (
-      <div className="card snakecard h-100 ">
+      <div className="card snakecard h-100">
         <div className="card-body d-flex flex-column justify-content-between">
-
-          <div className=" d-flex justify-content-between align-items-center">
-            <div className="">
+          <div className="d-flex justify-content-between align-items-start">
+            <div>
               <h3 className="m-0 my-text-container">{common_name}</h3>
-              <h4 className=" fst-italic m-0 my-text-container">({scientific_name})</h4>
+              <h4 className="fst-italic m-0 my-text-container">({scientific_name})</h4>
             </div>
-            <li className="list-group-item">{renderHeartIcon()}</li>
+            {/* Cuore più grande solo per CARD */}
+            <div className="ms-2" style={{ marginTop: "2px" }}>
+              <i
+                className={`fa-solid fa-heart wishlistcuore ${isInWishlist ? "wishlistcuoreattivo" : ""}`}
+                onClick={handleToggleWishlist}
+                style={{ cursor: "pointer", fontSize: "2rem" }}
+              ></i>
+            </div>
           </div>
-          <img src={`./snake-imgs/${image}`} alt={common_name} />
+          <img src={`./snake-imgs/${image}`} alt={common_name} className="mt-2" />
           <ul className="list-group list-group-flush">
             <li className="list-group-item"><p className="m-1"> Difficoltà: <strong>{difficulty}</strong></p></li>
             <li className="list-group-item"><p className="m-1">Sesso: <strong>{sex === "m" ? "maschio" : "femmina"}</strong> </p></li>
