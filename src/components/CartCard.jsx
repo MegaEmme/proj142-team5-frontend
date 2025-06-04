@@ -35,10 +35,13 @@ const CartCard = () => {
           <div className="card defaultcard">
             <div className="card-body defaultcard">
               <h2 className="mb-4">Il tuo carrello</h2>
-              {cart.map((item) => (
+              {cart.map((item, idx) => (
                 <div
                   key={item.slug}
-                  className="d-flex justify-content-between align-items-center mb-3 p-2 border-bottom"
+                  className={
+                    "d-flex justify-content-between align-items-center mb-3 p-2" +
+                    (idx !== cart.length - 1 ? " border-bottom" : "")
+                  }
                 >
                   <div className="d-flex align-items-center">
                     <img
