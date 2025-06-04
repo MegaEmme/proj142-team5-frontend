@@ -64,7 +64,6 @@ export default function CheckoutPage({ onBack }) {
                 console.log("dati inviati con successo");
                 setSubmittedData(updatedFormData);
                 setOrderSuccess(true)
-                handleClearCart()
                 navigate("/payPal");
             })
             .catch((err) => { console.log("errore nell'invio dati", err.response.data) })
