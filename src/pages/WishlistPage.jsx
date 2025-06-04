@@ -32,8 +32,21 @@ export default function WishlistPage() {
             const isInCart = cart.some((c) => c.slug === item.slug);
             return (
               <div key={item.slug} className="col-md-4 mb-4">
-                <div className="card h-100">
-                  <img src={`/snake-imgs/${item.image}`} className="card-img-top" alt={item.common_name} />
+                <div className="card h-100 position-relative">
+                  <img
+                    src={`/snake-imgs/${item.image}`}
+                    className={`card-img-top ${isInCart ? 'opacity-50' : ''}`}
+                    alt={item.common_name}
+                  />
+                  {isInCart && (
+                    <div
+                      className="position-absolute top-0 start-0 w-100 h-100"
+                      style={{
+                        backgroundColor: 'rgba(0,0,0,0.3)',
+                        pointerEvents: 'none'
+                      }}
+                    />
+                  )}
                   <div className="card-body d-flex flex-column justify-content-between">
                     <div>
                       <h5 className="card-title">{item.common_name}</h5>

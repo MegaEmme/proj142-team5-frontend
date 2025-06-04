@@ -40,7 +40,7 @@ const Header = () => {
         {/* MENU DESKTOP */}
         <ul className="d-none d-md-flex list-unstyled m-0 gap-5 fs-4 fw-semibold align-items-center">
           <li>
-            <NavLink to="/" className="text-decoration-none nav-link-header">Homepage</NavLink>
+            <NavLink to="/" className="text-decoration-none nav-link-header ms-2">Homepage</NavLink>
           </li>
           <li>
             <NavLink to="/snakes" className="text-decoration-none nav-link-header">Shop</NavLink>

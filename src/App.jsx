@@ -16,11 +16,13 @@ import PaypalPayment from "./components/PaypalPayment";
 import CompletePayment from "./pages/CompletePayment";
 import CancelPayment from "./pages/CancelPayment";
 import NotFound from "./components/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <GlobalProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <ToastContainer position="bottom-center" autoClose={3000} />
         <Routes>
           <Route element={<DefaultLayout />}>
