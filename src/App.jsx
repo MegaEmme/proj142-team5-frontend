@@ -1,38 +1,37 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalProvider } from "./contexts/globalcontext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 import DefaultLayout from "./layouts/DefaultLayout";
-import SnakeDetailPage from "./pages/SnakeDetailPage";
-import SnakesPage from "./pages/SnakesPage";
 import HomePage from "./components/HomePage";
-import BlogPage from "./pages/blog";
+import SnakesPage from "./pages/SnakesPage";
+import SnakeDetailPage from "./pages/SnakeDetailPage";
+import WishlistPage from "./pages/WishlistPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import BlogPage from "./pages/blog";
 import BlogPageDetails from "./pages/BlogPageDetails";
-import WishlistPage from "./pages/WishlistPage";
 import PaypalPayment from "./components/PaypalPayment";
 import CompletePayment from "./pages/CompletePayment";
 import CancelPayment from "./pages/CancelPayment";
 import NotFound from "./components/NotFound";
+
 function App() {
   return (
     <GlobalProvider>
       <BrowserRouter>
-        {/* ✅ Mostra toast in ogni pagina */}
         <ToastContainer position="bottom-center" autoClose={3000} />
-
-
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/snakes" element={<SnakesPage />} />
             <Route path="/snakes/:slug" element={<SnakeDetailPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/blog/:id" element={<BlogPageDetails />} />
             <Route path="/wishlist" element={<WishlistPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/cart/checkout" element={<CheckoutPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:id" element={<BlogPageDetails />} />
           </Route>
           <Route path="/paypal" element={<PaypalPayment />} />
           <Route path="/paypal/complete-payment" element={<CompletePayment />} />
