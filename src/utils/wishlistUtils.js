@@ -1,21 +1,22 @@
 const WISHLIST_KEY = "sergente_wishlist";
 
-// Recupera la wishlist dal localStorage
+export function saveWishlist(wishlist) {
+  localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+}
+
 export function getWishlist() {
   const saved = localStorage.getItem(WISHLIST_KEY);
   return saved ? JSON.parse(saved) : [];
 }
 
-// Salva la wishlist nel localStorage
-export function saveWishlist(wishlist) {
-  localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+export function isItemInWishlist(slug) {
+  const wishlist = getWishlist();
+  return wishlist.some(item => item.slug === slug);
 }
 
-// Aggiunge un elemento alla wishlist
 export function addItemToWishlist(item) {
   const wishlist = getWishlist();
-  const exists = wishlist.some(el => el.slug === item.slug);
-  if (!exists) {
+  if (!wishlist.some(el => el.slug === item.slug)) {
     const updated = [...wishlist, item];
     saveWishlist(updated);
     return updated;
@@ -23,7 +24,6 @@ export function addItemToWishlist(item) {
   return wishlist;
 }
 
-// Rimuove un elemento dalla wishlist
 export function removeItemFromWishlist(slug) {
   const wishlist = getWishlist();
   const updated = wishlist.filter(item => item.slug !== slug);

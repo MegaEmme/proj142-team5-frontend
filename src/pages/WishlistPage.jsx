@@ -1,30 +1,23 @@
 import { useContext } from "react";
 import { toast } from "react-toastify";
 import GlobalContext from "../contexts/globalcontext";
-import {
-  removeItemFromWishlist,
-  getWishlist,
-} from "../utils/wishlistUtils";
-import {
-  addItemToCart,
-  saveCart,
-} from "../utils/cartUtils";
 
 export default function WishlistPage() {
-  const { wishlist, setWishlist, setCart, cart } = useContext(GlobalContext);
+  const { wishlist, setWishlist, cart, setCart } = useContext(GlobalContext);
 
   const handleRemove = (slug) => {
-    const updatedWishlist = removeItemFromWishlist(slug);
-    setWishlist(updatedWishlist);
+    const updated = wishlist.filter((item) => item.slug !== slug);
+    setWishlist(updated);
     toast.info("Rimosso dai preferiti");
   };
 
   const handleAddToCart = (item) => {
-    const updatedCart = addItemToCart(item);
-    saveCart(updatedCart);
-    setCart(updatedCart);
-    toast.success("Aggiunto al carrello!");
-    // ❌ NON facciamo il redirect
+    const exists = cart.some((c) => c.slug === item.slug);
+    if (!exists) {
+      const updated = [...cart, item];
+      setCart(updated);
+      toast.success("Aggiunto al carrello!");
+    }
   };
 
   return (
@@ -40,29 +33,20 @@ export default function WishlistPage() {
             return (
               <div key={item.slug} className="col-md-4 mb-4">
                 <div className="card h-100">
-                  <img
-                    src={`./snake-imgs/${item.image}`}
-                    className="card-img-top"
-                    alt={item.common_name}
-                  />
+                  <img src={`/snake-imgs/${item.image}`} className="card-img-top" alt={item.common_name} />
                   <div className="card-body d-flex flex-column justify-content-between">
                     <div>
                       <h5 className="card-title">{item.common_name}</h5>
                       <p className="card-text">{item.scientific_name}</p>
                     </div>
                     <div className="d-flex justify-content-between mt-3">
-                      <button
-                        className="btn btn-outline-danger"
-                        onClick={() => handleRemove(item.slug)}
-                        title="Rimuovi dai preferiti"
-                      >
+                      <button className="btn btn-outline-danger" onClick={() => handleRemove(item.slug)}>
                         <i className="fas fa-trash-alt"></i>
                       </button>
                       <button
                         className={`btn btn-outline-primary ${isInCart ? "opacity-50" : ""}`}
                         onClick={() => handleAddToCart(item)}
                         disabled={isInCart}
-                        title={isInCart ? "Già nel carrello" : "Aggiungi al carrello"}
                       >
                         <i className="fas fa-cart-plus"></i>
                       </button>
