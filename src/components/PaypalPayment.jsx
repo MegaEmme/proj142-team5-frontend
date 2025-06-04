@@ -11,6 +11,8 @@ const PaypalPayment = () => {
         layout: "vertical",
     };
 
+    // const totalPrice = 999.99
+
     const onCreateOrder = async () => {
         try {
             const response = await fetch("http://localhost:3000/paypal/createorder", {
@@ -18,6 +20,7 @@ const PaypalPayment = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
+                // body: JSON.stringify({ total: total.toFixed(2) }),
             });
             const data = await response.json();
             return data.orderId;
