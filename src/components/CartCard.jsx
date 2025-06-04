@@ -85,12 +85,14 @@ const CartCard = () => {
                 <h4>{totalPrice < 250 ? (totalPrice + deliveryPrice).toFixed(2) : totalPrice.toFixed(2)} €</h4>
               </div>
 
-              <button
-                className="btn btnblog w-100 mt-3"
-                onClick={() => setShowCheckout(true)}
-              >
-                Procedi al checkout
-              </button>
+              <div className="d-flex justify-content-center">
+                <button
+                  className="btn btnblog w-75 mt-3"
+                  onClick={() => setShowCheckout(true)}
+                >
+                  Procedi al checkout
+                </button>
+              </div>
             </div>
           </div>
         </>
