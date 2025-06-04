@@ -40,31 +40,66 @@ const Header = () => {
         {/* MENU DESKTOP */}
         <ul className="d-none d-md-flex list-unstyled m-0 gap-5 fs-4 fw-semibold align-items-center">
           <li>
-            <NavLink to="/" className="text-decoration-none nav-link-header ms-2">Homepage</NavLink>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                "text-decoration-none nav-link-header ms-2" + (isActive ? " nav-link-header-active" : "")
+              }
+            >
+              Homepage
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/snakes" className="text-decoration-none nav-link-header">Shop</NavLink>
+            <NavLink
+              to="/snakes"
+              className={({ isActive }) =>
+                "text-decoration-none nav-link-header" + (isActive ? " nav-link-header-active" : "")
+              }
+            >
+              Shop
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/blog" className="text-decoration-none nav-link-header">Blog</NavLink>
+            <NavLink
+              to="/blog"
+              className={({ isActive }) =>
+                "text-decoration-none nav-link-header" + (isActive ? " nav-link-header-active" : "")
+              }
+            >
+              Blog
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/cart"
-              className="text-decoration-none nav-link-header d-flex align-items-center"
+            <NavLink
+              to="/cart"
+              className={({ isActive }) =>
+                "text-decoration-none nav-link-header d-flex align-items-center position-relative" + (isActive ? " nav-link-header-active" : "")
+              }
             >
               Carrello
+              {/* Badge carrello: mostra il numero di oggetti nel carrello */}
+              {cartItemsCount > 0 && (
+                <span
+                  className="position-absolute top-0 start-100 translate-middle badge header-badge"
+                >
+                  {cartItemsCount}
+                  <span className="visually-hidden">elementi nel carrello</span>
+                </span>
+              )}
             </NavLink>
           </li>
           <li className="position-relative">
-
             <NavLink
               to="/wishlist"
-              className="text-decoration-none nav-link-header d-flex align-items-center"
+              className={({ isActive }) =>
+                "text-decoration-none nav-link-header d-flex align-items-center" + (isActive ? " nav-link-header-active" : "")
+              }
             >
               <span className="me-1">Preferiti</span>
-              {/* <i className="fa-solid fa-heart pt-2" style={{ fontSize: "0.9rem" }}></i> */}
               {wishlistCount > 0 && (
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <span
+                  className="position-absolute top-0 start-100 translate-middle badge header-badge"
+                >
                   {wishlistCount}
                   <span className="visually-hidden">elementi nei preferiti</span>
                 </span>

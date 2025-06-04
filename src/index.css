@@ -56,6 +56,25 @@ body {
 }
 
 /* Header */
+
+.header-badge {
+    background: red;
+    color: white;
+    font-size: 0.85rem;
+    min-width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    /* Fix vertical alignment for badge */
+    top: 0.2em !important;
+    left: 100% !important;
+    transform: translate(-40%, -40%) !important;
+}
+
 header {
     background-color: rgb(192, 237, 192);
 }
@@ -126,7 +145,8 @@ header a:hover {
     transition: color 0.3s;
 }
 
-.nav-link-header::after {
+.nav-link-header::after,
+.nav-link-header-active::after {
     content: "";
     position: absolute;
     left: 0;
@@ -137,7 +157,8 @@ header a:hover {
     transition: width 0.3s ease-in-out;
 }
 
-.nav-link-header:hover::after {
+.nav-link-header:hover::after,
+.nav-link-header-active::after {
     width: 100%;
 }
 
@@ -540,3 +561,4 @@ header {
         padding: 4px 8px;
     }
 }
+
