@@ -19,7 +19,7 @@ const Header = () => {
 
         {/* LOGO */}
         <div className="logo-container">
-          <NavLink to="/" className="text-decoration-none">
+          <NavLink to="/" className="mainLogo text-decoration-none">
             <img
               src="/logo-sergente-serpente.jpg"
               alt="Logo"
