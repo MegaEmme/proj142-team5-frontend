@@ -147,12 +147,6 @@ const CartAside = ({ isOpen, onClose }) => {
             >
               Vai al carrello
             </button>
-            <button
-              className="btn btnblog flex-grow-1"
-              onClick={handleProceedToCheckout}
-            >
-              Procedi all'acquisto
-            </button>
           </div>
           <div className="text-center">
             Tot. {parseInt(totalPrice).toFixed(2) < 250
