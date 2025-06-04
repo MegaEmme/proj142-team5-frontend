@@ -28,14 +28,13 @@ const CartCard = () => {
 
   return (
     <div className="container my-4">
-      <h2 className="mb-4">Il tuo carrello</h2>
-
       {cart.length === 0 ? (
         <div className="alert alert-info">Il tuo carrello è vuoto.</div>
       ) : (
         <>
-          <div className="card">
-            <div className="card-body">
+          <div className="card defaultcard">
+            <div className="card-body defaultcard">
+              <h2 className="mb-4">Il tuo carrello</h2>
               {cart.map((item) => (
                 <div
                   key={item.slug}
@@ -50,7 +49,7 @@ const CartCard = () => {
                     />
                     <div>
                       <h5 className="mb-0">{item.common_name}</h5>
-                      <p className="text-muted mb-0">{item.price} €</p>
+                      <p className="text mb-0">{item.price} €</p>
                     </div>
                   </div>
                   <button
@@ -64,8 +63,8 @@ const CartCard = () => {
             </div>
           </div>
 
-          <div className="card mt-4">
-            <div className="card-body">
+          <div className="card mt-4 defaultcard">
+            <div className="card-body ">
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <h5>Subtotale:</h5>
                 <span>{totalPrice.toFixed(2)} €</span>
