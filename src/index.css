@@ -1,9 +1,30 @@
+.btn:hover {
+    cursor: url('public/pointers/snakepointer2.png'), auto;
+}
+
+.btnblog:hover {
+    cursor: url('public/pointers/snakepointer2.png'), auto;
+}
+
+footer a:hover {
+    cursor: url('public/pointers/snakepointer2.png'), auto;
+
+}
+
+.mainLogo:hover {
+    cursor: url('public/pointers/snakepointer2.png'), auto;
+}
+
+.nav-link-header:hover {
+    cursor: url('public/pointers/snakepointer2.png'), auto;
+}
+
 /* LIGHT MODE */
 body {
     /* background-image: url('/background-light.jpeg'); */
     background-color: rgb(240, 253, 220);
     background-repeat: repeat;
-    pointer-events: url('../pointer-img/snakepointer'), 26 26, auto;
+    cursor: url('..//pointers/snakepointer.png'), auto;
 }
 
 /* Logo */
@@ -334,7 +355,7 @@ header a:hover {
 @media (prefers-color-scheme: dark) {
     body {
         background-color: rgb(87, 96, 45);
-        cursor: url('../public/pointer-img/snakepointer'), 26 26, auto;
+        cursor: url('..//pointers/snakepointer.png'), auto;
     }
 
     header {
