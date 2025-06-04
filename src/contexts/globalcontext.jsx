@@ -1,3 +1,4 @@
+// src/contexts/globalcontext.js
 import { createContext, useState, useEffect } from "react";
 import { getCart, saveCart } from "../utils/cartUtils";
 import { getWishlist, saveWishlist } from "../utils/wishlistUtils";
@@ -11,29 +12,25 @@ export const GlobalProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
   const [submittedData, setSubmittedData] = useState(null);
 
+  // Flags per evitare salvataggi prematuri
   const [cartInitialized, setCartInitialized] = useState(false);
   const [wishlistInitialized, setWishlistInitialized] = useState(false);
 
-  // ✅ Carica localStorage solo una volta
+  // ✅ Carica i dati da localStorage una sola volta
   useEffect(() => {
     setCart(getCart());
-    setCartInitialized(true);
-
     setWishlist(getWishlist());
+    setCartInitialized(true);
     setWishlistInitialized(true);
   }, []);
 
-  // ✅ Salva nel localStorage solo dopo che è stato inizializzato
+  // ✅ Salva solo se il cart è stato inizializzato
   useEffect(() => {
-    if (cartInitialized) {
-      saveCart(cart);
-    }
+    if (cartInitialized) saveCart(cart);
   }, [cart, cartInitialized]);
 
   useEffect(() => {
-    if (wishlistInitialized) {
-      saveWishlist(wishlist);
-    }
+    if (wishlistInitialized) saveWishlist(wishlist);
   }, [wishlist, wishlistInitialized]);
 
   return (
@@ -48,7 +45,7 @@ export const GlobalProvider = ({ children }) => {
         wishlist,
         setWishlist,
         submittedData,
-        setSubmittedData
+        setSubmittedData,
       }}
     >
       {children}

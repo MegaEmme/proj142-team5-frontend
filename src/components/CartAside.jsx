@@ -1,14 +1,11 @@
 // src/components/CartAside.jsx
-
 import { useEffect, useRef, useState, useContext } from "react";
 import ReactDOM from "react-dom";
 import { Offcanvas } from "bootstrap";
 import { useNavigate } from "react-router-dom";
 import {
-  getCart,
-  saveCart,
   clearCart,
-  removeItemFromCart,
+  removeItemFromCart
 } from "../utils/cartUtils";
 import GlobalContext from "../contexts/globalcontext";
 
@@ -18,33 +15,28 @@ const CartAside = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // ✅ Carica carrello da localStorage su mount
+  // ✅ Calcola il totale
   useEffect(() => {
-    setCart(getCart());
-  }, []);
-
-  // ✅ Calcola totale quando cambia il carrello
-  useEffect(() => {
-    const total = cart.reduce((acc, item) => acc + parseFloat(item.price), 0);
+    const total = cart.reduce((acc, item) => {
+      const prezzoFinale = item.discount
+        ? item.price - item.price * item.discount
+        : item.price;
+      return acc + parseFloat(prezzoFinale);
+    }, 0);
     setTotalPrice(total);
   }, [cart]);
 
-  // ✅ Salva il carrello su localStorage ogni volta che cambia
-  useEffect(() => {
-    saveCart(cart);
-  }, [cart]);
-
-  // ✅ Gestione apertura/chiusura offcanvas Bootstrap
+  // ✅ Offcanvas Bootstrap
   useEffect(() => {
     const canvas = offCanvasRef.current;
     if (!canvas) return;
 
-    const bsInstance = Offcanvas.getOrCreateInstance(canvas);
+    const instance = Offcanvas.getOrCreateInstance(canvas);
 
     if (isOpen) {
-      bsInstance.show();
+      instance.show();
     } else {
-      bsInstance.hide();
+      instance.hide();
     }
 
     const handleHidden = () => onClose();
@@ -55,13 +47,13 @@ const CartAside = ({ isOpen, onClose }) => {
     };
   }, [isOpen, onClose]);
 
-  // ✅ Rimuove un item
+  // ✅ Rimuove singolo item
   const handleRemoveItem = (slug) => {
     const updated = removeItemFromCart(slug);
     setCart(updated);
   };
 
-  // ✅ Procedi al checkout e chiudi carrello
+  // ✅ Procedi al checkout
   const handleProceedToCheckout = () => {
     const canvas = offCanvasRef.current;
     if (canvas) {
@@ -96,7 +88,10 @@ const CartAside = ({ isOpen, onClose }) => {
           <>
             <ul className="list-group mb-3">
               {cart.map((item, index) => (
-                <li className="list-group-item d-flex justify-content-between align-items-center" key={index}>
+                <li
+                  className="list-group-item d-flex justify-content-between align-items-center"
+                  key={index}
+                >
                   <div className="d-flex">
                     <img
                       src={`/snake-imgs/${item.image}`}
@@ -107,11 +102,10 @@ const CartAside = ({ isOpen, onClose }) => {
                       <span>{item.common_name}</span>
                       <span className="fst-italic">
                         {item.discount
-                          ? item.price - (item.price * item.discount)
-                          : item.price} €</span>
+                          ? `${(item.price - item.price * item.discount).toFixed(2)}`
+                          : `${item.price.toFixed(2)}`} €</span>
                     </div>
                   </div>
-
                   <button
                     className="btn btn-sm btn-danger"
                     onClick={() => handleRemoveItem(item.slug)}
@@ -137,10 +131,7 @@ const CartAside = ({ isOpen, onClose }) => {
 
       {cart.length > 0 && (
         <div className="offcanvas-footer p-3 border-top text-center">
-          <button
-            className="btn btnblog"
-            onClick={handleProceedToCheckout}
-          >
+          <button className="btn btnblog" onClick={handleProceedToCheckout}>
             Procedi all'acquisto (tot. {totalPrice.toFixed(2)} €)
           </button>
         </div>
