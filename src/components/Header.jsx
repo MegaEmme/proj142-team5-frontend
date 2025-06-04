@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header className="py-3 shadow w-100 position-relative">
       <div className="container d-flex justify-content-between align-items-center position-relative">
-        
+
         {/* LOGO */}
         <div className="logo-container">
           <NavLink to="/" className="text-decoration-none">
@@ -54,7 +54,7 @@ const Header = () => {
               className="text-decoration-none nav-link-header d-flex align-items-center"
             >
               <span className="me-1">Preferiti</span>
-              <i className="fa-solid fa-heart text-white" style={{ fontSize: "0.9rem" }}></i>
+              <i className="fa-solid fa-heart pt-2" style={{ fontSize: "0.9rem" }}></i>
               {wishlistCount > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {wishlistCount}
@@ -69,7 +69,7 @@ const Header = () => {
         <div
           className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${menuOpen ? "show" : "hide"
             }`}
-         
+
         >
           <li>
             <NavLink to="/" onClick={() => setMenuOpen(false)} className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header">
@@ -90,10 +90,10 @@ const Header = () => {
             <NavLink
               to="/wishlist"
               onClick={() => setMenuOpen(false)}
-              className="d-flex align-items-center text-decoration-none fs-1 nav-link-header"
+              className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header"
             >
-              <span className="me-2">Preferiti</span>
-              <i className="fa-solid fa-heart text-white" style={{ fontSize: "1.2rem" }}></i>
+              <h2 className="me-2">Preferiti<i className="fa-solid fa-heart" style={{ fontSize: "1.2rem" }}></i></h2>
+
               {wishlistCount > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {wishlistCount}

@@ -94,6 +94,10 @@ header a:hover {
     transform: scale(1.10);
 }
 
+.wishlistcuoreattivo {
+    color: greenyellow;
+}
+
 /*Hover Header*/
 
 .nav-link-header {
@@ -381,6 +385,10 @@ header a:hover {
     .wishlistcuore:hover {
         color: rgb(1, 81, 1);
         transform: scale(1.10);
+    }
+
+    .wishlistcuoreattivo {
+        color: rgb(1, 81, 1);
     }
 
     .mobile-menu {
