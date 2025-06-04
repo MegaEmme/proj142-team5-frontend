@@ -89,11 +89,11 @@ const SnakeCard = ({ data, isListView }) => {
             </div>
             <div className="d-flex flex-column flex-md-row">
               <div>
-                Prezzo: <strong>{discount ? price - price * discount : price} €</strong>
+                Prezzo: <strong>{discount ? price - price * discount : price} € </strong>
               </div>
               <div className="mb-2">
                 {discount > 0 && (
-                  <span className="text-danger"><strong>{discount * 100}%</strong></span>
+                  <span className="text-danger"><strong>&nbsp;SCONTATO DEL {discount * 100}%</strong></span>
                 )}
               </div>
             </div>
@@ -131,8 +131,9 @@ const SnakeCard = ({ data, isListView }) => {
             <li className="list-group-item">
 
               <p className="mb-4 fs-3 my-text-container">
-                {discount > 0 && <span className="text-danger fs-3 me-3"><strong>{discount * 100}%</strong></span>}
-                {discount > 0 && <span className="text-danger fs-4 "><strong className="text-decoration-line-through">{price}€</strong></span>}<br />
+                {discount > 0 && <span className="text-danger fs-4 "><strong className="text-decoration-line-through">{price}€</strong></span>}
+                {discount > 0 && <span className="text-danger fs-3 me-3"><strong> -{discount * 100}%</strong></span>}
+                <br />
                 Prezzo: <strong>{discount ? price - (price * discount) : price}€</strong>
               </p>
               <div className="d-flex justify-content-between gap-2 my-container">

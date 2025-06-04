@@ -28,7 +28,7 @@ const SnakesPage = () => {
   const [isCardLayout, setIsCardLayout] = useState(true); // true = layout a card (griglia), false = layout a lista
 
   const [page, setPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 6;
   const totalPages = Math.ceil(snakes.length / itemsPerPage);
   const paginatedSnakes = snakes.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
