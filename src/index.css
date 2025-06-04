@@ -145,21 +145,28 @@ header a:hover {
     transition: color 0.3s;
 }
 
+/* Effetto serpente ondulato più accentuato su hover/active */
 .nav-link-header::after,
 .nav-link-header-active::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: -12px; /* era -6px, ora 2px più in basso */
     width: 0;
-    height: 3px;
-    background-color: #90ee90;
-    transition: width 0.3s ease-in-out;
+    height: 10px;
+    background: none;
+    pointer-events: none;
+    transition: width 0.4s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
 .nav-link-header:hover::after,
 .nav-link-header-active::after {
     width: 100%;
+    background: url("data:image/svg+xml;utf8,<svg width='120' height='10' viewBox='0 0 120 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 5 Q 10 10, 20 5 Q 30 0, 40 5 Q 50 10, 60 5 Q 70 0, 80 5 Q 90 10, 100 5 Q 110 0, 120 5' stroke='%2390ee90' stroke-width='4' fill='transparent'/></svg>") repeat-x;
+    background-size: 120px 10px;
+    height: 10px;
+    border-radius: 0;
+    transition: width 0.8s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
 /* Cards generiche */
