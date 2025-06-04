@@ -11,18 +11,30 @@ export const GlobalProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
   const [submittedData, setSubmittedData] = useState(null);
 
+  const [cartInitialized, setCartInitialized] = useState(false);
+  const [wishlistInitialized, setWishlistInitialized] = useState(false);
+
+  // ✅ Carica localStorage solo una volta
   useEffect(() => {
     setCart(getCart());
+    setCartInitialized(true);
+
     setWishlist(getWishlist());
+    setWishlistInitialized(true);
   }, []);
 
+  // ✅ Salva nel localStorage solo dopo che è stato inizializzato
   useEffect(() => {
-    saveCart(cart);
-  }, [cart]);
+    if (cartInitialized) {
+      saveCart(cart);
+    }
+  }, [cart, cartInitialized]);
 
   useEffect(() => {
-    saveWishlist(wishlist);
-  }, [wishlist]);
+    if (wishlistInitialized) {
+      saveWishlist(wishlist);
+    }
+  }, [wishlist, wishlistInitialized]);
 
   return (
     <GlobalContext.Provider

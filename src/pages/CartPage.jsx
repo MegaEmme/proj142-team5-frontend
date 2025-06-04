@@ -1,11 +1,7 @@
 import CartCard from "../components/CartCard";
 
 const CartPage = () => {
-    return (
-        <>
-            <CartCard />
-        </>
-    )
+  return <CartCard />;
 };
 
 export default CartPage;
