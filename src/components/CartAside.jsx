@@ -15,18 +15,17 @@ const CartAside = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // ✅ Calcola il totale
   useEffect(() => {
     const total = cart.reduce((acc, item) => {
-      const prezzoFinale = item.discount
-        ? item.price - item.price * item.discount
-        : item.price;
-      return acc + parseFloat(prezzoFinale);
+      const price = parseFloat(item.price);
+      const finalPrice = item.discount
+        ? price - price * item.discount
+        : price;
+      return acc + finalPrice;
     }, 0);
     setTotalPrice(total);
   }, [cart]);
 
-  // ✅ Offcanvas Bootstrap
   useEffect(() => {
     const canvas = offCanvasRef.current;
     if (!canvas) return;
@@ -47,13 +46,11 @@ const CartAside = ({ isOpen, onClose }) => {
     };
   }, [isOpen, onClose]);
 
-  // ✅ Rimuove singolo item
   const handleRemoveItem = (slug) => {
     const updated = removeItemFromCart(slug);
     setCart(updated);
   };
 
-  // ✅ Procedi al checkout
   const handleProceedToCheckout = () => {
     const canvas = offCanvasRef.current;
     if (canvas) {
@@ -87,33 +84,39 @@ const CartAside = ({ isOpen, onClose }) => {
         ) : (
           <>
             <ul className="list-group mb-3">
-              {cart.map((item, index) => (
-                <li
-                  className="list-group-item d-flex justify-content-between align-items-center"
-                  key={index}
-                >
-                  <div className="d-flex">
-                    <img
-                      src={`/snake-imgs/${item.image}`}
-                      alt={item.image}
-                      className="cart-imgs me-1"
-                    />
-                    <div className="d-flex flex-column">
-                      <span>{item.common_name}</span>
-                      <span className="fst-italic">
-                        {item.discount
-                          ? `${(item.price - item.price * item.discount).toFixed(2)}`
-                          : `${item.price.toFixed(2)}`} €</span>
-                    </div>
-                  </div>
-                  <button
-                    className="btn btn-sm btn-danger"
-                    onClick={() => handleRemoveItem(item.slug)}
+              {cart.map((item, index) => {
+                const price = parseFloat(item.price);
+                const finalPrice = item.discount
+                  ? price - price * item.discount
+                  : price;
+
+                return (
+                  <li
+                    className="list-group-item d-flex justify-content-between align-items-center"
+                    key={index}
                   >
-                    ✕
-                  </button>
-                </li>
-              ))}
+                    <div className="d-flex">
+                      <img
+                        src={`/snake-imgs/${item.image}`}
+                        alt={item.image}
+                        className="cart-imgs me-1"
+                      />
+                      <div className="d-flex flex-column">
+                        <span>{item.common_name}</span>
+                        <span className="fst-italic">
+                          {finalPrice.toFixed(2)} €
+                        </span>
+                      </div>
+                    </div>
+                    <button
+                      className="btn btn-sm btn-danger"
+                      onClick={() => handleRemoveItem(item.slug)}
+                    >
+                      ✕
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
 
             <button

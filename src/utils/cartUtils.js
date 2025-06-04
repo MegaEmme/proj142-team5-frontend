@@ -1,3 +1,4 @@
+// src/utils/cartUtils.js
 const CART_KEY = "sergente_serpente_cart";
 
 export function saveCart(cart) {
@@ -5,8 +6,12 @@ export function saveCart(cart) {
 }
 
 export function getCart() {
-  const saved = localStorage.getItem(CART_KEY);
-  return saved ? JSON.parse(saved) : [];
+  try {
+    const saved = localStorage.getItem(CART_KEY);
+    return saved ? JSON.parse(saved) : [];
+  } catch {
+    return [];
+  }
 }
 
 export function isItemInCart(slug) {

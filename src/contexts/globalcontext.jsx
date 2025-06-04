@@ -12,19 +12,16 @@ export const GlobalProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
   const [submittedData, setSubmittedData] = useState(null);
 
-  // Flags per evitare salvataggi prematuri
   const [cartInitialized, setCartInitialized] = useState(false);
   const [wishlistInitialized, setWishlistInitialized] = useState(false);
 
-  // ✅ Carica i dati da localStorage una sola volta
   useEffect(() => {
     setCart(getCart());
-    setWishlist(getWishlist());
     setCartInitialized(true);
+    setWishlist(getWishlist());
     setWishlistInitialized(true);
   }, []);
 
-  // ✅ Salva solo se il cart è stato inizializzato
   useEffect(() => {
     if (cartInitialized) saveCart(cart);
   }, [cart, cartInitialized]);
