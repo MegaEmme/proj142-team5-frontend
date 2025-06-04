@@ -43,30 +43,30 @@ const Header = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                "text-decoration-none nav-link-header ms-2" + (isActive ? " nav-link-header-active" : "")
+                "text-decoration-none nav-link-header ms-2 d-flex align-items-center" + (isActive ? " nav-link-header-active" : "")
               }
             >
-              Homepage
+              <i className="fa-solid fa-house me-2"></i>Homepage
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/snakes"
               className={({ isActive }) =>
-                "text-decoration-none nav-link-header" + (isActive ? " nav-link-header-active" : "")
+                "text-decoration-none nav-link-header d-flex align-items-center" + (isActive ? " nav-link-header-active" : "")
               }
             >
-              Shop
+              <i className="fa-solid fa-dragon me-2"></i>Shop
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/blog"
               className={({ isActive }) =>
-                "text-decoration-none nav-link-header" + (isActive ? " nav-link-header-active" : "")
+                "text-decoration-none nav-link-header d-flex align-items-center" + (isActive ? " nav-link-header-active" : "")
               }
             >
-              Blog
+              <i className="fa-solid fa-book me-2"></i>Blog
             </NavLink>
           </li>
           <li>
@@ -76,7 +76,7 @@ const Header = () => {
                 "text-decoration-none nav-link-header d-flex align-items-center position-relative" + (isActive ? " nav-link-header-active" : "")
               }
             >
-              Carrello
+              <i className="fa-solid fa-cart-shopping me-2"></i>Carrello
               {/* Badge carrello: mostra il numero di oggetti nel carrello */}
               {cartItemsCount > 0 && (
                 <span
@@ -95,6 +95,7 @@ const Header = () => {
                 "text-decoration-none nav-link-header d-flex align-items-center" + (isActive ? " nav-link-header-active" : "")
               }
             >
+              <i className="fa-solid fa-heart me-2"></i>
               <span className="me-1">Preferiti</span>
               {wishlistCount > 0 && (
                 <span
