@@ -24,7 +24,7 @@ footer a:hover {
 }
 
 .close-cart:hover {
-     cursor: url('/pointers/snakepointer2.png'), auto;
+    cursor: url('/pointers/snakepointer2.png'), auto;
 }
 
 .carousel:hover,
@@ -33,7 +33,7 @@ footer a:hover {
 .carousel-control-next:hover,
 .carousel-control-prev-icon:hover,
 .carousel-control-next-icon:hover,
-.carousel-item:hover{
+.carousel-item:hover {
     cursor: url('/pointers/snakepointer2.png'), auto;
 }
 
@@ -56,7 +56,8 @@ body {
 }
 
 .img-logo {
-    transform: scale(1.8) translateY(5px); /* Sposta l'immagine più in basso */
+    transform: scale(1.8) translateY(5px);
+    /* Sposta l'immagine più in basso */
 }
 
 /* Carrello */
@@ -138,7 +139,7 @@ header a:hover {
 }
 
 .filter {
-    width: 300px;
+    font-size: 24px;
     z-index: 1000;
     position: absolute;
 }
