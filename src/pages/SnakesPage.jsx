@@ -57,7 +57,12 @@ const SnakesPage = () => {
 
   useEffect(() => {
     getSnakes();
+    window.scrollTo(0, 0);
   }, [sortName, sortPrice, habitat, temperament, discount, morph, search]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [page]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
