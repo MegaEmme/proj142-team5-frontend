@@ -16,6 +16,7 @@ const SnakeDetailCard = ({ data }) => {
   const { cart, setCart, wishlist, setWishlist } = useContext(GlobalContext);
 
   const isInWishlist = wishlist.some((item) => item.slug === data.slug);
+  const isInCart = cart.some((item) => item.slug === data.slug);
 
   // Aggiunta o rimozione dai preferiti con toast
   const handleToggleWishlist = () => {
@@ -32,9 +33,11 @@ const SnakeDetailCard = ({ data }) => {
 
   // Aggiunta al carrello con toast
   function handleAddSnakeToCart() {
-    const updatedCart = addItemToCart(data);
-    setCart(updatedCart);
-    toast.success("Aggiunto al carrello!");
+    if (!isInCart) {
+      const updatedCart = addItemToCart(data);
+      setCart(updatedCart);
+      toast.success("Aggiunto al carrello!");
+    }
   }
 
   const {
@@ -126,8 +129,9 @@ const SnakeDetailCard = ({ data }) => {
         <button
           className="btn btncart flex-shrink-2 my-text mt-3"
           onClick={handleAddSnakeToCart}
+          disabled={isInCart}
         >
-          <strong>Aggiungi al carrello</strong>
+          <strong>{isInCart ? "Nel tuo carrello" : "Aggiungi al carrello"}</strong>
         </button>
       </div>
     </div>

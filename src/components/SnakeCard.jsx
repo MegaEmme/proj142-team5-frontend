@@ -12,11 +12,10 @@ const SnakeCard = ({ data, isListView }) => {
 
   // AGGIUNTO: useEffect per aggiornare lo stato del bottone in base al carrello
   useEffect(() => {
-    // Controlla se l'ID del serpente di QUESTA card è presente in un elemento del carrello
-    const itemInCart = cart.find(item => item.id === data.id);
-    // Imposta isAddedToCart a true se l'articolo è trovato, altrimenti false
-    setIsAddedToCart(!!itemInCart); // Il !! converte un valore truthy/falsy in true/false
-  }, [cart, data.id]); // Le dipendenze: l'effetto si ri-esegue quando 'cart' o 'data.id' cambiano
+    // Controlla se lo slug del serpente di QUESTA card è presente in un elemento del carrello
+    const itemInCart = cart.find(item => item.slug === data.slug);
+    setIsAddedToCart(!!itemInCart);
+  }, [cart, data.slug]); // Le dipendenze: l'effetto si ri-esegue quando 'cart' o 'data.id' cambiano
 
   function invertDate(date) {
     const [year, month, day] = date.split("-");

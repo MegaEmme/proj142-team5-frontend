@@ -14,9 +14,9 @@ export function getCart() {
   }
 }
 
-export function isItemInCart(slug) {
+export function isItemInCart(id) {
   const cart = getCart();
-  return cart.some(item => item.slug === slug);
+  return cart.some(item => item.id === id);
 }
 
 export function addItemToCart(item) {
