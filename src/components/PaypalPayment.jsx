@@ -1,14 +1,17 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import GlobalContext from "../contexts/globalcontext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 
 const PaypalPayment = () => {
 
     const { submittedData, setCart } = useContext(GlobalContext);
+    const [error, setError] = useState(null);
 
     const initialOptions = {
-        clientId: import.meta.env.VITE_PAYPAL_CLIENTID
+        clientId: import.meta.env.VITE_PAYPAL_CLIENTID,
+        currency: "EUR",
+        intent: "capture"
     };
 
     const styles = {
@@ -30,7 +33,7 @@ const PaypalPayment = () => {
     const totalPrice = submittedData.total_price;
     const deliveryPrice = 75;
 
-    const onCreateOrder = async () => {
+    const createOrder = async () => {
         try {
             const response = await fetch("http://localhost:3000/paypal/createorder", {
                 method: "POST",
@@ -39,11 +42,16 @@ const PaypalPayment = () => {
                 },
                 body: JSON.stringify({ total: totalPrice < 250 ? totalPrice + deliveryPrice : totalPrice }),
             });
-            const data = await response.json();
-            return data.orderId;
-        } catch (error) {
-            console.error("Error creating PayPal order:", error);
-            throw error;
+            
+            if (!response.ok) {
+                throw new Error("Errore nella creazione dell'ordine");
+            }
+            
+            const orderData = await response.json();
+            return orderData.orderId;
+        } catch (err) {
+            setError("Errore durante la creazione dell'ordine PayPal");
+            throw err;
         }
     };
 
@@ -81,6 +89,11 @@ const PaypalPayment = () => {
                     <div className="card defaultcard shadow p-4">
                         <div className="card-body">
                             <h2 className="mb-4 text-center">Pagamento con PayPal</h2>
+                            {error && (
+                                <div className="alert alert-danger mb-3">
+                                    {error}
+                                </div>
+                            )}
                             <div className="mb-3 text-center">
                                 <span className="fs-5">Totale da pagare:</span>
                                 <span className="fs-3 ms-2 fw-bold text-success">
@@ -95,11 +108,19 @@ const PaypalPayment = () => {
                             <div className="d-flex justify-content-center">
                                 <PayPalScriptProvider options={initialOptions}>
                                     <PayPalButtons
-                                        style={styles}
-                                        createOrder={onCreateOrder}
+                                        style={{
+                                            layout: "vertical",
+                                            shape: "rect",
+                                            label: "pay" // cambiato da "paypal" a "pay"
+                                        }}
+                                        createOrder={createOrder}
                                         onApprove={onApprove}
-                                        onError={onError}
-                                        fundingSource="paypal"
+                                        onError={(err) => {
+                                            setError("Si è verificato un errore durante il pagamento");
+                                            onError(err);
+                                        }}
+                                        fundingSource="paypal" // aggiunto questo per forzare solo PayPal
+                                        disableFunding={['card', 'credit', 'paylater']} // disabilita altri metodi
                                     />
                                 </PayPalScriptProvider>
                             </div>
