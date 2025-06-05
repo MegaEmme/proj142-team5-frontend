@@ -4,7 +4,7 @@ Benvenuto su **SergenteSerpente**, il tuo punto di riferimento online per l'acqu
 
 ## 📚 Descrizione
 
-**SnakeShop** è un e-commerce specializzato nella vendita di serpenti di varie specie, provenienti da allevamenti autorizzati e in regola con la normativa vigente. Offriamo una selezione accurata, supporto per l'acquisto, e un sistema sicuro per la spedizione degli animali.
+**SergenteSerpente** è un e-commerce specializzato nella vendita di serpenti di varie specie, provenienti da allevamenti autorizzati e in regola con la normativa vigente. Offriamo una selezione accurata, supporto per l'acquisto, e un sistema sicuro per la spedizione degli animali.
 
 ## 🐍 Cosa offriamo
 
