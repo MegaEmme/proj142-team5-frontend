@@ -23,7 +23,7 @@ const Header = () => {
             <img
               src="/logo-sergente-serpente.jpg"
               alt="Logo"
-              className="w-100 h-100"
+              className="w-100 h-100 img-logo"
             />
           </NavLink>
         </div>

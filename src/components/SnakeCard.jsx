@@ -77,7 +77,7 @@ const SnakeCard = ({ data, isListView }) => {
         <img className="col-md-1 col-2 ms-3" src={`./snake-imgs/${image}`} alt={common_name} />
         <div className="d-flex flex-row justify-content-between align-items-center flex-grow-1 ">
           {/* parte info */}
-          <div className="flex-grow-1 mx-xl-5 mx-md-3 mx-2">
+          <div className="flex-grow-1 mx-xl-5 mx-md-3 mx-2 my-2">
             <div className="d-flex flex-row justify-content-between align-items-center">
               <h5 className="fs-6 fs-md-4 m-0">{common_name}</h5>
               {renderHeartIcon()}
@@ -99,7 +99,7 @@ const SnakeCard = ({ data, isListView }) => {
           </div>
 
           {/* parte tasti */}
-          <div className="d-flex flex-column justify-content-between gap-2 me-2 flex-shrink-0 py-2" id="div-btn">
+          <div className="d-flex flex-column justify-content-between gap-2 me-2 flex-shrink-0" id="div-btn">
             <Link to={`/snakes/${slug}`} className="btn btnblog">Dettagli esemplare</Link>
             <button className="btn btncart" onClick={handleAddSnakeToCart} disabled={isAddedToCart}><strong>{isAddedToCart ? "Nel tuo carrello" : "Aggiungi al carrello"}</strong></button>
           </div>
