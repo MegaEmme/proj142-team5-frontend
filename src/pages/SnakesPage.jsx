@@ -183,22 +183,38 @@ const SnakesPage = () => {
             <div className="border rounded bg-light p-3 mt-2 shadow filter">
               <div className="mb-2">
                 <label className="form-label mt-2 me-3">Morph:</label><br />
-                <input type="radio" name="morph" checked={morph === true} onChange={() => setMorph(true)} />
-                <label className="form-label mx-2">Speciale</label>
-                <input type="radio" name="morph" checked={morph === false} onChange={() => setMorph(false)} />
-                <label className="form-label mx-2">Normale</label>
-                <input type="radio" name="morph" checked={morph === null} onChange={() => setMorph(null)} />
-                <label className="form-label mx-2">Tutti</label>
+                <div>
+                  <div>
+                    <input type="radio" name="morph" checked={morph === null} onChange={() => setMorph(null)} />
+                    <label className="form-label mx-2">Tutti</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="morph" checked={morph === true} onChange={() => setMorph(true)} />
+                    <label className="form-label mx-2">Speciale</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="morph" checked={morph === false} onChange={() => setMorph(false)} />
+                    <label className="form-label mx-2">Normale</label>
+                  </div>
+                </div>
               </div>
 
               <div className="mb-2">
                 <label className="form-label mt-2 me-3">Scontato:</label><br />
-                <input type="radio" name="discount" checked={discount === true} onChange={() => setDiscount(true)} />
-                <label className="form-label mx-2">Sì</label>
-                <input type="radio" name="discount" checked={discount === false} onChange={() => setDiscount(false)} />
-                <label className="form-label mx-2">No</label>
-                <input type="radio" name="discount" checked={discount === null} onChange={() => setDiscount(null)} />
-                <label className="form-label mx-2">Tutti</label>
+                <div>
+                  <div>
+                    <input type="radio" name="discount" checked={discount === null} onChange={() => setDiscount(null)} />
+                    <label className="form-label mx-2">Tutti</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="discount" checked={discount === true} onChange={() => setDiscount(true)} />
+                    <label className="form-label mx-2">Sì</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="discount" checked={discount === false} onChange={() => setDiscount(false)} />
+                    <label className="form-label mx-2">No</label>
+                  </div>
+                </div>
               </div>
             </div>
           )}
