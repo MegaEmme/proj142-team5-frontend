@@ -28,11 +28,13 @@ const SnakesPage = () => {
   const [isCardLayout, setIsCardLayout] = useState(true); // true = layout a card (griglia), false = layout a lista
 
   const [page, setPage] = useState(1);
-  const itemsPerPage = 6;
+
+  // Imposta itemsPerPage dinamicamente in base alla vista
+  const itemsPerPage = isCardLayout ? 6 : 12;
   const totalPages = Math.ceil(snakes.length / itemsPerPage);
   const paginatedSnakes = snakes.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
-  useEffect(() => { setPage(1); }, []);
+  useEffect(() => { setPage(1); }, [isCardLayout]);
 
   useEffect(() => {
     const params = {};
@@ -232,7 +234,7 @@ const SnakesPage = () => {
         {snakes.length === 0 ? (
           <div className="text-light text-center mt-5">Nessun serpente trovato.</div>
         ) : (
-          isCardLayout ? ( // Se isCardLayout è TRUE: Visualizzazione a GRIGLIA (Card View)
+          isCardLayout ? (
             <div className="row mt-4 h-100">
               {paginatedSnakes.map((snake) => (
                 <div className="col-12 col-md-6 col-lg-4 mb-4" key={snake.id}>
@@ -240,7 +242,7 @@ const SnakesPage = () => {
                 </div>
               ))}
             </div>
-          ) : ( // Altrimenti, se isCardLayout è FALSE: Visualizzazione a LISTA (List View)
+          ) : (
             <div className="list-group mt-4">
               {paginatedSnakes.map((snake) => (
                 <SnakeCard key={snake.id} data={snake} isListView={true} />
@@ -249,7 +251,6 @@ const SnakesPage = () => {
           )
         )}
       </section>
-
       <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
     </>
   );
