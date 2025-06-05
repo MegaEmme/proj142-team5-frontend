@@ -18,7 +18,7 @@ const Header = () => {
       <div className="container d-flex justify-content-between align-items-center position-relative">
 
         {/* LOGO */}
-        <div className="logo-container">
+        <div className="logo-container flex-shrink-0">
           <NavLink to="/" className="mainLogo text-decoration-none">
             <img
               src="/logo-sergente-serpente.jpg"
@@ -38,7 +38,8 @@ const Header = () => {
         </button>
 
         {/* MENU DESKTOP */}
-        <ul className="d-none d-md-flex list-unstyled m-0 gap-5 fs-4 fw-semibold align-items-center">
+        <ul className="d-none d-md-flex list-unstyled m-0 fw-semibold align-items-center desktop-menu justify-content-between
+         w-100">
           <li>
             <NavLink
               to="/"

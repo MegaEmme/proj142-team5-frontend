@@ -91,6 +91,10 @@ header a:hover {
     height: 16vh;
 }
 
+.desktop-menu {
+    font-size: 2vw;
+}
+
 .mobile-menu {
     z-index: 999;
     width: 220px;
@@ -258,6 +262,12 @@ header a:hover {
     transition: all 0.3s ease-in-out;
     font-weight: bold;
     transform: scale(1.05);
+}
+
+/* dettaglio card serpente */
+
+.imgsnakecard {
+    width: 50%;
 }
 
 /* blog */
@@ -580,6 +590,10 @@ header a:hover {
 
 @media (max-width: 766px) {
     .divblogcard-img {
+        width: 100%;
+    }
+
+    .imgsnakecard {
         width: 100%;
     }
 }
