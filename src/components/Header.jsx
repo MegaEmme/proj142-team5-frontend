@@ -114,7 +114,6 @@ const Header = () => {
         <div
           className={`mobile-menu list-unstyled d-md-none position-absolute top-100 end-0 p-4 rounded shadow mt-2 ${menuOpen ? "show" : "hide"
             }`}
-
         >
           <li>
             <NavLink to="/" onClick={() => setMenuOpen(false)} className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header">
@@ -131,11 +130,19 @@ const Header = () => {
               <h2>Blog</h2>
             </NavLink>
           </li>
-          <li>
+          <li className="position-relative">
             <NavLink to="/cart"
               className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header"
             >
-              <h2> Carrello</h2>
+              <span style={{ position: "relative", display: "inline-block" }}>
+                Carrello
+                {cartItemsCount > 0 && (
+                  <span className="badge-mobile">
+                    {cartItemsCount}
+                    <span className="visually-hidden">elementi nel carrello</span>
+                  </span>
+                )}
+              </span>
             </NavLink>
           </li>
           <li className="position-relative">
@@ -144,15 +151,15 @@ const Header = () => {
               onClick={() => setMenuOpen(false)}
               className="d-block m-3 mb-4 text-decoration-none fs-1 nav-link-header"
             >
-              <h2 className="me-2">Preferiti</h2>
-              {/* <i className="fa-solid fa-heart" style={{ fontSize: "1.2rem" }}></i> eventualmente da riposizionare dentro all' h2 ^ */}
-
-              {wishlistCount > 0 && (
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  {wishlistCount}
-                  <span className="visually-hidden">elementi nei preferiti</span>
-                </span>
-              )}
+              <span style={{ position: "relative", display: "inline-block" }}>
+                Preferiti
+                {wishlistCount > 0 && (
+                  <span className="badge-mobile">
+                    {wishlistCount}
+                    <span className="visually-hidden">elementi nei preferiti</span>
+                  </span>
+                )}
+              </span>
             </NavLink>
           </li>
         </div>
