@@ -21,7 +21,7 @@ const Header = () => {
         <div className="logo-container flex-shrink-0">
           <NavLink to="/" className="mainLogo text-decoration-none">
             <img
-              src="/logo-sergente-serpente.jpg"
+              src="/logo-sergente-serpente.png"
               alt="Logo"
               className="w-100 h-100 img-logo"
             />

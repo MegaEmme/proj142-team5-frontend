@@ -37,7 +37,7 @@ body {
 }
 
 .img-logo {
-    transform: scale(1.51);
+    transform: scale(1.8) translateY(5px); /* Sposta l'immagine più in basso */
 }
 
 /* Carrello */
