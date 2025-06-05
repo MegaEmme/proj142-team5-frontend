@@ -5,7 +5,7 @@ const BlogCard = ({ blog }) => {
         <div className="mb-5 p-3 card  defaultcard shadow-sm">
             <div className="h-100 d-flex flex-column flex-md-row">
                 {/* WRAPPER IMMAGINE */}
-                <div className=" mb-3 mb-md-0 w-25 flex-shrink-0">
+                <div className=" mb-3 mb-md-0 divblogcard-img flex-shrink-0">
                     <img
                         src={blog.image}
                         className="blogcard-img rounded-3"

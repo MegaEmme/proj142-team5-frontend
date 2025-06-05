@@ -55,10 +55,10 @@ const SnakeDetailCard = ({ data }) => {
   } = data;
 
   return (
-    <div className="card defaultcard details m-5 mx-auto d-flex flex-row justify-content-center align-items-center">
+    <div className="card defaultcard details m-5 mx-auto d-flex flex-md-row flex-column justify-content-center align-items-center">
       <img
         src={`../snake-imgs/${image}`}
-        className="card-img-top p-5 w-50"
+        className="card-img-top p-2 imgsnakecard"
         alt={scientific_name}
       />
       <div className="card-body">
@@ -67,9 +67,7 @@ const SnakeDetailCard = ({ data }) => {
             <strong>{scientific_name}</strong>
           </h5>
           <i
-            className={`fa-solid fa-heart fs-3 wishlistcuore ${
-              isInWishlist ? "text-danger" : "text-white"
-            }`}
+            className={`fa-solid fa-heart wishlistcuore ${isInWishlist ? "wishlistcuoreattivo" : ""}`}
             onClick={handleToggleWishlist}
             style={{ cursor: "pointer" }}
           ></i>
