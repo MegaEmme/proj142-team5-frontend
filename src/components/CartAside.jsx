@@ -78,7 +78,7 @@ const CartAside = ({ isOpen, onClose }) => {
         <h5 className="offcanvas-title" id="cartOffcanvasLabel">Il Tuo Carrello</h5>
         <button
           type="button"
-          className="btn-close"
+          className="btn-close close-cart"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
         ></button>
