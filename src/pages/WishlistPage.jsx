@@ -58,11 +58,12 @@ export default function WishlistPage() {
                             <i className="fas fa-trash-alt"></i>
                           </button>
                           <button
-                            className={`btn btn-outline-primary ${isInCart ? "opacity-50" : ""}`}
+                            className={`btn btnblog ${isInCart ? "opacity-50" : ""}`}
                             onClick={() => handleAddToCart(item)}
                             disabled={isInCart}
                           >
-                            <i className="fas fa-cart-plus"></i>
+                            <strong>{isInCart ? "Nel tuo carrello" : "Aggiungi al carrello"}</strong>
+                            <i className="fas fa-cart-plus ms-2"></i>
                           </button>
                         </div>
                       </div>
