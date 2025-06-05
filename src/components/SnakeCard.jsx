@@ -66,7 +66,6 @@ const SnakeCard = ({ data, isListView }) => {
       className={`fa-solid fa-heart fs-5 wishlistcuore ${isInWishlist ? "wishlistcuoreattivo" : ""
         }`}
       onClick={handleToggleWishlist}
-      style={{ cursor: "pointer" }}
     ></i>
   );
 
@@ -121,7 +120,7 @@ const SnakeCard = ({ data, isListView }) => {
               <i
                 className={`fa-solid fa-heart wishlistcuore ${isInWishlist ? "wishlistcuoreattivo" : ""}`}
                 onClick={handleToggleWishlist}
-                style={{ cursor: "pointer", fontSize: "2rem" }}
+                style={{ fontSize: "2rem" }}
               ></i>
             </div>
           </div>
