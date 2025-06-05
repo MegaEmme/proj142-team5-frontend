@@ -1,30 +1,29 @@
 .btn:hover {
-    cursor: url('/pointers/snakepointer2.png'), auto;
+  cursor: url("/pointers/snakepointer2.png"), auto;
 }
 
 .btnblog:hover {
-    cursor: url('/pointers/snakepointer2.png'), auto;
+  cursor: url("/pointers/snakepointer2.png"), auto;
 }
 
 footer a:hover {
-    cursor: url('/pointers/snakepointer2.png'), auto;
-
+  cursor: url("/pointers/snakepointer2.png"), auto;
 }
 
 .mainLogo:hover {
-    cursor: url('/pointers/snakepointer2.png'), auto;
+  cursor: url("/pointers/snakepointer2.png"), auto;
 }
 
 .nav-link-header:hover {
-    cursor: url('/pointers/snakepointer2.png'), auto;
+  cursor: url("/pointers/snakepointer2.png"), auto;
 }
 
 .fa-heart:hover {
-    cursor: url('/pointers/snakepointer2.png'), auto;
+  cursor: url("/pointers/snakepointer2.png"), auto;
 }
 
 .close-cart:hover {
-    cursor: url('/pointers/snakepointer2.png'), auto;
+  cursor: url("/pointers/snakepointer2.png"), auto;
 }
 
 .carousel:hover,
@@ -33,609 +32,612 @@ footer a:hover {
 .carousel-control-next:hover,
 .carousel-control-prev-icon:hover,
 .carousel-control-next-icon:hover,
+.wishlistcuore:hover,
 .carousel-item:hover {
-    cursor: url('/pointers/snakepointer2.png'), auto;
+  cursor: url("/pointers/snakepointer2.png"), auto;
 }
-
-
+.wishlistcuore {
+  font-size: 2rem;
+}
 /* LIGHT MODE */
 body {
-    /* background-image: url('/background-light.jpeg'); */
-    background-color: rgb(240, 253, 220);
-    background-repeat: repeat;
-    cursor: url('..//pointers/snakepointer.png'), auto;
+  /* background-image: url('/background-light.jpeg'); */
+  background-color: rgb(240, 253, 220);
+  background-repeat: repeat;
+  cursor: url("..//pointers/snakepointer.png"), auto;
 }
 
 /* Logo */
 .logo-container {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid greenyellow;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid greenyellow;
 }
 
 .img-logo {
-    transform: scale(1.8) translateY(5px);
-    /* Sposta l'immagine più in basso */
+  transform: scale(1.8) translateY(5px);
+  /* Sposta l'immagine più in basso */
 }
 
 /* Carrello */
 #cart-button {
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    z-index: 1000;
-    padding: 15px 25px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    transition: all 0.3s ease-in-out;
-    border: 2px solid white;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1000;
+  padding: 15px 25px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid white;
 }
 
 #cart-button i {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 /* Header */
 
 .header-badge {
-    background: red;
-    color: white;
-    font-size: 0.85rem;
-    min-width: 1.5em;
-    height: 1.5em;
-    border-radius: 50%;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    /* Fix vertical alignment for badge */
-    top: 0.2em !important;
-    left: 100% !important;
-    transform: translate(-40%, -40%) !important;
+  background: red;
+  color: white;
+  font-size: 0.85rem;
+  min-width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  /* Fix vertical alignment for badge */
+  top: 0.2em !important;
+  left: 100% !important;
+  transform: translate(-40%, -40%) !important;
 }
 
 header {
-    background-color: rgb(192, 237, 192);
+  background-color: rgb(192, 237, 192);
 }
 
 header a {
-    color: rgb(24, 71, 0);
+  color: rgb(24, 71, 0);
 }
 
 header a:hover {
-    color: rgb(152, 254, 0);
+  color: rgb(152, 254, 0);
 }
 
 .height-header {
-    height: 16vh;
+  height: 16vh;
 }
 
 .desktop-menu {
-    font-size: clamp(18px, 2vw, 28px);
+  font-size: clamp(18px, 2vw, 28px);
 }
 
 .mobile-menu {
-    z-index: 999;
-    width: 220px;
-    background-color: white;
-    transform: translateY(-10px);
-    pointer-events: none;
-    transition: all 0.3s ease-in-out;
+  z-index: 999;
+  width: 220px;
+  background-color: white;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
 }
 
 .mobile-menu.show {
-    transform: translateY(0);
-    pointer-events: auto;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .mobile-menu.hide {
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
 }
 
 .filter {
-    font-size: 24px;
-    z-index: 1000;
-    position: absolute;
+  font-size: 24px;
+  z-index: 1000;
+  position: absolute;
 }
 
 .my-container {
-    container-type: inline-size;
+  container-type: inline-size;
 }
 
 .my-container .my-text {
-    font-size: 7cqi;
+  font-size: 7cqi;
 }
 
 .my-text-container {
-    min-height: 3em;
+  min-height: 3em;
 }
 
 .wishlistcuore:hover {
-    color: greenyellow;
-    transform: scale(1.1);
+  color: greenyellow;
+  transform: scale(1.1);
 }
 
 .wishlistcuoreattivo {
-    color: greenyellow;
+  color: greenyellow;
 }
 
 /*Hover Header*/
 
 .nav-link-header {
-    position: relative;
-    transition: color 0.3s;
+  position: relative;
+  transition: color 0.3s;
 }
 
 /* Effetto serpente ondulato più accentuato su hover/active */
 .nav-link-header::after,
 .nav-link-header-active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -12px;
-    /* era -6px, ora 2px più in basso */
-    width: 0;
-    height: 10px;
-    background: none;
-    pointer-events: none;
-    transition: width 0.4s cubic-bezier(.68, -0.55, .27, 1.55);
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  /* era -6px, ora 2px più in basso */
+  width: 0;
+  height: 10px;
+  background: none;
+  pointer-events: none;
+  transition: width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .nav-link-header:hover::after,
 .nav-link-header-active::after {
-    width: 100%;
-    background: url("data:image/svg+xml;utf8,<svg width='120' height='10' viewBox='0 0 120 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 5 Q 10 10, 20 5 Q 30 0, 40 5 Q 50 10, 60 5 Q 70 0, 80 5 Q 90 10, 100 5 Q 110 0, 120 5' stroke='%2390ee90' stroke-width='4' fill='transparent'/></svg>") repeat-x;
-    background-size: 120px 10px;
-    height: 10px;
-    border-radius: 0;
-    transition: width 0.8s cubic-bezier(.68, -0.55, .27, 1.55);
+  width: 100%;
+  background: url("data:image/svg+xml;utf8,<svg width='120' height='10' viewBox='0 0 120 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 5 Q 10 10, 20 5 Q 30 0, 40 5 Q 50 10, 60 5 Q 70 0, 80 5 Q 90 10, 100 5 Q 110 0, 120 5' stroke='%2390ee90' stroke-width='4' fill='transparent'/></svg>")
+    repeat-x;
+  background-size: 120px 10px;
+  height: 10px;
+  border-radius: 0;
+  transition: width 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 /* Cards generiche */
 
 .defaultcard,
 .snakecard {
-    background-color: white;
-    color: black;
-    border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Carousel */
 .carousel {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .carousel-caption {
-    border-radius: 1rem;
-    padding: 2rem 1.5rem 2.8rem;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem 2.8rem;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: green;
-    border-radius: 10%;
+  background-color: green;
+  border-radius: 10%;
 }
 
 .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* bottoni (btnblog= default button, btncart = tasto aggiungi carrello) */
 .btnblog {
-    background-color: rgb(1, 81, 1);
-    color: white;
-    border: none;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-    font-weight: bold;
+  background-color: rgb(1, 81, 1);
+  color: white;
+  border: none;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
 }
 
 .btnblog:hover {
-    background-color: greenyellow;
-    color: black;
-    transform: scale(1.05);
+  background-color: greenyellow;
+  color: black;
+  transform: scale(1.05);
 }
 
 .btnstyle {
-    background-color: rgb(1, 81, 1);
-    color: white;
-    border: none;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-    font-weight: bold;
-    border: 2px solid rgb(1, 81, 1);
+  background-color: rgb(1, 81, 1);
+  color: white;
+  border: none;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  border: 2px solid rgb(1, 81, 1);
 }
 
 .btn-outline-style {
-    color: green;
-    border: solid green 2px;
+  color: green;
+  border: solid green 2px;
 }
 
 .btnstyle:hover,
 .btn-outline-style:hover {
-    background-color: greenyellow;
-    color: black;
-    transform: scale(1.05);
+  background-color: greenyellow;
+  color: black;
+  transform: scale(1.05);
 }
 
 .btncart {
-    background-color: rgb(179, 1, 1);
-    color: white;
-    border: none;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-    font-weight: bold;
+  background-color: rgb(179, 1, 1);
+  color: white;
+  border: none;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
 }
 
 .btncart:hover {
-    background-color: rgb(255, 1, 1);
-    color: black;
-    border: none;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-    font-weight: bold;
-    transform: scale(1.05);
+  background-color: rgb(255, 1, 1);
+  color: black;
+  border: none;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  transform: scale(1.05);
 }
 
 /* dettaglio card serpente */
 
 .imgsnakecard {
-    width: 50%;
+  width: 50%;
 }
 
 /* blog */
 .blogcard-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .divblogcard-img {
-    width: 25%;
+  width: 25%;
 }
 
 .blog-detail-wrapper {
-    align-items: flex-start;
+  align-items: flex-start;
 }
 
 .blog-detail-image-container {
-    width: 100%;
-    max-width: 400px;
-    flex-shrink: 0;
-    overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .img-blog-detail {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
-    border-radius: 0.75rem;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.75rem;
 }
 
 /*immagini del carrello */
 .cart-imgs {
-    width: 50px;
-    border: 1px solid greenyellow;
+  width: 50px;
+  border: 1px solid greenyellow;
 }
 
 /* immagine funfact*/
 .img-funfact {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 0.75rem;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.75rem;
 }
 
 /* impaginazione per shop (rendangolo in basso per cambiare pagina)*/
 .page-link {
-    position: relative;
-    display: block;
-    padding: 0.375rem 0.75rem;
-    /* 6px 12px */
-    font-size: 1rem;
-    /* 16px */
-    font-weight: 400;
-    color: black;
-    /* Colore del testo predefinito (blu di Bootstrap) */
-    text-decoration: none;
-    background-color: #fff;
-    /* Sfondo bianco */
-    border: 1px solid #dee2e6;
-    /* Bordo grigio chiaro */
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  position: relative;
+  display: block;
+  padding: 0.375rem 0.75rem;
+  /* 6px 12px */
+  font-size: 1rem;
+  /* 16px */
+  font-weight: 400;
+  color: black;
+  /* Colore del testo predefinito (blu di Bootstrap) */
+  text-decoration: none;
+  background-color: #fff;
+  /* Sfondo bianco */
+  border: 1px solid #dee2e6;
+  /* Bordo grigio chiaro */
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .page-link:hover {
-    z-index: 2;
-    color: rgb(1, 85, 1);
-    /* Colore del testo al passaggio del mouse (blu più scuro) */
-    background-color: #e9ecef;
-    /* Sfondo grigio chiaro al passaggio del mouse */
-    border-color: #dee2e6;
-    /* Bordo invariato */
+  z-index: 2;
+  color: rgb(1, 85, 1);
+  /* Colore del testo al passaggio del mouse (blu più scuro) */
+  background-color: #e9ecef;
+  /* Sfondo grigio chiaro al passaggio del mouse */
+  border-color: #dee2e6;
+  /* Bordo invariato */
 }
 
 .page-link:focus {
-    z-index: 2;
-    color: green;
-    background-color: #e9ecef;
-    outline: 0;
-    box-shadow: 0 0 0 0.15rem rgba(0, 128, 24, 0.25);
-    /* Ombra di focus (blu semitrasparente) */
+  z-index: 2;
+  color: green;
+  background-color: #e9ecef;
+  outline: 0;
+  box-shadow: 0 0 0 0.15rem rgba(0, 128, 24, 0.25);
+  /* Ombra di focus (blu semitrasparente) */
 }
 
 .page-item.active .page-link {
-    z-index: 3;
-    color: #fff;
-    /* Testo bianco per l'elemento attivo */
-    background-color: green;
-    /* Sfondo blu per l'elemento attivo */
-    border-color: green;
-    /* Bordo blu per l'elemento attivo */
+  z-index: 3;
+  color: #fff;
+  /* Testo bianco per l'elemento attivo */
+  background-color: green;
+  /* Sfondo blu per l'elemento attivo */
+  border-color: green;
+  /* Bordo blu per l'elemento attivo */
 }
 
 .page-item.disabled .page-link {
-    color: #6c757d;
-    /* Testo grigio per l'elemento disabilitato */
-    pointer-events: none;
-    /* Disabilita gli eventi del mouse */
-    background-color: #c2c1c1;
-    /* Sfondo bianco */
-    border-color: #dee2e6;
-    /* Bordo grigio chiaro */
+  color: #6c757d;
+  /* Testo grigio per l'elemento disabilitato */
+  pointer-events: none;
+  /* Disabilita gli eventi del mouse */
+  background-color: #c2c1c1;
+  /* Sfondo bianco */
+  border-color: #dee2e6;
+  /* Bordo grigio chiaro */
 }
 
 /* Regole per gli angoli arrotondati, applicate ai primi e ultimi elementi della paginazione */
 .page-item:first-child .page-link {
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
 }
 
 .page-item:last-child .page-link {
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
 }
 
 /* Regole per i link adiacenti, per rimuovere i bordi doppi quando i link sono affiancati */
-.page-item+.page-item {
-    margin-left: -1px;
-    /* Sovrappone leggermente il bordo precedente */
+.page-item + .page-item {
+  margin-left: -1px;
+  /* Sovrappone leggermente il bordo precedente */
 }
 
 /* Pagamento Completato */
 .payment-container {
-    text-align: center;
-    padding: 3rem;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: 4rem auto;
+  text-align: center;
+  padding: 3rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 4rem auto;
 }
 
 .payment-heading {
-    font-size: 2rem;
-    color: #2e7d32;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #2e7d32;
+  margin-bottom: 1rem;
 }
 
 .payment-text {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 }
 
 .payment-button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #2e7d32;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #2e7d32;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .payment-button:hover {
-    background-color: rgba(1, 81, 1, 1);
+  background-color: rgba(1, 81, 1, 1);
 }
 
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: rgb(87, 96, 45);
-    }
+  body {
+    background-color: rgb(87, 96, 45);
+  }
 
-    body {
-        background-color: rgb(87, 96, 45);
-        cursor: url('..//pointers/snakepointer.png'), auto;
-    }
+  body {
+    background-color: rgb(87, 96, 45);
+    cursor: url("..//pointers/snakepointer.png"), auto;
+  }
 
-    header {
-        background-color: rgb(12, 51, 12);
-    }
+  header {
+    background-color: rgb(12, 51, 12);
+  }
 
-    header a {
-        color: rgb(130, 255, 67);
-    }
+  header a {
+    color: rgb(130, 255, 67);
+  }
 
-    header a:hover {
-        color: white;
-    }
+  header a:hover {
+    color: white;
+  }
 
-    .homesubtitle {
-        color: white;
-    }
+  .homesubtitle {
+    color: white;
+  }
 
-    .snakecard,
-    .defaultcard,
-    .list-group-item {
-        background-color: rgba(32, 30, 30, 0.95);
-        color: white;
-    }
+  .snakecard,
+  .defaultcard,
+  .list-group-item {
+    background-color: rgba(32, 30, 30, 0.95);
+    color: white;
+  }
 
-    .btnblog {
-        background-color: greenyellow;
-        color: black;
-    }
+  .btnblog {
+    background-color: greenyellow;
+    color: black;
+  }
 
-    .btnstyle {
-        background-color: greenyellow;
-        color: black;
-        border: solid greenyellow 2px;
-    }
+  .btnstyle {
+    background-color: greenyellow;
+    color: black;
+    border: solid greenyellow 2px;
+  }
 
-    .btn-outline-style {
-        color: greenyellow;
-        border: solid greenyellow 2px;
-    }
+  .btn-outline-style {
+    color: greenyellow;
+    border: solid greenyellow 2px;
+  }
 
-    .btnblog:hover,
-    .btnstyle:hover,
-    .btn-outline-style:hover {
-        background-color: green;
-        color: white;
-        transform: scale(1.05);
-    }
+  .btnblog:hover,
+  .btnstyle:hover,
+  .btn-outline-style:hover {
+    background-color: green;
+    color: white;
+    transform: scale(1.05);
+  }
 
-    .wishlistcuore:hover {
-        color: rgb(1, 81, 1);
-        transform: scale(1.1);
-    }
+  .wishlistcuore:hover {
+    color: rgb(1, 81, 1);
+    transform: scale(1.1);
+  }
 
-    .wishlistcuoreattivo {
-        color: rgb(1, 81, 1);
-    }
+  .wishlistcuoreattivo {
+    color: rgb(1, 81, 1);
+  }
 
-    .mobile-menu {
-        background-color: rgb(32, 30, 30);
-        color: white;
-    }
+  .mobile-menu {
+    background-color: rgb(32, 30, 30);
+    color: white;
+  }
 
-    .mobile-menu a {
-        color: rgb(130, 255, 67);
-    }
+  .mobile-menu a {
+    color: rgb(130, 255, 67);
+  }
 
-    .mobile-menu a:hover {
-        color: greenyellow;
-    }
+  .mobile-menu a:hover {
+    color: greenyellow;
+  }
 
-    /* impaginazione per shop */
-    .page-link {
-        color: white;
-        /* Colore del testo predefinito (blu di Bootstrap) */
-        text-decoration: none;
-        background-color: rgb(32, 30, 30);
-        /* Sfondo bianco */
-        border: 1px solid #dee2e6;
-        /* Bordo grigio chiaro */
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-            border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
+  /* impaginazione per shop */
+  .page-link {
+    color: white;
+    /* Colore del testo predefinito (blu di Bootstrap) */
+    text-decoration: none;
+    background-color: rgb(32, 30, 30);
+    /* Sfondo bianco */
+    border: 1px solid #dee2e6;
+    /* Bordo grigio chiaro */
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 
-    .page-link:hover {
-        z-index: 2;
-        color: rgb(1, 85, 1);
-        /* Colore del testo al passaggio del mouse (blu più scuro) */
-        background-color: rgb(49, 46, 46);
-        /* Sfondo grigio chiaro al passaggio del mouse */
-        border-color: #dee2e6;
-        /* Bordo invariato */
-    }
+  .page-link:hover {
+    z-index: 2;
+    color: rgb(1, 85, 1);
+    /* Colore del testo al passaggio del mouse (blu più scuro) */
+    background-color: rgb(49, 46, 46);
+    /* Sfondo grigio chiaro al passaggio del mouse */
+    border-color: #dee2e6;
+    /* Bordo invariato */
+  }
 
-    .page-link:focus {
-        z-index: 2;
-        color: greenyellow;
-        background-color: rgb(32, 30, 30);
-        outline: 0;
-        box-shadow: 0 0 0 0.15rem rgba(0, 128, 24, 0.25);
-        /* Ombra di focus (blu semitrasparente) */
-    }
+  .page-link:focus {
+    z-index: 2;
+    color: greenyellow;
+    background-color: rgb(32, 30, 30);
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem rgba(0, 128, 24, 0.25);
+    /* Ombra di focus (blu semitrasparente) */
+  }
 
-    .page-item.active .page-link {
-        z-index: 3;
-        color: black;
-        /* Testo bianco per l'elemento attivo */
-        background-color: greenyellow;
-        /* Sfondo blu per l'elemento attivo */
-        border-color: green;
-        /* Bordo blu per l'elemento attivo */
-    }
+  .page-item.active .page-link {
+    z-index: 3;
+    color: black;
+    /* Testo bianco per l'elemento attivo */
+    background-color: greenyellow;
+    /* Sfondo blu per l'elemento attivo */
+    border-color: green;
+    /* Bordo blu per l'elemento attivo */
+  }
 
-    .page-item.disabled .page-link {
-        color: #6c757d;
-        /* Testo grigio per l'elemento disabilitato */
-        pointer-events: none;
-        /* Disabilita gli eventi del mouse */
-        background-color: rgb(21, 20, 20);
-        /* Sfondo bianco */
-        border-color: #dee2e6;
-        /* Bordo grigio chiaro */
-    }
+  .page-item.disabled .page-link {
+    color: #6c757d;
+    /* Testo grigio per l'elemento disabilitato */
+    pointer-events: none;
+    /* Disabilita gli eventi del mouse */
+    background-color: rgb(21, 20, 20);
+    /* Sfondo bianco */
+    border-color: #dee2e6;
+    /* Bordo grigio chiaro */
+  }
 
-    .btn-close {
-        background-color: white;
-        opacity: 1;
-    }
+  .btn-close {
+    background-color: white;
+    opacity: 1;
+  }
 }
 
 /* Badge per carrello e preferiti nel menu mobile */
 .mobile-menu .badge-mobile {
-    position: absolute;
-    top: -0.5em;
-    right: -1.5em;
-    font-size: 0.8em;
-    padding: 0.3em 0.6em;
-    min-width: 1.5em;
-    height: 1.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #dc3545;
-    color: #fff;
-    border-radius: 50%;
-    font-weight: bold;
-    z-index: 2;
+  position: absolute;
+  top: -0.5em;
+  right: -1.5em;
+  font-size: 0.8em;
+  padding: 0.3em 0.6em;
+  min-width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dc3545;
+  color: #fff;
+  border-radius: 50%;
+  font-weight: bold;
+  z-index: 2;
 }
 
 .main-content {
-    min-height: 80vh;
+  min-height: 80vh;
 }
 
 @media (max-width: 576px) {
-    #div-btn {
-        width: 100px;
-    }
+  #div-btn {
+    width: 100px;
+  }
 
-    #div-btn .btn {
-        font-size: 10px;
-        padding: 4px 8px;
-    }
+  #div-btn .btn {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
 
-    .divblogcard-img {
-        width: 25%;
-    }
+  .divblogcard-img {
+    width: 25%;
+  }
 }
 
 @media (max-width: 766px) {
-    .divblogcard-img {
-        width: 100%;
-    }
+  .divblogcard-img {
+    width: 100%;
+  }
 
-    .imgsnakecard {
-        width: 100%;
-    }
+  .imgsnakecard {
+    width: 100%;
+  }
 }

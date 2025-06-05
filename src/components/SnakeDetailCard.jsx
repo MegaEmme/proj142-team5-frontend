@@ -70,9 +70,10 @@ const SnakeDetailCard = ({ data }) => {
             <strong>{scientific_name}</strong>
           </h5>
           <i
-            className={`fa-solid fa-heart wishlistcuore ${isInWishlist ? "wishlistcuoreattivo" : ""}`}
+            className={`fa-solid fa-heart wishlistcuore ${
+              isInWishlist ? "wishlistcuoreattivo" : ""
+            }`}
             onClick={handleToggleWishlist}
-            style={{ cursor: "pointer" }}
           ></i>
         </div>
 
@@ -115,8 +116,7 @@ const SnakeDetailCard = ({ data }) => {
               <h2 className="text-danger">Serpente scontato!</h2>
               <p>Prezzo iniziale: {price} €</p>
               <p>
-                Prezzo finale:{" "}
-                <strong>{price - price * discount} €</strong>
+                Prezzo finale: <strong>{price - price * discount} €</strong>
               </p>
             </li>
           ) : (
@@ -131,7 +131,9 @@ const SnakeDetailCard = ({ data }) => {
           onClick={handleAddSnakeToCart}
           disabled={isInCart}
         >
-          <strong>{isInCart ? "Nel tuo carrello" : "Aggiungi al carrello"}</strong>
+          <strong>
+            {isInCart ? "Nel tuo carrello" : "Aggiungi al carrello"}
+          </strong>
         </button>
       </div>
     </div>
