@@ -148,10 +148,27 @@ const CartAside = ({ isOpen, onClose }) => {
               Vai al carrello
             </button>
           </div>
-          <div className="text-center">
-            Tot. {parseInt(totalPrice).toFixed(2) < 250
-              ? `${parseInt(totalPrice).toFixed(2)} € + ${deliveryPrice.toFixed(2)} € spese di spedizione`
-              : `${parseInt(totalPrice).toFixed(2)} €`}
+          <div className="d-flex justify-content-between">
+            <span>Subtotale:</span>
+            <span>{totalPrice.toFixed(2)} €</span>
+          </div>
+          <div className="d-flex justify-content-between">
+            <span>Spese di spedizione:</span>
+            <span>
+              {totalPrice < 250
+                ? `${deliveryPrice.toFixed(2)} €`
+                : <span className="text-success fw-bold">GRATIS</span>
+              }
+            </span>
+          </div>
+          <div className="d-flex justify-content-between border-top pt-2 mt-2">
+            <span>Totale:</span>
+            <span>
+              {totalPrice < 250
+                ? (totalPrice + deliveryPrice).toFixed(2)
+                : totalPrice.toFixed(2)
+              } €
+            </span>
           </div>
         </div>
       )}

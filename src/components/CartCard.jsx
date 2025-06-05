@@ -73,12 +73,15 @@ const CartCard = () => {
                 <span>{totalPrice.toFixed(2)} €</span>
               </div>
 
-              {totalPrice < 250 && (
-                <div className="d-flex justify-content-between align-items-center mb-3">
-                  <h5>Spese di spedizione:</h5>
-                  <span>{deliveryPrice.toFixed(2)} €</span>
-                </div>
-              )}
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <h5>Spese di spedizione:</h5>
+                <span>
+                  {totalPrice < 250
+                    ? `${deliveryPrice.toFixed(2)} €`
+                    : <span className="text-success fw-bold">GRATIS</span>
+                  }
+                </span>
+              </div>
 
               <div className="d-flex justify-content-between align-items-center border-top pt-3">
                 <h4>Totale:</h4>
