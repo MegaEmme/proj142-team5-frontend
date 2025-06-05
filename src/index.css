@@ -151,12 +151,13 @@ header a:hover {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -12px; /* era -6px, ora 2px più in basso */
+    bottom: -12px;
+    /* era -6px, ora 2px più in basso */
     width: 0;
     height: 10px;
     background: none;
     pointer-events: none;
-    transition: width 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+    transition: width 0.4s cubic-bezier(.68, -0.55, .27, 1.55);
 }
 
 .nav-link-header:hover::after,
@@ -166,7 +167,7 @@ header a:hover {
     background-size: 120px 10px;
     height: 10px;
     border-radius: 0;
-    transition: width 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+    transition: width 0.8s cubic-bezier(.68, -0.55, .27, 1.55);
 }
 
 /* Cards generiche */
@@ -266,6 +267,10 @@ header a:hover {
     object-fit: cover;
     object-position: center;
     display: block;
+}
+
+.divblogcard-img {
+    width: 25%;
 }
 
 .blog-detail-wrapper {
@@ -417,16 +422,16 @@ header a:hover {
 
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
-body {
+    body {
         background-color: rgb(87, 96, 45);
     }
 
-body {
+    body {
         background-color: rgb(87, 96, 45);
         cursor: url('..//pointers/snakepointer.png'), auto;
     }
 
-header {
+    header {
         background-color: rgb(12, 51, 12);
     }
 
@@ -567,5 +572,14 @@ header {
         font-size: 10px;
         padding: 4px 8px;
     }
+
+    .divblogcard-img {
+        width: 100%;
+    }
 }
 
+@media (max-width: 766px) {
+    .divblogcard-img {
+        width: 100%;
+    }
+}
