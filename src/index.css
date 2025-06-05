@@ -92,7 +92,7 @@ header a:hover {
 }
 
 .desktop-menu {
-    font-size: 2vw;
+    font-size: clamp(18px, 2vw, 28px);
 }
 
 .mobile-menu {
